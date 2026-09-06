@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================================
-// NAVIGATION
+// NAVIGATION - No scroll activation
 // ========================================
 function initNavigation() {
     const toggle = document.querySelector('.nav-toggle');
@@ -48,25 +48,8 @@ function initNavigation() {
         }
     });
     
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const top = section.offsetTop - 140;
-            if (window.scrollY >= top) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}` || 
-                link.getAttribute('href') === `${current}/index.html` ||
-                link.getAttribute('href') === `index.html#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
+    // NO SCROLL ACTIVATION - removed the scroll listener for nav highlighting
+    // Active state only set on page load or click
 }
 
 // ========================================
@@ -137,22 +120,22 @@ function initContactForm() {
         
         if (!name.value.trim()) {
             isValid = false;
-            name.style.borderColor = '#0f9cbf';
-            name.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
+            name.style.borderColor = '#00e5ff';
+            name.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             name.focus();
         }
         
         if (!email.value.trim() || !isValidEmail(email.value)) {
             isValid = false;
-            email.style.borderColor = '#0f9cbf';
-            email.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
+            email.style.borderColor = '#00e5ff';
+            email.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             if (isValid) email.focus();
         }
         
         if (!message.value.trim()) {
             isValid = false;
-            message.style.borderColor = '#0f9cbf';
-            message.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
+            message.style.borderColor = '#00e5ff';
+            message.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             if (isValid) message.focus();
         }
         
@@ -170,9 +153,9 @@ function initContactForm() {
             </svg>
             Sent Successfully!
         `;
-        btn.style.background = '#0f9cbf';
-        btn.style.borderColor = '#0f9cbf';
-        btn.style.color = '#0a0a0a';
+        btn.style.background = '#00e5ff';
+        btn.style.borderColor = '#00e5ff';
+        btn.style.color = '#0a0c10';
         btn.disabled = true;
         btn.style.transform = 'scale(0.98)';
         
@@ -279,7 +262,7 @@ function initParticleEffect() {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(15, 156, 191, ${this.opacity})`;
+            ctx.fillStyle = `rgba(0, 229, 255, ${this.opacity})`;
             ctx.fill();
         }
     }
@@ -300,7 +283,7 @@ function initParticleEffect() {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(15, 156, 191, ${0.04 * (1 - distance / 150)})`;
+                    ctx.strokeStyle = `rgba(0, 229, 255, ${0.04 * (1 - distance / 150)})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
