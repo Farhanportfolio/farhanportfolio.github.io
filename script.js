@@ -28,7 +28,6 @@ function initNavigation() {
         });
     }
     
-    // Close nav on link click (mobile)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (links) links.classList.remove('open');
@@ -39,7 +38,6 @@ function initNavigation() {
         });
     });
     
-    // Close nav on outside click (mobile)
     document.addEventListener('click', (e) => {
         if (links && links.classList.contains('open')) {
             const nav = document.querySelector('.navbar');
@@ -50,7 +48,6 @@ function initNavigation() {
         }
     });
     
-    // Highlight active nav on scroll
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
         let current = '';
@@ -63,7 +60,9 @@ function initNavigation() {
         
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            if (link.getAttribute('href') === `#${current}` || 
+                link.getAttribute('href') === `${current}/index.html` ||
+                link.getAttribute('href') === `index.html#${current}`) {
                 link.classList.add('active');
             }
         });
@@ -78,19 +77,17 @@ function initDropdowns() {
     
     dropdowns.forEach(button => {
         button.addEventListener('click', () => {
-            const content = button.nextElementSibling;
+            const content = button.closest('.dropdown-wrapper').nextElementSibling;
             const isOpen = button.getAttribute('aria-expanded') === 'true';
             
-            // Close other dropdowns
             document.querySelectorAll('.dropdown-toggle').forEach(b => {
                 if (b !== button) {
                     b.setAttribute('aria-expanded', 'false');
-                    const otherContent = b.nextElementSibling;
+                    const otherContent = b.closest('.dropdown-wrapper').nextElementSibling;
                     if (otherContent) otherContent.hidden = true;
                 }
             });
             
-            // Toggle this one with animation
             button.setAttribute('aria-expanded', !isOpen);
             if (content) {
                 if (isOpen) {
@@ -108,7 +105,6 @@ function initDropdowns() {
     });
 }
 
-// Add dropdown close animation
 const styleDropdown = document.createElement('style');
 styleDropdown.textContent = `
     @keyframes dropdownClose {
@@ -134,31 +130,29 @@ function initContactForm() {
         
         let isValid = true;
         
-        // Reset styles
         [name, email, message].forEach(field => {
             field.style.borderColor = '';
             field.style.boxShadow = '';
         });
         
-        // Validation
         if (!name.value.trim()) {
             isValid = false;
-            name.style.borderColor = '#00ff41';
-            name.style.boxShadow = '0 0 0 4px rgba(0, 255, 65, 0.1)';
+            name.style.borderColor = '#0f9cbf';
+            name.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
             name.focus();
         }
         
         if (!email.value.trim() || !isValidEmail(email.value)) {
             isValid = false;
-            email.style.borderColor = '#00ff41';
-            email.style.boxShadow = '0 0 0 4px rgba(0, 255, 65, 0.1)';
+            email.style.borderColor = '#0f9cbf';
+            email.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
             if (isValid) email.focus();
         }
         
         if (!message.value.trim()) {
             isValid = false;
-            message.style.borderColor = '#00ff41';
-            message.style.boxShadow = '0 0 0 4px rgba(0, 255, 65, 0.1)';
+            message.style.borderColor = '#0f9cbf';
+            message.style.boxShadow = '0 0 0 4px rgba(15, 156, 191, 0.1)';
             if (isValid) message.focus();
         }
         
@@ -168,7 +162,6 @@ function initContactForm() {
             return;
         }
         
-        // Success
         const btn = form.querySelector('button[type="submit"]');
         const originalHTML = btn.innerHTML;
         btn.innerHTML = `
@@ -177,8 +170,8 @@ function initContactForm() {
             </svg>
             Sent Successfully!
         `;
-        btn.style.background = '#00ff41';
-        btn.style.borderColor = '#00ff41';
+        btn.style.background = '#0f9cbf';
+        btn.style.borderColor = '#0f9cbf';
         btn.style.color = '#0a0a0a';
         btn.disabled = true;
         btn.style.transform = 'scale(0.98)';
@@ -233,7 +226,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// PARTICLE EFFECT (subtle background)
+// PARTICLE EFFECT
 // ========================================
 function initParticleEffect() {
     if (window.innerWidth < 768) return;
@@ -286,7 +279,7 @@ function initParticleEffect() {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 255, 65, ${this.opacity})`;
+            ctx.fillStyle = `rgba(15, 156, 191, ${this.opacity})`;
             ctx.fill();
         }
     }
@@ -307,7 +300,7 @@ function initParticleEffect() {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(0, 255, 65, ${0.04 * (1 - distance / 150)})`;
+                    ctx.strokeStyle = `rgba(15, 156, 191, ${0.04 * (1 - distance / 150)})`;
                     ctx.lineWidth = 0.5;
                     ctx.stroke();
                 }
@@ -327,13 +320,11 @@ function initParticleEffect() {
     
     animateParticles();
     
-    // Cleanup
     const cleanup = () => {
         if (animationId) cancelAnimationFrame(animationId);
         window.removeEventListener('resize', resizeCanvas);
     };
     
-    // Store cleanup
     window._particleCleanup = cleanup;
 }
 
@@ -368,18 +359,16 @@ function initCardGlow() {
 // KEYBOARD SUPPORT
 // ========================================
 document.addEventListener('keydown', (e) => {
-    // Close dropdowns on Escape
     if (e.key === 'Escape') {
         document.querySelectorAll('.dropdown-toggle').forEach(button => {
             button.setAttribute('aria-expanded', 'false');
-            const content = button.nextElementSibling;
+            const content = button.closest('.dropdown-wrapper').nextElementSibling;
             if (content) {
                 content.hidden = true;
                 content.style.animation = '';
             }
         });
         
-        // Close mobile nav
         const toggle = document.querySelector('.nav-toggle');
         const links = document.querySelector('.nav-links');
         if (toggle && links) {
