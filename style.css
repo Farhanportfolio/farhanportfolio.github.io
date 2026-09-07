@@ -25,6 +25,7 @@
     
     --transition-smooth: cubic-bezier(0.34, 1.56, 0.64, 1);
     --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
     
     --transition-slow: 0.7s;
     --transition-medium: 0.4s;
@@ -37,6 +38,28 @@
     --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.6);
     --shadow-hover: 0 12px 56px rgba(0, 229, 255, 0.08);
     --shadow-glow: 0 0 60px rgba(0, 229, 255, 0.05);
+}
+
+/* ========================================
+   REMOVE DEFAULT BLUE ON CLICK
+   ======================================== */
+*:active,
+*:focus,
+*:visited {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+}
+
+a:active,
+a:focus,
+button:active,
+button:focus,
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 /* ========================================
@@ -225,6 +248,7 @@ body {
     min-width: 150px;
     letter-spacing: 0.3px;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .btn::before {
@@ -262,7 +286,6 @@ body {
     transform: translateX(3px) scale(0.95);
 }
 
-/* Primary */
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
     color: #0a0c10;
@@ -279,7 +302,6 @@ body {
     box-shadow: 0 2px 12px rgba(0, 229, 255, 0.2);
 }
 
-/* Secondary */
 .btn-secondary {
     background: rgba(255, 255, 255, 0.03);
     color: var(--color-text);
@@ -298,7 +320,6 @@ body {
     transform: scale(0.94) translateY(0);
 }
 
-/* Outline */
 .btn-outline {
     background: transparent;
     color: var(--color-text);
@@ -362,6 +383,7 @@ body {
     transition: all var(--transition-slow) var(--transition-bounce);
     text-decoration: none;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .btn-open-page:hover {
@@ -391,6 +413,11 @@ body {
     transition: all var(--transition-medium) ease;
     width: 100%;
     max-width: 100vw;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 12, 16, 0.96);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -436,6 +463,7 @@ body {
     transition: all var(--transition-medium) ease;
     position: relative;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .nav-links a::after {
@@ -461,7 +489,6 @@ body {
     width: 50%;
 }
 
-/* No scroll activation - active only on page load or hover */
 .nav-links a.active {
     color: var(--color-primary);
     background: rgba(0, 229, 255, 0.06);
@@ -471,7 +498,6 @@ body {
     width: 50%;
 }
 
-/* Hamburger */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -483,6 +509,7 @@ body {
     border-radius: var(--border-radius-sm);
     transition: all var(--transition-medium) ease;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .nav-toggle:hover {
@@ -1194,6 +1221,7 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--color-border);
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .project-link:hover {
@@ -1405,6 +1433,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .profile-card::before {
@@ -1517,6 +1546,7 @@ body {
     transition: all var(--transition-slow) var(--transition-bounce);
     text-decoration: none;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .social-link svg {
@@ -1581,6 +1611,7 @@ body {
     transition: all var(--transition-medium) ease;
     outline: none;
     width: 100%;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .form-group input:focus,
@@ -1659,6 +1690,7 @@ body {
     transition: all var(--transition-medium) ease;
     padding: 4px 0;
     border-bottom: 1.5px solid transparent;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .footer-nav a:hover {
