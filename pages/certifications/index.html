@@ -54,11 +54,11 @@
                 <div class="certifications-grid">
                     
                     <!-- Certificate 1 -->
-                    <div class="cert-card-large">
+                    <div class="cert-card-large" data-cert="certificate1.jpeg">
                         <div class="cert-image-wrapper">
                             <img src="certificate1.jpeg" alt="Amroha Police Cyber Security Internship Program 2026" class="cert-image" />
                             <div class="cert-image-overlay">
-                                <span class="cert-view-btn">View Certificate</span>
+                                <span class="cert-view-btn">🔍 View Certificate</span>
                             </div>
                         </div>
                         <div class="cert-card-content">
@@ -76,22 +76,22 @@
                                 <span>Law Enforcement</span>
                                 <span>Cyber Security</span>
                             </div>
-                            <a href="certificate1.jpeg" target="_blank" class="btn btn-primary btn-sm">
+                            <button class="btn btn-primary btn-sm open-cert-btn">
                                 View Full Certificate
                                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                         <div class="cert-glow"></div>
                     </div>
 
                     <!-- Certificate 2 -->
-                    <div class="cert-card-large">
+                    <div class="cert-card-large" data-cert="certificate2.jpeg">
                         <div class="cert-image-wrapper">
                             <img src="certificate2.jpeg" alt="SIStec Gandhi Nagar Bhopal" class="cert-image" />
                             <div class="cert-image-overlay">
-                                <span class="cert-view-btn">View Certificate</span>
+                                <span class="cert-view-btn">🔍 View Certificate</span>
                             </div>
                         </div>
                         <div class="cert-card-content">
@@ -109,22 +109,22 @@
                                 <span>Cyber Security</span>
                                 <span>Professional Development</span>
                             </div>
-                            <a href="certificate2.jpeg" target="_blank" class="btn btn-primary btn-sm">
+                            <button class="btn btn-primary btn-sm open-cert-btn">
                                 View Full Certificate
                                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                         <div class="cert-glow"></div>
                     </div>
 
                     <!-- Certificate 3 -->
-                    <div class="cert-card-large">
+                    <div class="cert-card-large" data-cert="certificate3.jpeg">
                         <div class="cert-image-wrapper">
                             <img src="certificate3.jpeg" alt="GeekForGeeks Certificate" class="cert-image" />
                             <div class="cert-image-overlay">
-                                <span class="cert-view-btn">View Certificate</span>
+                                <span class="cert-view-btn">🔍 View Certificate</span>
                             </div>
                         </div>
                         <div class="cert-card-content">
@@ -142,22 +142,22 @@
                                 <span>Data Structures</span>
                                 <span>Algorithms</span>
                             </div>
-                            <a href="certificate3.jpeg" target="_blank" class="btn btn-primary btn-sm">
+                            <button class="btn btn-primary btn-sm open-cert-btn">
                                 View Full Certificate
                                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                         <div class="cert-glow"></div>
                     </div>
 
                     <!-- Certificate 4 -->
-                    <div class="cert-card-large">
+                    <div class="cert-card-large" data-cert="certificate4.jpeg">
                         <div class="cert-image-wrapper">
                             <img src="certificate4.jpeg" alt="Owasp Bhopal, VYUH" class="cert-image" />
                             <div class="cert-image-overlay">
-                                <span class="cert-view-btn">View Certificate</span>
+                                <span class="cert-view-btn">🔍 View Certificate</span>
                             </div>
                         </div>
                         <div class="cert-card-content">
@@ -175,12 +175,12 @@
                                 <span>Web Security</span>
                                 <span>Community</span>
                             </div>
-                            <a href="certificate4.jpeg" target="_blank" class="btn btn-primary btn-sm">
+                            <button class="btn btn-primary btn-sm open-cert-btn">
                                 View Full Certificate
                                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                         <div class="cert-glow"></div>
                     </div>
@@ -218,6 +218,26 @@
             </div>
         </section>
     </main>
+
+    <!-- ==================== MODAL ==================== -->
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal-overlay"></div>
+        <div class="cert-modal-content">
+            <button class="cert-modal-close" id="certModalClose">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 12L20 20M12 20L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="cert-modal-image-wrapper">
+                <img src="" alt="Certificate" class="cert-modal-image" id="certModalImage" />
+            </div>
+            <div class="cert-modal-info">
+                <h3 id="certModalTitle"></h3>
+                <p id="certModalIssuer"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
