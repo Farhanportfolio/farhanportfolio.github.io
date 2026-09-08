@@ -120,7 +120,7 @@ function initCertModal() {
         });
     });
     
-    // Click on "🔍 View Certificate" overlay buttons
+    // Click on "View Certificate" overlay buttons
     viewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
