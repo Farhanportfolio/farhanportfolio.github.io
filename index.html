@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Farhan Khan - Connect on LinkedIn, TryHackMe, WhatsApp, Medium, GitHub and more" />
-    <title>Profiles — Farhan Khan</title>
+    <meta name="description" content="Farhan Khan - Cyber Security Expert & Engineer. Offensive security researcher, penetration tester, and CTF player." />
+    <title>Farhan Khan — Cyber Security Expert</title>
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
+    <!-- Global Styles -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,7 +19,7 @@
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="../../index.html">
+                <a href="index.html">
                     <span>Farhan Khan</span>
                 </a>
             </div>
@@ -29,190 +31,755 @@
             </button>
             
             <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../experience/index.html">Experience</a></li>
-                <li><a href="../achievements/index.html">Achievements</a></li>
-                <li><a href="../projects/index.html">Projects</a></li>
-                <li><a href="../writeups/index.html">Writeups</a></li>
-                <li><a href="../certifications/index.html">Certifications</a></li>
-                <li><a href="../profiles/index.html" class="active">Profiles</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/experience/index.html">Experience</a></li>
+                <li><a href="pages/achievements/index.html">Achievements</a></li>
+                <li><a href="pages/projects/index.html">Projects</a></li>
+                <li><a href="pages/writeups/index.html">Writeups</a></li>
+                <li><a href="pages/certifications/index.html">Certifications</a></li>
+                <li><a href="pages/profiles/index.html">Profiles</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
-        <section class="section profiles-page-section">
+        <!-- ====== HOME SECTION ====== -->
+        <section id="home" class="section home-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Left Column -->
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="greeting">Hi, I'm</span>
+                            <span class="name">Farhan Khan</span>
+                            <span class="role">Cyber Security Expert &amp; Engineer</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Penetration tester and CTF player specialising in exploit development, 
+                            reverse engineering, and web application security alongside network and 
+                            cloud security assessments.
+                        </p>
+                        
+                        <div class="hero-tags">
+                            <span>Exploit Development</span>
+                            <span>Reverse Engineering</span>
+                            <span>Web Security</span>
+                            <span>Cloud Security</span>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary">
+                                Get In Touch
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="pages/writeups/index.html" class="btn btn-secondary">
+                                Read Writeups
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Stats -->
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">Top 1%</div>
+                            <div class="stat-label">TryHackMe</div>
+                            <div class="stat-sub">Global ranking</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Technical Writeups</div>
+                            <div class="stat-sub">Published</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1.2k+</div>
+                            <div class="stat-label">Followers</div>
+                            <div class="stat-sub">On LinkedIn</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">CTF Wins</div>
+                            <div class="stat-sub">Competitions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CORE SKILLS ====== -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Expertise</span>
+                    <h2>Core Skills</h2>
+                    <p>Expertise across multiple security domains</p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="6" y="6" width="36" height="36" rx="8" stroke="#00e5ff" stroke-width="2"/>
+                                <path d="M16 16L32 32M16 32L32 16" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="16" cy="16" r="3" fill="#00e5ff"/>
+                                <circle cx="32" cy="32" r="3" fill="#00e5ff"/>
+                            </svg>
+                        </div>
+                        <h3>Bug Bounty</h3>
+                        <p>Discovering and responsibly disclosing vulnerabilities across web applications and APIs on major platforms.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 10L24 38M10 24L38 24" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="24" cy="24" r="16" stroke="#00e5ff" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Reverse Engineering</h3>
+                        <p>Static and dynamic analysis of binaries with GDB, Ghidra and IDA to recover logic and find vulnerabilities.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="14" width="32" height="22" rx="4" stroke="#00e5ff" stroke-width="2"/>
+                                <path d="M18 24L24 30L30 24" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Brute Force</h3>
+                        <p>Automated password attacks, credential stuffing, and rate-limit bypass techniques for security assessments.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M14 24C14 18.477 18.477 14 24 14C29.523 14 34 18.477 34 24C34 29.523 29.523 34 24 34C18.477 34 14 29.523 14 24Z" stroke="#00e5ff" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="5" fill="#00e5ff"/>
+                            </svg>
+                        </div>
+                        <h3>Network &amp; Cloud Security</h3>
+                        <p>Network penetration testing, AWS cloud security assessments and infrastructure hardening.</p>
+                    </div>
+                </div>
+                
+                <div class="section-action">
+                    <a href="pages/experience/index.html" class="btn btn-outline">Explore Skills →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== EXPERIENCE PREVIEW ====== -->
+        <section id="experience" class="section experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Career</span>
+                    <h2>Experience</h2>
+                    <p>Roles and engagements from my LinkedIn profile — offensive security consulting, enterprise internships and independent research.</p>
+                </div>
+                
+                <div class="experience-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Experience</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/experience/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="experience-card">
+                            <div class="exp-header">
+                                <div class="exp-icon">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <rect x="3" y="8" width="22" height="15" rx="3" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M10 4L14 8L18 4" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="exp-title">
+                                    <h4>Penetration Testing Intern</h4>
+                                    <span class="exp-company">Zyphor — Cybersecurity Services · Internship</span>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date">2026 — Present</span>
+                                    <span class="exp-location">Remote</span>
+                                </div>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Runs full-scope web, API and network penetration tests for client engagements.</li>
+                                <li>Builds reproducible proof-of-concepts and maps findings to business impact.</li>
+                                <li>Delivers remediation-focused reports and retests fixes with the engineering teams.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="experience-card">
+                            <div class="exp-header">
+                                <div class="exp-icon">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <rect x="3" y="8" width="22" height="15" rx="3" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M10 4L14 8L18 4" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="exp-title">
+                                    <h4>Summer Intern — Cybersecurity</h4>
+                                    <span class="exp-company">EY (Ernst &amp; Young) · Internship</span>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date">2025</span>
+                                    <span class="exp-location">India</span>
+                                </div>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Worked alongside enterprise security consultants on assessment workflows.</li>
+                                <li>Hands-on exposure to vulnerability management, risk rating and client reporting standards.</li>
+                                <li>Practised threat modelling and secure-configuration reviews on enterprise stacks.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="experience-card">
+                            <div class="exp-header">
+                                <div class="exp-icon">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <rect x="3" y="8" width="22" height="15" rx="3" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M10 4L14 8L18 4" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="exp-title">
+                                    <h4>Cybersecurity Intern</h4>
+                                    <span class="exp-company">Codec Technologies India · Internship</span>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date">2025</span>
+                                    <span class="exp-location">Remote</span>
+                                </div>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Performed application security testing across web portals and internal tooling.</li>
+                                <li>Automated recurring recon and scanning tasks with custom Python and shell tooling.</li>
+                                <li>Documented findings with clear reproduction steps for the development team.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ACHIEVEMENTS PREVIEW ====== -->
+        <section id="achievements" class="section achievements-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Milestones</span>
+                    <h2>Achievements</h2>
+                    <p>Competition wins, platform rankings, disclosure milestones and community reach.</p>
+                </div>
+                
+                <div class="achievements-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Achievements</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/achievements/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="achievement-grid">
+                            <div class="achievement-card">
+                                <div class="ach-badge">1st</div>
+                                <h4>Oscillation CTF 2026 — Winner</h4>
+                                <p>Two-time CTF winner, competing solo against full teams.</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">1st</div>
+                                <h4>Air University Cyber Sprint — 1st Place</h4>
+                                <p>Top of the scoreboard in an international competition.</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">1st</div>
+                                <h4>National Cyber Challenge — Winner</h4>
+                                <p>Secured first place in the national-level cybersecurity competition.</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">Top 1%</div>
+                                <h4>TryHackMe — Top 1% globally</h4>
+                                <p>Sustained top-percentile ranking across offensive learning paths.</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">7x</div>
+                                <h4>Bug Bounty Rewards</h4>
+                                <p>Rewarded findings on public programs including same-day XSS triage.</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">30+</div>
+                                <h4>Technical Writeups</h4>
+                                <p>Published across HTB, picoCTF, exploit development and more.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== EDUCATION ====== -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <div class="education-box">
+                    <div class="edu-icon">
+                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                            <path d="M28 10L6 22L28 34L50 22L28 10Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M10 26V38C10 40.761 17.477 44 28 44C38.523 44 46 40.761 46 38V26" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M20 32V38" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M36 32V38" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="edu-content">
+                        <span class="edu-tag">Education</span>
+                        <h3>B.Tech Cyber Security</h3>
+                        <div class="edu-details">
+                            <span class="edu-semester">7th Semester</span>
+                            <span class="edu-location">Bhopal, India</span>
+                        </div>
+                        <p class="edu-description">
+                            Currently in the 7th semester, running offensive security research, CTFs and 
+                            bug bounty work alongside coursework. Specializing in practical security 
+                            assessments and exploit development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PROJECTS PREVIEW ====== -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Open Source</span>
+                    <h2>Featured Projects</h2>
+                    <p>Open-source offensive security tooling — parameter discovery, XSS hunting, URL recon, secret scanning and subdomain enumeration.</p>
+                </div>
+                
+                <div class="projects-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Projects</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/projects/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <svg width="100%" height="180" viewBox="0 0 360 180" fill="none">
+                                        <rect width="360" height="180" rx="12" fill="#0a0c10"/>
+                                        <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
+                                        <rect x="48" y="48" width="264" height="84" rx="4" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="6 6"/>
+                                        <circle cx="72" cy="90" r="12" fill="rgba(0, 229, 255, 0.12)"/>
+                                        <circle cx="288" cy="90" r="12" fill="rgba(0, 229, 255, 0.12)"/>
+                                        <rect x="72" y="78" width="216" height="4" rx="2" fill="rgba(0, 229, 255, 0.08)"/>
+                                        <rect x="72" y="96" width="160" height="4" rx="2" fill="rgba(0, 229, 255, 0.08)"/>
+                                        <rect x="72" y="114" width="180" height="4" rx="2" fill="rgba(0, 229, 255, 0.08)"/>
+                                    </svg>
+                                </div>
+                                <div class="project-body">
+                                    <div class="project-header">
+                                        <h4>ParameterX</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View project">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <p>Advanced parameter discovery and testing tool for security researchers.</p>
+                                    <div class="project-tags">
+                                        <span>Shell</span>
+                                        <span>Security</span>
+                                    </div>
+                                    <div class="project-meta">
+                                        <span>⭐ 21</span>
+                                        <span>🔀 2</span>
+                                        <span>7mo ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <svg width="100%" height="180" viewBox="0 0 360 180" fill="none">
+                                        <rect width="360" height="180" rx="12" fill="#0a0c10"/>
+                                        <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
+                                        <rect x="72" y="54" width="216" height="72" rx="4" stroke="#00e5ff" stroke-width="1.5"/>
+                                        <path d="M180 42L180 138" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+                                        <path d="M114 90L246 90" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+                                        <rect x="96" y="66" width="48" height="8" rx="2" fill="rgba(0, 229, 255, 0.1)"/>
+                                        <rect x="216" y="106" width="36" height="8" rx="2" fill="rgba(0, 229, 255, 0.1)"/>
+                                    </svg>
+                                </div>
+                                <div class="project-body">
+                                    <div class="project-header">
+                                        <h4>XSSion</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View project">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <p>Fastest Reflected XSS Finder v1 — automated tool for detecting XSS vulnerabilities.</p>
+                                    <div class="project-tags">
+                                        <span>Python</span>
+                                        <span>XSS</span>
+                                    </div>
+                                    <div class="project-meta">
+                                        <span>⭐ 36</span>
+                                        <span>🔀 2</span>
+                                        <span>21d ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <svg width="100%" height="180" viewBox="0 0 360 180" fill="none">
+                                        <rect width="360" height="180" rx="12" fill="#0a0c10"/>
+                                        <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
+                                        <circle cx="180" cy="90" r="42" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
+                                        <circle cx="180" cy="90" r="28" stroke="#00e5ff" stroke-width="1.5" opacity="0.2"/>
+                                        <circle cx="180" cy="90" r="14" fill="rgba(0, 229, 255, 0.12)"/>
+                                        <path d="M132 54L228 54L228 126L132 126Z" stroke="#00e5ff" stroke-width="1" opacity="0.1"/>
+                                    </svg>
+                                </div>
+                                <div class="project-body">
+                                    <div class="project-header">
+                                        <h4>urlx</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View project">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <p>Multi-source URL discovery &amp; live host probing for bug bounty and red team recon.</p>
+                                    <div class="project-tags">
+                                        <span>Go</span>
+                                        <span>Recon</span>
+                                    </div>
+                                    <div class="project-meta">
+                                        <span>⭐ 25</span>
+                                        <span>🔀 1</span>
+                                        <span>1mo ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="projects-footer">
+                            <span>Total 20+ Repositories</span>
+                            <a href="pages/projects/index.html" class="btn btn-sm btn-outline">View All →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== WRITEUPS PREVIEW ====== -->
+        <section id="writeups" class="section writeups-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Research</span>
+                    <h2>Writeups</h2>
+                    <p>30+ writeups mirrored from my GitBook — HTB, picoCTF, exploit development, crypto, Active Directory, AWS and AI pentesting.</p>
+                </div>
+                
+                <div class="writeups-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Writeups</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/writeups/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="writeups-grid">
+                            <div class="writeup-card">
+                                <div class="writeup-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="writeup-info">
+                                    <h4>HackTheBox — Sauna</h4>
+                                    <p>Active Directory exploitation, Kerberos, and privilege escalation.</p>
+                                    <span class="writeup-date">Dec 2025</span>
+                                </div>
+                            </div>
+                            <div class="writeup-card">
+                                <div class="writeup-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="writeup-info">
+                                    <h4>picoCTF — Binary Exploitation</h4>
+                                    <p>Buffer overflow, ROP chains, and format string vulnerabilities.</p>
+                                    <span class="writeup-date">Nov 2025</span>
+                                </div>
+                            </div>
+                            <div class="writeup-card">
+                                <div class="writeup-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="writeup-info">
+                                    <h4>AWS S3 Bucket Misconfigurations</h4>
+                                    <p>Cloud security assessment and privilege escalation techniques.</p>
+                                    <span class="writeup-date">Oct 2025</span>
+                                </div>
+                            </div>
+                            <div class="writeup-card">
+                                <div class="writeup-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="writeup-info">
+                                    <h4>LLM Pentesting Guide</h4>
+                                    <p>AI red teaming, prompt injection, and model security.</p>
+                                    <span class="writeup-date">Sep 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CERTIFICATIONS PREVIEW ====== -->
+        <section id="certifications" class="section certifications-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Credentials</span>
+                    <h2>Certifications</h2>
+                    <p>Hands-on, exam-based offensive security credentials plus verified platform rankings.</p>
+                </div>
+                
+                <div class="certifications-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Certifications</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/certifications/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="cert-grid">
+                            <div class="cert-card">
+                                <div class="cert-badge">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <path d="M20 4L24 14L34 16L26 24L28 34L20 28L12 34L14 24L6 16L16 14L20 4Z" stroke="#00e5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>OSCP — Offensive Security Certified Professional</h4>
+                                    <p>Hands-on penetration testing certification</p>
+                                    <a href="pages/certifications/index.html" class="cert-verify">Verify →</a>
+                                </div>
+                            </div>
+                            <div class="cert-card">
+                                <div class="cert-badge">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <path d="M20 4L24 14L34 16L26 24L28 34L20 28L12 34L14 24L6 16L16 14L20 4Z" stroke="#00e5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>AWS Certified Security — Specialty</h4>
+                                    <p>Cloud security architecture and compliance</p>
+                                    <a href="pages/certifications/index.html" class="cert-verify">Verify →</a>
+                                </div>
+                            </div>
+                            <div class="cert-card">
+                                <div class="cert-badge">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <path d="M20 4L24 14L34 16L26 24L28 34L20 28L12 34L14 24L6 16L16 14L20 4Z" stroke="#00e5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="cert-info">
+                                    <h4>HTB — Pro Labs Certified</h4>
+                                    <p>Advanced penetration testing lab completion</p>
+                                    <a href="pages/certifications/index.html" class="cert-verify">Verify →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PROFILES PREVIEW ====== -->
+        <section id="profiles" class="section profiles-section">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Connect</span>
                     <h2>Profiles</h2>
                     <p>Connect and explore my work across platforms</p>
                 </div>
-
-                <!-- ====== PROFILES GRID ====== -->
-                <div class="profiles-page-grid">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large linkedin">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#0A66C2"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>LinkedIn</h3>
-                                <p>Connect professionally</p>
-                                <span class="profile-handle">@farhancyber</span>
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
+                
+                <div class="profiles-dropdown">
+                    <div class="dropdown-wrapper">
+                        <button class="dropdown-toggle btn btn-outline" aria-expanded="false">
+                            <span>View Profiles</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="dropdown-arrow">
+                                <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <a href="pages/profiles/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="dropdown-content" hidden>
+                        <div class="profiles-grid">
+                            <a href="pages/profiles/index.html" class="profile-card">
+                                <div class="profile-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M24 2H8C4.686 2 2 4.686 2 8V24C2 27.314 4.686 30 8 30H24C27.314 30 30 27.314 30 24V8C30 4.686 27.314 2 24 2Z" stroke="#00e5ff" stroke-width="2"/>
+                                        <circle cx="22" cy="10" r="2" fill="#00e5ff"/>
+                                        <path d="M10 14H22V26H10V14Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
+                                        <path d="M10 14V10C10 8.895 10.895 8 12 8H20" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <span>LinkedIn</span>
+                                <span class="profile-followers">1.2k+ followers</span>
+                            </a>
+                            <a href="pages/profiles/index.html" class="profile-card">
+                                <div class="profile-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M16 4C9.373 4 4 9.373 4 16C4 22.627 9.373 28 16 28C22.627 28 28 22.627 28 16C28 9.373 22.627 4 16 4Z" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M12 8L20 8M12 24L20 24M8 12L8 20M24 12L24 20" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                        <circle cx="16" cy="16" r="4" stroke="#00e5ff" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span>GitHub</span>
+                                <span class="profile-followers">20+ repos</span>
+                            </a>
+                            <a href="pages/profiles/index.html" class="profile-card">
+                                <div class="profile-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <span>Medium</span>
+                                <span class="profile-followers">30+ writeups</span>
+                            </a>
+                            <a href="pages/profiles/index.html" class="profile-card">
+                                <div class="profile-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M16 4L20 12L28 14L22 20L24 28L16 24L8 28L10 20L4 14L12 12L16 4Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span>TryHackMe</span>
+                                <span class="profile-followers">Top 1% globally</span>
+                            </a>
                         </div>
-                        <div class="profile-glow"></div>
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/farhangit3471" target="_blank" rel="noopener noreferrer" class="profile-card-large github">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="#ffffff"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>GitHub</h3>
-                                <p>Open-source projects</p>
-                                <span class="profile-handle">@farhangit3471</span>
-                                <!-- Need Change: Update GitHub username -->
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-glow"></div>
-                    </a>
-
-                    <!-- Medium - FIXED with white color -->
-                    <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large medium">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.53v13.222c-.034.197.048.404.213.53l1.87 1.837v.403h-9.412v-.403l1.937-1.881c.19-.19.19-.246.19-.53v-10.7l-5.387 13.683h-.728l-6.274-13.683v9.174c-.052.385.076.774.347 1.053l2.52 3.058v.403h-7.146v-.403l2.52-3.058c.27-.279.39-.67.325-1.053v-10.608z" fill="#ffffff"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>Medium</h3>
-                                <p>Technical writeups & research</p>
-                                <span class="profile-handle">@Farhancyber</span>
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-glow"></div>
-                    </a>
-
-                    <!-- TryHackMe -->
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="profile-card-large tryhackme">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 32 32" fill="none">
-                                    <path d="M16 4L20 12L28 14L22 20L24 28L16 24L8 28L10 20L4 14L12 12L16 4Z" fill="#00b8d4" stroke="#00b8d4" stroke-width="1.5" stroke-linejoin="round"/>
-                                    <circle cx="16" cy="16" r="4" fill="#ffffff"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>TryHackMe</h3>
-                                <p>Top 1% globally</p>
-                                <span class="profile-handle">@farhankhan</span>
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-glow"></div>
-                    </a>
-
-                    <!-- WhatsApp -->
-                    <a href="https://wa.link/cz276x" target="_blank" rel="noopener noreferrer" class="profile-card-large whatsapp">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>WhatsApp</h3>
-                                <p>+91 9691029496</p>
-                                <span class="profile-handle">Click to chat</span>
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-glow"></div>
-                    </a>
-
-                    <!-- Gmail -->
-                    <a href="mailto:farhancybersec@gmail.com" target="_blank" rel="noopener noreferrer" class="profile-card-large gmail">
-                        <div class="profile-card-inner">
-                            <div class="profile-icon-large">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
-                                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-1.023.878-1.73 1.636-1.73h.068L12 9.64l10.296-5.913h.068c.758 0 1.636.707 1.636 1.73z" fill="#EA4335"/>
-                                </svg>
-                            </div>
-                            <div class="profile-info-large">
-                                <h3>Gmail</h3>
-                                <p>Email me directly</p>
-                                <span class="profile-handle">farhancybersec@gmail.com</span>
-                            </div>
-                            <div class="profile-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="profile-glow"></div>
-                    </a>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- ====== CONTACT FORM ====== -->
-                <div class="contact-section-divider">
-                    <span class="section-tag">Reach Out</span>
-                    <h2>Let's Connect</h2>
-                    <p>Have a question, feedback, or just want to say hello? Drop a message!</p>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form class="contact-form" id="profileContactForm" novalidate>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="profileName">Your Name</label>
-                                <input type="text" id="profileName" name="name" placeholder="Farhan Khan" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="profileEmail">Email Address</label>
-                                <input type="email" id="profileEmail" name="email" placeholder="farhan.cybersec@gmail.com" required />
-                            </div>
+        <!-- ====== CONTACT SECTION ====== -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <span class="section-tag">Let's Talk</span>
+                        <h2>Get In Touch</h2>
+                        <p>
+                            Interested in collaborating on security research, exploit development, 
+                            bug bounty programs or penetration testing engagements? Reach out and let's talk.
+                        </p>
+                        <p class="contact-ethics">
+                            I take on web and API assessments, network and Active Directory engagements, 
+                            AWS configuration reviews, LLM red teaming and exploit-development research.
+                        </p>
+                        <div class="contact-social">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#00e5ff"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="#00e5ff"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter/X">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" fill="#00e5ff"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#00e5ff"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Farhan Khan" required />
                         </div>
                         <div class="form-group">
-                            <label for="profileSubject">Subject</label>
-                            <input type="text" id="profileSubject" name="subject" placeholder="Subject..." />
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="farhan.cybersec@gmail.com" required />
                         </div>
                         <div class="form-group">
-                            <label for="profileMessage">Message</label>
-                            <textarea id="profileMessage" name="message" placeholder="Message..." rows="5" required></textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Message..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">
                             Send Message
@@ -231,20 +798,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="../../index.html">
+                    <a href="index.html">
                         <span>Farhan Khan</span>
                     </a>
                     <p>Cyber Security Expert &amp; Engineer</p>
                 </div>
                 
                 <nav class="footer-nav" aria-label="Footer navigation">
-                    <a href="../../index.html">Home</a>
-                    <a href="../experience/index.html">Experience</a>
-                    <a href="../achievements/index.html">Achievements</a>
-                    <a href="../projects/index.html">Projects</a>
-                    <a href="../writeups/index.html">Writeups</a>
-                    <a href="../certifications/index.html">Certifications</a>
-                    <a href="../profiles/index.html">Profiles</a>
+                    <a href="index.html">Home</a>
+                    <a href="pages/experience/index.html">Experience</a>
+                    <a href="pages/achievements/index.html">Achievements</a>
+                    <a href="pages/projects/index.html">Projects</a>
+                    <a href="pages/writeups/index.html">Writeups</a>
+                    <a href="pages/certifications/index.html">Certifications</a>
+                    <a href="pages/profiles/index.html">Profiles</a>
                 </nav>
                 
                 <div class="footer-bottom">
@@ -255,6 +822,7 @@
         </div>
     </footer>
 
+    <!-- Global JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
