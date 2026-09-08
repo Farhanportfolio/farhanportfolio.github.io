@@ -461,9 +461,10 @@ body {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     overflow: hidden;
-    transition: all var(--transition-slow) var(--transition-bounce);
+    transition: transform var(--transition-slow) var(--transition-bounce), border-color var(--transition-slow) ease, box-shadow var(--transition-slow) ease;
     display: block;
     width: 100%;
+    cursor: pointer;
 }
 
 .cert-card-large .cert-glow {
@@ -480,7 +481,7 @@ body {
 }
 
 .cert-card-large:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-6px);
     border-color: var(--color-border-hover);
     box-shadow: var(--shadow-hover);
 }
@@ -489,11 +490,11 @@ body {
     opacity: 1;
 }
 
-/* Certificate Image */
+/* Certificate Image - Slight blur by default */
 .cert-image-wrapper {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 210px;
     overflow: hidden;
     background: var(--color-bg-elevated);
 }
@@ -502,11 +503,13 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow) var(--transition-bounce);
+    filter: blur(3px);
+    transition: filter var(--transition-slow) ease, transform var(--transition-slow) ease;
 }
 
 .cert-card-large:hover .cert-image {
-    transform: scale(1.05);
+    filter: blur(1.5px);
+    transform: scale(1.03);
 }
 
 .cert-image-overlay {
@@ -515,8 +518,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -529,19 +532,21 @@ body {
 }
 
 .cert-view-btn {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-primary);
-    padding: 12px 28px;
+    color: #fff;
+    padding: 14px 32px;
     border: 2px solid var(--color-primary);
     border-radius: 50px;
     transition: all var(--transition-medium) ease;
     letter-spacing: 0.5px;
+    background: rgba(0, 229, 255, 0.1);
 }
 
 .cert-view-btn:hover {
     background: var(--color-primary);
     color: #0a0c10;
+    transform: scale(1.05);
 }
 
 /* Certificate Content */
@@ -669,6 +674,165 @@ body {
 }
 
 /* ========================================
+   MODAL
+   ======================================== */
+.cert-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility var(--transition-slow) ease, opacity var(--transition-slow) ease;
+    padding: 20px;
+}
+
+.cert-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cert-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    animation: modalOverlayIn 0.6s ease forwards;
+}
+
+@keyframes modalOverlayIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.cert-modal-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    background: var(--color-bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    animation: modalContentIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-modal.active .cert-modal-content {
+    animation: modalContentIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalContentIn {
+    from {
+        transform: scale(0.9) translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all var(--transition-medium) ease;
+    backdrop-filter: blur(8px);
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.cert-modal-close:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: rotate(90deg) scale(1.05);
+    background: rgba(0, 229, 255, 0.1);
+}
+
+.cert-modal-close:active {
+    transform: rotate(90deg) scale(0.92);
+}
+
+.cert-modal-image-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--color-bg-elevated);
+    min-height: 400px;
+}
+
+.cert-modal-image {
+    max-width: 100%;
+    max-height: 65vh;
+    object-fit: contain;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    animation: modalImageIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.cert-modal.active .cert-modal-image {
+    animation: modalImageIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalImageIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cert-modal-info {
+    padding: 20px 28px 24px;
+    background: var(--color-bg-card);
+    border-top: 1px solid var(--color-border);
+}
+
+.cert-modal-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.cert-modal-info p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 .footer {
@@ -765,6 +929,15 @@ body {
         gap: 20px;
         padding: 24px 28px;
     }
+    
+    .cert-modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+    
+    .cert-modal-image {
+        max-height: 55vh;
+    }
 }
 
 @media (max-width: 768px) {
@@ -803,7 +976,7 @@ body {
     }
     
     .cert-image-wrapper {
-        height: 160px;
+        height: 170px;
     }
     
     .cert-card-content {
@@ -838,6 +1011,35 @@ body {
         flex-direction: column;
         text-align: center;
     }
+    
+    .cert-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cert-modal-close svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .cert-modal-image-wrapper {
+        padding: 16px;
+        min-height: 250px;
+    }
+    
+    .cert-modal-image {
+        max-height: 45vh;
+    }
+    
+    .cert-modal-info {
+        padding: 16px 20px 20px;
+    }
+    
+    .cert-modal-info h3 {
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -854,12 +1056,12 @@ body {
     }
     
     .cert-image-wrapper {
-        height: 140px;
+        height: 150px;
     }
     
     .cert-view-btn {
         font-size: 0.75rem;
-        padding: 8px 20px;
+        padding: 10px 20px;
     }
     
     .cert-card-content h3 {
@@ -883,6 +1085,15 @@ body {
     
     .stat-number-large {
         font-size: 1.8rem;
+    }
+    
+    .cert-modal-image-wrapper {
+        padding: 12px;
+        min-height: 200px;
+    }
+    
+    .cert-modal-image {
+        max-height: 40vh;
     }
 }
 
