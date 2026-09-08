@@ -490,7 +490,7 @@ body {
 }
 
 .profile-card-large.medium .profile-glow {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0.05), transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
 }
 
 .profile-card-large.tryhackme .profile-glow {
@@ -559,10 +559,10 @@ body {
 }
 
 .profile-card-large.medium .profile-icon-large svg {
-    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
 }
 .profile-card-large.medium:hover .profile-icon-large svg {
-    filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
 }
 
 .profile-card-large.tryhackme .profile-icon-large svg {
