@@ -4,8 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
-    initCardGlow();
-    initImageClick();
+    initCertModal();
 });
 
 // ========================================
@@ -62,44 +61,91 @@ function initScrollEffects() {
 }
 
 // ========================================
-// CARD GLOW ON MOUSE MOVE
+// CERTIFICATE MODAL
 // ========================================
-function initCardGlow() {
-    const cards = document.querySelectorAll('.cert-card-large');
+function initCertModal() {
+    const modal = document.getElementById('certModal');
+    const modalImage = document.getElementById('certModalImage');
+    const modalTitle = document.getElementById('certModalTitle');
+    const modalIssuer = document.getElementById('certModalIssuer');
+    const closeBtn = document.getElementById('certModalClose');
+    const overlay = modal.querySelector('.cert-modal-overlay');
     
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        });
+    // Get all certificate cards and buttons
+    const certCards = document.querySelectorAll('.cert-card-large');
+    const openBtns = document.querySelectorAll('.open-cert-btn');
+    const viewBtns = document.querySelectorAll('.cert-view-btn');
+    
+    // Function to open modal
+    function openModal(certData) {
+        const imgSrc = certData.dataset.cert;
+        const title = certData.querySelector('.cert-card-content h3').textContent;
+        const issuer = certData.querySelector('.cert-issuer').textContent;
         
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
+        modalImage.src = imgSrc;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modalIssuer.textContent = issuer;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Function to close modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        // Reset image animation
+        modalImage.style.animation = 'none';
+        setTimeout(() => {
+            modalImage.style.animation = '';
+        }, 10);
+    }
+    
+    // Click on card image area (image wrapper)
+    certCards.forEach(card => {
+        const wrapper = card.querySelector('.cert-image-wrapper');
+        wrapper.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal(card);
         });
     });
-}
-
-// ========================================
-// IMAGE CLICK - Open certificate in new tab
-// ========================================
-function initImageClick() {
-    const certImages = document.querySelectorAll('.cert-image-wrapper');
     
-    certImages.forEach(wrapper => {
-        wrapper.addEventListener('click', () => {
-            const img = wrapper.querySelector('.cert-image');
-            if (img) {
-                window.open(img.src, '_blank');
-            }
+    // Click on "View Full Certificate" buttons
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card = btn.closest('.cert-card-large');
+            if (card) openModal(card);
         });
+    });
+    
+    // Click on "🔍 View Certificate" overlay buttons
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card = btn.closest('.cert-card-large');
+            if (card) openModal(card);
+        });
+    });
+    
+    // Close modal on close button click
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Close modal on overlay click
+    overlay.addEventListener('click', closeModal);
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    // Close modal on click outside content
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
     });
 }
