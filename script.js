@@ -47,9 +47,6 @@ function initNavigation() {
             }
         }
     });
-    
-    // NO SCROLL ACTIVATION - removed the scroll listener for nav highlighting
-    // Active state only set on page load or click
 }
 
 // ========================================
