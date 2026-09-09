@@ -9,16 +9,16 @@
     --color-primary-glow-strong: rgba(0, 229, 255, 0.4);
     
     --color-bg: #0a0c10;
-    --color-bg-card: #05070a;
-    --color-bg-card-hover: #0d1117;
-    --color-bg-elevated: #0d1117;
+    --color-bg-card: rgba(5, 7, 10, 0.85);
+    --color-bg-card-hover: rgba(13, 17, 23, 0.9);
+    --color-bg-elevated: rgba(13, 17, 23, 0.5);
     
     --color-text: #e8f0f5;
     --color-text-muted: #8899aa;
     --color-text-dim: #445566;
     
-    --color-border: #1a2a33;
-    --color-border-hover: #2a4a5a;
+    --color-border: rgba(26, 42, 51, 0.4);
+    --color-border-hover: rgba(42, 74, 90, 0.6);
     
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Orbitron', 'Inter', monospace;
@@ -32,7 +32,7 @@
     --transition-fast: 0.25s;
     
     --container-width: 1200px;
-    --border-radius: 18px;
+    --border-radius: 20px;
     --border-radius-sm: 10px;
     
     --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.6);
@@ -102,7 +102,7 @@ body {
 }
 
 /* ========================================
-   FLAG BACKGROUND
+   WAVY BACKGROUND
    ======================================== */
 .achievements-page-section {
     position: relative;
@@ -112,7 +112,7 @@ body {
     background: var(--color-bg);
 }
 
-.flag-background {
+.wavy-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -123,81 +123,112 @@ body {
     z-index: 0;
 }
 
-.flag-wave {
+/* Wavy layers */
+.wave {
     position: absolute;
     width: 200%;
     height: 100%;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(0, 229, 255, 0.02) 0px,
-        rgba(0, 180, 216, 0.02) 40px,
-        rgba(0, 229, 255, 0.01) 80px,
-        rgba(0, 180, 216, 0.02) 120px,
-        rgba(0, 229, 255, 0.02) 160px,
-        rgba(0, 180, 216, 0.01) 200px
-    );
-    opacity: 0.3;
-    animation: flagWave 20s linear infinite;
+    opacity: 0.15;
+    border-radius: 50%;
+    animation: waveFloat 20s ease-in-out infinite;
 }
 
-.flag-wave:nth-child(1) {
+.wave-1 {
     top: 0%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(0, 229, 255, 0.08), transparent 60%);
+    animation-duration: 22s;
+    transform: rotate(-2deg);
+}
+
+.wave-2 {
+    top: 20%;
+    background: radial-gradient(ellipse at 70% 40%, rgba(0, 180, 216, 0.06), transparent 60%);
+    animation-duration: 28s;
+    animation-delay: -6s;
+    transform: rotate(1.5deg);
+}
+
+.wave-3 {
+    top: 45%;
+    background: radial-gradient(ellipse at 50% 60%, rgba(0, 229, 255, 0.05), transparent 60%);
+    animation-duration: 18s;
+    animation-delay: -12s;
+    transform: rotate(-1deg);
+}
+
+.wave-4 {
+    top: 65%;
+    background: radial-gradient(ellipse at 20% 70%, rgba(0, 180, 216, 0.04), transparent 60%);
     animation-duration: 25s;
-    opacity: 0.15;
+    animation-delay: -18s;
     transform: rotate(2deg);
 }
 
-.flag-wave:nth-child(2) {
-    top: 25%;
+.wave-5 {
+    top: 85%;
+    background: radial-gradient(ellipse at 80% 80%, rgba(0, 229, 255, 0.03), transparent 60%);
     animation-duration: 30s;
-    opacity: 0.12;
-    transform: rotate(-1deg);
-    animation-delay: -5s;
+    animation-delay: -24s;
+    transform: rotate(-1.5deg);
 }
 
-.flag-wave:nth-child(3) {
-    top: 50%;
-    animation-duration: 22s;
-    opacity: 0.10;
-    transform: rotate(1.5deg);
-    animation-delay: -10s;
-}
-
-.flag-wave:nth-child(4) {
-    top: 70%;
-    animation-duration: 28s;
-    opacity: 0.08;
-    transform: rotate(-2deg);
-    animation-delay: -15s;
-}
-
-.flag-wave:nth-child(5) {
-    top: 90%;
-    animation-duration: 18s;
-    opacity: 0.06;
-    transform: rotate(0.5deg);
-    animation-delay: -8s;
-}
-
-@keyframes flagWave {
-    0% {
+@keyframes waveFloat {
+    0%, 100% {
         transform: translateX(0) scaleY(1);
+        opacity: 0.12;
     }
     25% {
-        transform: translateX(-25%) scaleY(1.02);
+        transform: translateX(-15%) scaleY(1.03);
+        opacity: 0.18;
     }
     50% {
-        transform: translateX(-50%) scaleY(1);
+        transform: translateX(-30%) scaleY(1);
+        opacity: 0.12;
     }
     75% {
-        transform: translateX(-25%) scaleY(0.98);
-    }
-    100% {
-        transform: translateX(0) scaleY(1);
+        transform: translateX(-15%) scaleY(0.97);
+        opacity: 0.08;
     }
 }
 
-/* Subtle overlay gradient */
+/* Floating Particles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 229, 255, 0.06);
+    animation: particleFloat 15s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.p1 { width: 4px; height: 4px; top: 15%; left: 10%; animation-duration: 18s; }
+.p2 { width: 6px; height: 6px; top: 30%; left: 85%; animation-duration: 22s; animation-delay: -4s; }
+.p3 { width: 3px; height: 3px; top: 50%; left: 5%; animation-duration: 14s; animation-delay: -8s; }
+.p4 { width: 5px; height: 5px; top: 70%; left: 90%; animation-duration: 20s; animation-delay: -12s; }
+.p5 { width: 4px; height: 4px; top: 85%; left: 20%; animation-duration: 16s; animation-delay: -2s; }
+.p6 { width: 7px; height: 7px; top: 10%; left: 50%; animation-duration: 24s; animation-delay: -6s; }
+.p7 { width: 3px; height: 3px; top: 60%; left: 40%; animation-duration: 19s; animation-delay: -10s; }
+.p8 { width: 5px; height: 5px; top: 40%; left: 70%; animation-duration: 21s; animation-delay: -14s; }
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(30px, -40px) scale(1.2);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-20px, -80px) scale(0.8);
+        opacity: 0.2;
+    }
+    75% {
+        transform: translate(40px, -30px) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+/* Overlay gradient */
 .achievements-page-section::after {
     content: '';
     position: absolute;
@@ -205,7 +236,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10, 12, 16, 0.7) 100%);
+    background: radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(10, 12, 16, 0.6) 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -258,6 +289,7 @@ body {
     border: 1px solid rgba(0, 229, 255, 0.12);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .section-tag::before {
@@ -317,6 +349,7 @@ body {
     min-width: 150px;
     letter-spacing: 0.3px;
     -webkit-tap-highlight-color: transparent !important;
+    backdrop-filter: blur(10px);
 }
 
 .btn::before {
@@ -556,6 +589,7 @@ body {
 .achievement-stats:hover {
     border-color: var(--color-border-hover);
     box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
 .stat-block {
@@ -601,11 +635,12 @@ body {
     width: 100%;
 }
 
-/* Achievement Card */
+/* Achievement Card - Glassmorphism */
 .achievement-card {
     display: flex;
     gap: 28px;
     background: var(--color-bg-card);
+    backdrop-filter: blur(20px);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     padding: 24px 28px;
@@ -614,7 +649,7 @@ body {
     align-items: stretch;
     position: relative;
     overflow: hidden;
-    perspective: 1000px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .achievement-card .ach-glow {
@@ -640,15 +675,22 @@ body {
     opacity: 1;
 }
 
-/* Card specific gradients */
+/* Card specific border glows */
 .achievement-1:hover {
     border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 16px 60px rgba(255, 215, 0, 0.08);
 }
 .achievement-2:hover {
     border-color: rgba(192, 192, 192, 0.3);
+    box-shadow: 0 16px 60px rgba(192, 192, 192, 0.08);
 }
 .achievement-3:hover {
+    border-color: rgba(0, 229, 255, 0.25);
+    box-shadow: 0 16px 60px rgba(0, 229, 255, 0.08);
+}
+.achievement-4:hover {
     border-color: rgba(205, 127, 50, 0.3);
+    box-shadow: 0 16px 60px rgba(205, 127, 50, 0.08);
 }
 
 /* Image */
@@ -661,6 +703,7 @@ body {
     background: var(--color-bg-elevated);
     cursor: pointer;
     min-height: 140px;
+    backdrop-filter: blur(10px);
 }
 
 .ach-image-wrap img {
@@ -706,6 +749,7 @@ body {
     background: rgba(0, 229, 255, 0.08);
     transition: all var(--transition-medium) ease;
     cursor: pointer;
+    backdrop-filter: blur(10px);
 }
 
 .ach-view-btn:hover {
@@ -777,6 +821,7 @@ body {
     width: fit-content;
     letter-spacing: 0.5px;
     transition: all var(--transition-medium) ease;
+    backdrop-filter: blur(10px);
 }
 
 .achievement-card:hover .ach-badge {
@@ -799,7 +844,7 @@ body {
 .ach-event {
     font-size: 0.85rem;
     color: var(--color-text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .ach-description {
@@ -835,6 +880,57 @@ body {
 
 .ach-content .btn {
     align-self: flex-start;
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: rgba(10, 12, 16, 0.8);
+    backdrop-filter: blur(20px);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-slow) var(--transition-bounce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.15);
+}
+
+.back-to-top:active {
+    transform: scale(0.92) translateY(0);
+}
+
+.back-to-top svg {
+    transition: transform var(--transition-slow) var(--transition-bounce);
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-3px);
 }
 
 /* ========================================
@@ -883,6 +979,7 @@ body {
     width: 100%;
     max-height: 90vh;
     background: var(--color-bg-card);
+    backdrop-filter: blur(20px);
     border-radius: var(--border-radius);
     border: 1px solid var(--color-border);
     overflow: hidden;
@@ -1205,6 +1302,13 @@ body {
     
     .ach-modal-info h3 {
         font-size: 1rem;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
     }
 }
 
