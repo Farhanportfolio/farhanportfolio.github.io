@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initAchievementModal();
     initViewButtons();
+    initBackToTop();
+    initAOS();
 });
 
 // ========================================
@@ -135,5 +137,56 @@ function initViewButtons() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    });
+}
+
+// ========================================
+// BACK TO TOP
+// ========================================
+function initBackToTop() {
+    const button = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            button.classList.add('visible');
+        } else {
+            button.classList.remove('visible');
+        }
+    });
+    
+    button.addEventListener('click', () => {
+        const top = document.getElementById('achievementsTop');
+        if (top) {
+            top.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+}
+
+// ========================================
+// SIMPLE AOS - Animate on scroll
+// ========================================
+function initAOS() {
+    const cards = document.querySelectorAll('.achievement-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.aosDelay || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }, parseInt(delay));
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(40px) scale(0.97)';
+        card.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        observer.observe(card);
     });
 }
