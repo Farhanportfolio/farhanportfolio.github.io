@@ -25,7 +25,6 @@
     
     --transition-smooth: cubic-bezier(0.34, 1.56, 0.64, 1);
     --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --transition-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
     
     --transition-slow: 0.7s;
     --transition-medium: 0.4s;
@@ -37,7 +36,6 @@
     
     --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.6);
     --shadow-hover: 0 12px 56px rgba(0, 229, 255, 0.08);
-    --shadow-glow: 0 0 60px rgba(0, 229, 255, 0.05);
 }
 
 /* ========================================
@@ -220,11 +218,11 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 32px;
+    gap: 8px;
+    padding: 12px 28px;
     border-radius: 50px;
     font-family: var(--font-family);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -232,9 +230,8 @@ body {
     transition: all var(--transition-slow) var(--transition-bounce);
     position: relative;
     overflow: hidden;
-    min-width: 150px;
+    min-width: 130px;
     letter-spacing: 0.3px;
-    white-space: nowrap;
     -webkit-tap-highlight-color: transparent !important;
 }
 
@@ -252,8 +249,8 @@ body {
 }
 
 .btn:hover::before {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 }
 
 .btn svg {
@@ -262,7 +259,7 @@ body {
 }
 
 .btn:hover svg {
-    transform: translateX(5px) scale(1.1);
+    transform: translateX(4px) scale(1.1);
 }
 
 .btn:active {
@@ -270,30 +267,28 @@ body {
 }
 
 .btn:active svg {
-    transform: translateX(3px) scale(0.95);
+    transform: translateX(2px) scale(0.95);
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
     color: #0a0c10;
-    box-shadow: 0 4px 24px rgba(0, 229, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.2);
 }
 
 .btn-primary:hover {
-    box-shadow: 0 8px 48px rgba(0, 229, 255, 0.35);
+    box-shadow: 0 8px 40px rgba(0, 229, 255, 0.3);
     transform: translateY(-3px) scale(1.02);
 }
 
 .btn-primary:active {
     transform: scale(0.94) translateY(0);
-    box-shadow: 0 2px 12px rgba(0, 229, 255, 0.2);
 }
 
 .btn-sm {
-    padding: 8px 20px;
-    font-size: 0.85rem;
+    padding: 7px 18px;
+    font-size: 0.8rem;
     min-width: auto;
-    white-space: nowrap;
 }
 
 /* ========================================
@@ -439,69 +434,73 @@ body {
 }
 
 /* ========================================
-   CERTIFICATIONS PAGE - NEW DESIGN
+   CERTIFICATIONS PAGE
    ======================================== */
 .certs-page-section {
     padding-top: 130px;
     min-height: 100vh;
 }
 
-.certs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 20px;
+/* List Layout */
+.certs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
     width: 100%;
 }
 
-/* Certificate Item */
-.cert-item {
+/* Certificate Row */
+.cert-row {
+    display: flex;
+    gap: 24px;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    overflow: hidden;
+    padding: 16px;
     transition: all var(--transition-slow) var(--transition-bounce);
-    display: flex;
-    flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
-.cert-item:hover {
-    transform: translateY(-8px);
+.cert-row:hover {
     border-color: var(--color-border-hover);
     box-shadow: var(--shadow-hover);
+    transform: translateX(6px);
 }
 
 /* Image */
-.cert-image-wrap {
+.cert-row-image {
     position: relative;
-    width: 100%;
-    height: 180px;
+    width: 140px;
+    height: 100px;
+    flex-shrink: 0;
     overflow: hidden;
+    border-radius: var(--border-radius-sm);
     background: var(--color-bg-elevated);
     cursor: pointer;
 }
 
-.cert-img {
+.cert-row-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow) ease;
 }
 
-.cert-item:hover .cert-img {
-    transform: scale(1.04);
+.cert-row:hover .cert-row-image img {
+    transform: scale(1.05);
 }
 
-/* Overlay */
-.cert-overlay {
+.cert-row-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -509,59 +508,46 @@ body {
     transition: opacity var(--transition-slow) ease;
 }
 
-.cert-item:hover .cert-overlay {
+.cert-row:hover .cert-row-overlay {
     opacity: 1;
 }
 
 .cert-view-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
+    gap: 6px;
+    font-size: 0.8rem;
     font-weight: 600;
     color: #fff;
-    padding: 12px 28px;
+    padding: 6px 16px;
     border: 2px solid var(--color-primary);
     border-radius: 50px;
     background: rgba(0, 229, 255, 0.08);
     transition: all var(--transition-medium) ease;
     cursor: pointer;
-    letter-spacing: 0.3px;
-}
-
-.cert-view-btn svg {
-    flex-shrink: 0;
-    transition: transform var(--transition-slow) var(--transition-bounce);
 }
 
 .cert-view-btn:hover {
     background: var(--color-primary);
     color: #0a0c10;
-    transform: scale(1.06);
-}
-
-.cert-view-btn:hover svg {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Info */
-.cert-info {
-    padding: 20px 24px 24px;
+.cert-row-info {
     flex: 1;
-    display: flex;
-    flex-direction: column;
+    min-width: 0;
 }
 
-.cert-info h3 {
+.cert-row-info h3 {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     transition: color var(--transition-slow) ease;
-    line-height: 1.3;
 }
 
-.cert-item:hover .cert-info h3 {
+.cert-row:hover .cert-row-info h3 {
     color: var(--color-primary);
 }
 
@@ -574,13 +560,11 @@ body {
 .cert-id {
     font-size: 0.75rem;
     color: var(--color-text-dim);
-    margin-top: 2px;
-    margin-bottom: 12px;
+    margin: 2px 0 10px;
 }
 
-.cert-info .btn {
-    margin-top: auto;
-    align-self: flex-start;
+.cert-row-info .btn {
+    margin-top: 2px;
 }
 
 /* ========================================
@@ -592,7 +576,7 @@ body {
     align-items: center;
     gap: 32px;
     margin-top: 60px;
-    padding: 32px 40px;
+    padding: 28px 40px;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
@@ -608,7 +592,7 @@ body {
 
 .stat-number-large {
     font-family: var(--font-display);
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 900;
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     -webkit-background-clip: text;
@@ -618,14 +602,14 @@ body {
 }
 
 .stat-label-large {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
     font-weight: 500;
 }
 
 .stat-divider {
     width: 1px;
-    height: 40px;
+    height: 36px;
     background: var(--color-border);
 }
 
@@ -659,9 +643,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(16px);
-    animation: modalOverlayIn 0.6s ease forwards;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    animation: modalOverlayIn 0.5s ease forwards;
 }
 
 @keyframes modalOverlayIn {
@@ -671,27 +655,27 @@ body {
 
 .cert-modal-content {
     position: relative;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     max-height: 90vh;
     background: var(--color-bg-card);
     border-radius: var(--border-radius);
     border: 1px solid var(--color-border);
     overflow: hidden;
-    animation: modalContentIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    transform: scale(0.9) translateY(30px);
+    animation: modalContentIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: scale(0.9) translateY(20px);
     opacity: 0;
     display: flex;
     flex-direction: column;
 }
 
 .cert-modal.active .cert-modal-content {
-    animation: modalContentIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: modalContentIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes modalContentIn {
     from {
-        transform: scale(0.9) translateY(30px);
+        transform: scale(0.9) translateY(20px);
         opacity: 0;
     }
     to {
@@ -702,14 +686,14 @@ body {
 
 .cert-modal-close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 14px;
+    right: 14px;
     z-index: 10;
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--color-border);
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -735,24 +719,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 20px;
     background: var(--color-bg-elevated);
-    min-height: 350px;
+    min-height: 300px;
 }
 
 .cert-modal-img {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 55vh;
     object-fit: contain;
     border-radius: var(--border-radius-sm);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
-    animation: modalImageIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: modalImageIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     opacity: 0;
     transform: scale(0.95);
 }
 
 .cert-modal.active .cert-modal-img {
-    animation: modalImageIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: modalImageIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes modalImageIn {
@@ -767,19 +751,19 @@ body {
 }
 
 .cert-modal-info {
-    padding: 18px 28px 22px;
+    padding: 16px 24px 20px;
     background: var(--color-bg-card);
     border-top: 1px solid var(--color-border);
 }
 
 .cert-modal-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text);
 }
 
 .cert-modal-info p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
 }
 
@@ -788,7 +772,7 @@ body {
    ======================================== */
 .footer {
     border-top: 1px solid var(--color-border);
-    padding: 48px 0 28px;
+    padding: 40px 0 24px;
     margin-top: 40px;
     background: var(--color-bg);
     width: 100%;
@@ -797,24 +781,24 @@ body {
 .footer-content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28px;
     width: 100%;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
 }
 
 .footer-brand a {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
     color: var(--color-text);
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     transition: color var(--transition-medium) ease;
     width: fit-content;
 }
@@ -825,21 +809,21 @@ body {
 
 .footer-brand p {
     color: var(--color-text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .footer-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 24px;
+    gap: 6px 20px;
 }
 
 .footer-nav a {
     color: var(--color-text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: all var(--transition-medium) ease;
-    padding: 4px 0;
+    padding: 3px 0;
     border-bottom: 1.5px solid transparent;
     -webkit-tap-highlight-color: transparent !important;
 }
@@ -854,40 +838,20 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 24px;
+    gap: 10px;
+    padding-top: 20px;
     border-top: 1px solid var(--color-border);
     width: 100%;
 }
 
 .footer-bottom p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
 }
 
 /* ========================================
    RESPONSIVE
    ======================================== */
-@media (max-width: 1024px) {
-    .certs-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .cert-stats {
-        gap: 20px;
-        padding: 24px 28px;
-    }
-    
-    .cert-modal-content {
-        max-width: 95%;
-        max-height: 95vh;
-    }
-    
-    .cert-modal-img {
-        max-height: 50vh;
-    }
-}
-
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -898,7 +862,7 @@ body {
         right: 0;
         background: rgba(10, 12, 16, 0.98);
         backdrop-filter: blur(20px);
-        padding: 16px 24px;
+        padding: 14px 20px;
         border-bottom: 1px solid var(--color-border);
         gap: 2px;
         width: 100%;
@@ -909,7 +873,7 @@ body {
     }
     
     .nav-links a {
-        padding: 14px 18px;
+        padding: 12px 16px;
         width: 100%;
         border-radius: var(--border-radius-sm);
         white-space: normal;
@@ -923,33 +887,34 @@ body {
         display: flex;
     }
     
-    .certs-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
+    .cert-row {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
     }
     
-    .cert-image-wrap {
+    .cert-row-image {
+        width: 100%;
         height: 160px;
     }
     
-    .cert-info {
-        padding: 16px 20px 20px;
+    .cert-row-info {
+        text-align: center;
     }
     
-    .cert-info h3 {
-        font-size: 0.95rem;
+    .cert-row-info .btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .certs-stats {
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
         padding: 20px;
     }
     
     .stat-divider {
-        width: 60px;
+        width: 50px;
         height: 1px;
     }
     
@@ -959,7 +924,7 @@ body {
     
     .footer-nav {
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
     }
     
     .footer-bottom {
@@ -968,19 +933,19 @@ body {
     }
     
     .cert-modal-close {
-        top: 12px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
     }
     
     .cert-modal-close svg {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
     }
     
     .cert-modal-image-wrap {
-        padding: 16px;
+        padding: 14px;
         min-height: 200px;
     }
     
@@ -989,7 +954,7 @@ body {
     }
     
     .cert-modal-info {
-        padding: 14px 18px 18px;
+        padding: 14px 18px 16px;
     }
     
     .cert-modal-info h3 {
@@ -999,34 +964,23 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 16px;
+        padding: 0 14px;
     }
     
     .section {
-        padding: 48px 0;
+        padding: 40px 0;
     }
     
     .certs-page-section {
         padding-top: 100px;
     }
     
-    .cert-image-wrap {
-        height: 140px;
+    .cert-row-image {
+        height: 130px;
     }
     
-    .cert-view-btn {
-        font-size: 0.75rem;
-        padding: 8px 18px;
-        gap: 6px;
-    }
-    
-    .cert-view-btn svg {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .cert-info h3 {
-        font-size: 0.9rem;
+    .cert-row-info h3 {
+        font-size: 0.95rem;
     }
     
     .cert-org {
@@ -1041,7 +995,6 @@ body {
         padding: 10px 20px;
         font-size: 0.8rem;
         min-width: 100px;
-        white-space: normal;
     }
     
     .stat-number-large {
@@ -1049,7 +1002,7 @@ body {
     }
     
     .cert-modal-image-wrap {
-        padding: 12px;
+        padding: 10px;
         min-height: 150px;
     }
     
@@ -1059,15 +1012,9 @@ body {
 }
 
 /* ========================================
-   PREVENT ANY OVERFLOW
+   PREVENT OVERFLOW
    ======================================== */
 img, svg, video, iframe, canvas {
     max-width: 100%;
     height: auto;
-}
-
-.grid > *,
-.flex > * {
-    min-width: 0;
-    max-width: 100%;
 }
