@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -42,232 +43,352 @@
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
-        <section class="section writeups-page-section">
+        <section class="section writeups-page-section" id="writeupsTop">
+            <!-- Wavy Background -->
+            <div class="wavy-background">
+                <div class="wave wave-1"></div>
+                <div class="wave wave-2"></div>
+                <div class="wave wave-3"></div>
+                <div class="wave wave-4"></div>
+            </div>
+            
+            <!-- Floating Particles -->
+            <div class="particles-container">
+                <div class="particle p1"></div>
+                <div class="particle p2"></div>
+                <div class="particle p3"></div>
+                <div class="particle p4"></div>
+                <div class="particle p5"></div>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid-overlay"></div>
+
             <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Research</span>
-                    <h2>Technical Writeups</h2>
-                    <p>30+ writeups on Active Directory, Web Security, Exploit Development, Cloud Security and more</p>
+                <!-- ====== HERO SECTION ====== -->
+                <div class="writeups-hero">
+                    <div class="hero-icon-wrap">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                            <defs>
+                                <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#66f0ff"/>
+                                    <stop offset="100%" stop-color="#00b4d8"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Document -->
+                            <rect x="22" y="12" width="56" height="76" rx="4" stroke="url(#docGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                            
+                            <!-- Folded corner -->
+                            <path d="M62 12 L78 28 L62 28 Z" stroke="url(#docGrad)" stroke-width="2" fill="rgba(0,229,255,0.1)"/>
+                            
+                            <!-- Lines -->
+                            <line x1="32" y1="40" x2="68" y2="40" stroke="url(#docGrad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                            <line x1="32" y1="52" x2="68" y2="52" stroke="url(#docGrad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                            <line x1="32" y1="64" x2="56" y2="64" stroke="url(#docGrad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                            <line x1="32" y1="76" x2="62" y2="76" stroke="url(#docGrad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                            
+                            <!-- Pen -->
+                            <path d="M78 62 L88 72 L80 80 L70 70 Z" stroke="url(#docGrad)" stroke-width="2" fill="rgba(0,229,255,0.1)" stroke-linejoin="round"/>
+                            <line x1="70" y1="70" x2="78" y2="62" stroke="url(#docGrad)" stroke-width="2" stroke-linecap="round"/>
+                            
+                            <!-- Sparkles -->
+                            <circle cx="14" cy="20" r="2" fill="#00e5ff" opacity="0.7"/>
+                            <circle cx="14" cy="80" r="2" fill="#00e5ff" opacity="0.7"/>
+                            <circle cx="90" cy="15" r="1.5" fill="#66f0ff" opacity="0.6"/>
+                        </svg>
+                        <div class="hero-ring"></div>
+                        <div class="hero-ring hero-ring-2"></div>
+                    </div>
                 </div>
 
-                <!-- ====== WRITEUPS GRID ====== -->
-                <div class="writeups-page-grid">
-                    
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-tag">Research</span>
+                    <h2>Technical Writeups</h2>
+                    <p>Deep-dive articles on Active Directory, Web Security, Exploit Development &amp; more</p>
+                </div>
+
+                <!-- ====== STATS ====== -->
+                <div class="writeups-stats reveal-on-scroll">
+                    <div class="stat-block">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Featured</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-block">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Published</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-block">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-block">
+                        <span class="stat-number">Medium</span>
+                        <span class="stat-label">Platform</span>
+                    </div>
+                </div>
+
+                <!-- ====== WRITEUPS LIST ====== -->
+                <div class="writeups-list">
+
                     <!-- Writeup 1 -->
-                    <a href="https://medium.com/@FarhanCyber/kerberos-explained-in-detail-c6016d72c4cd" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">01</div>
-                            <div class="writeup-content">
-                                <h3>Kerberos Authentication Workflow</h3>
-                                <p class="writeup-excerpt">Deep dive into Kerberos authentication protocol, ticket granting, and security considerations in Active Directory environments.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Active Directory</span>
-                                    <span class="writeup-tag">Authentication</span>
-                                    <span class="writeup-tag">Kerberos</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/kerberos-explained-in-detail-c6016d72c4cd" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">01</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Active Directory</div>
+                            <h3>Kerberos Authentication Workflow</h3>
+                            <p class="writeup-excerpt">
+                                A comprehensive deep dive into the Kerberos authentication protocol — covering ticket granting, service tickets, PAC validation, and the security considerations that make it both powerful and attackable in Active Directory environments.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">Kerberos</span>
+                                <span class="writeup-tag">Authentication</span>
+                                <span class="writeup-tag">Active Directory</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">8 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 2 -->
-                    <a href="https://medium.com/@FarhanCyber/xml-external-entity-xxe-injection-3cc958a6661a" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">02</div>
-                            <div class="writeup-content">
-                                <h3>XML External Entity (XXE) Injection</h3>
-                                <p class="writeup-excerpt">Understanding XXE vulnerabilities, exploitation techniques, and mitigation strategies for modern web applications.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Web Security</span>
-                                    <span class="writeup-tag">XXE</span>
-                                    <span class="writeup-tag">Injection</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/xml-external-entity-xxe-injection-3cc958a6661a" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">02</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Web Security</div>
+                            <h3>XML External Entity (XXE) Injection</h3>
+                            <p class="writeup-excerpt">
+                                Understanding XXE vulnerabilities from first principles — how XML parsers become attack vectors, exploitation techniques for file disclosure and SSRF, and how to properly mitigate them in modern applications.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">XXE</span>
+                                <span class="writeup-tag">Injection</span>
+                                <span class="writeup-tag">Web Exploitation</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">6 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 3 -->
-                    <a href="https://medium.com/@FarhanCyber/porstwigger-lab-broken-brute-force-protection-ip-block-authentication-part-6-cdc4f6884f85" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">03</div>
-                            <div class="writeup-content">
-                                <h3>Broken Brute-Force Protection, IP Block</h3>
-                                <p class="writeup-excerpt">Portswigger Lab walkthrough on bypassing brute-force protection mechanisms and IP-based rate limiting.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Web Security</span>
-                                    <span class="writeup-tag">Authentication</span>
-                                    <span class="writeup-tag">Portswigger</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/porstwigger-lab-broken-brute-force-protection-ip-block-authentication-part-6-cdc4f6884f85" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">03</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Portswigger Lab</div>
+                            <h3>Broken Brute-Force Protection, IP Block</h3>
+                            <p class="writeup-excerpt">
+                                Portswigger Web Security Academy walkthrough on bypassing brute-force protection mechanisms. Covers IP rotation techniques, credential stuffing, rate limit evasion, and how flawed authentication logic can be exploited.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">Authentication</span>
+                                <span class="writeup-tag">Brute Force</span>
+                                <span class="writeup-tag">Portswigger</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">7 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 4 -->
-                    <a href="https://medium.com/@FarhanCyber/portswigger-lab-jwt-authentication-bypass-via-unverified-signature-7e2272d1e644" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">04</div>
-                            <div class="writeup-content">
-                                <h3>JWT Authentication Bypass via Unverified Signature</h3>
-                                <p class="writeup-excerpt">Portswigger Lab walkthrough on exploiting JWT misconfigurations and bypassing signature verification.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Web Security</span>
-                                    <span class="writeup-tag">JWT</span>
-                                    <span class="writeup-tag">Portswigger</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/portswigger-lab-jwt-authentication-bypass-via-unverified-signature-7e2272d1e644" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">04</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Portswigger Lab</div>
+                            <h3>JWT Authentication Bypass via Unverified Signature</h3>
+                            <p class="writeup-excerpt">
+                                Walkthrough of a critical JWT vulnerability where the server fails to verify token signatures. Detailed exploitation steps, why this misconfiguration occurs in production, and secure JWT implementation practices.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">JWT</span>
+                                <span class="writeup-tag">Authentication</span>
+                                <span class="writeup-tag">Portswigger</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">9 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 5 -->
-                    <a href="https://medium.com/@FarhanCyber/graphql-api-by-farhan-khan-8ce92b1f0a16" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">05</div>
-                            <div class="writeup-content">
-                                <h3>GraphQL API Security</h3>
-                                <p class="writeup-excerpt">Comprehensive guide to GraphQL API security, common vulnerabilities, and testing methodologies.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">API Security</span>
-                                    <span class="writeup-tag">GraphQL</span>
-                                    <span class="writeup-tag">Testing</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/graphql-api-by-farhan-khan-8ce92b1f0a16" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">05</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">API Security</div>
+                            <h3>GraphQL API Security</h3>
+                            <p class="writeup-excerpt">
+                                Comprehensive guide to GraphQL API security — introspection abuse, query complexity attacks, IDOR in GraphQL, authorization flaws, and a practical testing methodology for pentesters and bug bounty hunters.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">GraphQL</span>
+                                <span class="writeup-tag">API Security</span>
+                                <span class="writeup-tag">Testing</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">10 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 6 -->
-                    <a href="https://medium.com/@FarhanCyber/portswigger-lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data-by-114e20631cc7" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">06</div>
-                            <div class="writeup-content">
-                                <h3>SQL Injection - Retrieving Hidden Data</h3>
-                                <p class="writeup-excerpt">Portswigger Lab walkthrough on exploiting SQL injection vulnerabilities in WHERE clauses to retrieve hidden data.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Web Security</span>
-                                    <span class="writeup-tag">SQL Injection</span>
-                                    <span class="writeup-tag">Portswigger</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/portswigger-lab-sql-injection-vulnerability-in-where-clause-allowing-retrieval-of-hidden-data-by-114e20631cc7" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">06</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Portswigger Lab</div>
+                            <h3>SQL Injection — Retrieving Hidden Data</h3>
+                            <p class="writeup-excerpt">
+                                Portswigger walkthrough on exploiting SQL injection in WHERE clauses to bypass filters and retrieve hidden data. Explains the underlying query manipulation and demonstrates how a single quote breaks secure logic.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">SQL Injection</span>
+                                <span class="writeup-tag">Web Security</span>
+                                <span class="writeup-tag">Portswigger</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">5 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 7 -->
-                    <a href="https://medium.com/@FarhanCyber/post-exploitation-basics-tryhackme-task-1-by-farhan-khan-7dcfa17c86bd" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">07</div>
-                            <div class="writeup-content">
-                                <h3>Post-Exploitation Basics | TryHackMe</h3>
-                                <p class="writeup-excerpt">Understanding post-exploitation techniques, privilege escalation, and persistence in Active Directory environments.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Active Directory</span>
-                                    <span class="writeup-tag">Post-Exploitation</span>
-                                    <span class="writeup-tag">TryHackMe</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/post-exploitation-basics-tryhackme-task-1-by-farhan-khan-7dcfa17c86bd" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">07</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">TryHackMe</div>
+                            <h3>Post-Exploitation Basics — Task 1</h3>
+                            <p class="writeup-excerpt">
+                                TryHackMe walkthrough covering post-exploitation fundamentals — enumeration, privilege escalation, persistence, and cleanup. Essential reading for anyone transitioning from exploitation to maintaining access.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">Post-Exploitation</span>
+                                <span class="writeup-tag">Privilege Escalation</span>
+                                <span class="writeup-tag">TryHackMe</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">12 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 8 -->
-                    <a href="https://medium.com/@FarhanCyber/operation-endgame-hard-tryhackme-walkthrough-by-farhan-khan-958e67c1d251" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">08</div>
-                            <div class="writeup-content">
-                                <h3>Operation Endgame (Hard) | TryHackMe</h3>
-                                <p class="writeup-excerpt">Complete walkthrough of the hard-level Operation Endgame TryHackMe room covering AD attacks and privilege escalation.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Active Directory</span>
-                                    <span class="writeup-tag">TryHackMe</span>
-                                    <span class="writeup-tag">CTF</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/operation-endgame-hard-tryhackme-walkthrough-by-farhan-khan-958e67c1d251" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">08</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">TryHackMe</div>
+                            <h3>Operation Endgame (Hard) — Full Walkthrough</h3>
+                            <p class="writeup-excerpt">
+                                Complete walkthrough of the hard-level Operation Endgame room on TryHackMe. Covers SMB enumeration, RID brute-forcing, AS-REP roasting, Kerberoasting, targeted Kerberoast attacks, RDP access, and SYSTEM-level privilege escalation.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">Active Directory</span>
+                                <span class="writeup-tag">Kerberoasting</span>
+                                <span class="writeup-tag">TryHackMe</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">15 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 9 -->
-                    <a href="https://medium.com/@FarhanCyber/ad-llmnr-nbt-ns-poisoning-61849dbf97e3" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">09</div>
-                            <div class="writeup-content">
-                                <h3>AD - LLMNR/NBT-NS Poisoning</h3>
-                                <p class="writeup-excerpt">Understanding LLMNR and NBT-NS poisoning attacks in Active Directory environments and how to mitigate them.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Active Directory</span>
-                                    <span class="writeup-tag">Network Security</span>
-                                    <span class="writeup-tag">Attack Vectors</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/ad-llmnr-nbt-ns-poisoning-61849dbf97e3" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">09</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Active Directory</div>
+                            <h3>LLMNR / NBT-NS Poisoning</h3>
+                            <p class="writeup-excerpt">
+                                Detailed explanation of LLMNR and NBT-NS name resolution poisoning attacks in Active Directory. Covers the workflow, how Responder captures NTLMv2 hashes, crackable vs. relayable scenarios, and comprehensive remediation strategies.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">LLMNR</span>
+                                <span class="writeup-tag">NBT-NS</span>
+                                <span class="writeup-tag">Responder</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">7 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
                     </a>
 
                     <!-- Writeup 10 -->
-                    <a href="https://medium.com/@FarhanCyber/aaa-radius-tacacs-ldap-06542552c8c1" target="_blank" rel="noopener noreferrer" class="writeup-card-large">
-                        <div class="writeup-card-inner">
-                            <div class="writeup-number">10</div>
-                            <div class="writeup-content">
-                                <h3>AAA | RADIUS | TACACS+ | LDAP</h3>
-                                <p class="writeup-excerpt">Comprehensive guide to Authentication, Authorization, and Accounting protocols including RADIUS, TACACS+, and LDAP.</p>
-                                <div class="writeup-meta">
-                                    <span class="writeup-tag">Network Security</span>
-                                    <span class="writeup-tag">Authentication</span>
-                                    <span class="writeup-tag">Protocols</span>
-                                </div>
+                    <a href="https://medium.com/@FarhanCyber/aaa-radius-tacacs-ldap-06542552c8c1" target="_blank" rel="noopener noreferrer" class="writeup-card reveal-writeup">
+                        <div class="writeup-number">10</div>
+                        <div class="writeup-content">
+                            <div class="writeup-category">Network Security</div>
+                            <h3>AAA | RADIUS | TACACS+ | LDAP</h3>
+                            <p class="writeup-excerpt">
+                                Comprehensive guide to Authentication, Authorization, and Accounting protocols. Compares RADIUS, TACACS+, and LDAP — architecture, workflows, security considerations, and when to use each in enterprise environments.
+                            </p>
+                            <div class="writeup-meta">
+                                <span class="writeup-tag">AAA</span>
+                                <span class="writeup-tag">RADIUS</span>
+                                <span class="writeup-tag">LDAP</span>
                             </div>
-                            <div class="writeup-open">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                            <div class="writeup-footer">
+                                <span class="writeup-read-time">9 min read</span>
+                                <span class="writeup-open">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
                             </div>
                         </div>
                         <div class="writeup-glow"></div>
@@ -275,32 +396,11 @@
 
                 </div>
 
-                <!-- ====== STATS SECTION ====== -->
-                <div class="writeups-stats">
-                    <div class="stat-item">
-                        <span class="stat-number-large">30+</span>
-                        <span class="stat-label-large">Total Writeups</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number-large">10</span>
-                        <span class="stat-label-large">Featured Articles</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number-large">5</span>
-                        <span class="stat-label-large">Active Directory</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number-large">5</span>
-                        <span class="stat-label-large">Web Security</span>
-                    </div>
-                </div>
-
-                <!-- ====== MEDIA LINK ====== -->
-                <div class="writeups-cta">
-                    <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <!-- ====== CTA ====== -->
+                <div class="writeups-cta reveal-on-scroll">
+                    <p class="cta-text">Explore all articles, walkthroughs &amp; security research</p>
+                    <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-cta">
+                        <span class="btn-glow"></span>
                         View All on Medium
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -310,6 +410,13 @@
             </div>
         </section>
     </main>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
