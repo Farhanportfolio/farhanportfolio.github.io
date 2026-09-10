@@ -1,13 +1,12 @@
 // ========================================
-// DOM READY
+// MAIN APP
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
-    initAchievementModal();
-    initViewButtons();
     initBackToTop();
-    initAOS();
+    initScrollReveal();
+    initAchievementModal();
 });
 
 // ========================================
@@ -58,6 +57,55 @@ function initScrollEffects() {
 }
 
 // ========================================
+// BACK TO TOP
+// ========================================
+function initBackToTop() {
+    const button = document.getElementById('backToTop');
+    if (!button) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            button.classList.add('visible');
+        } else {
+            button.classList.remove('visible');
+        }
+    });
+    
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ========================================
+// SCROLL REVEAL
+// ========================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-achievement');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Stagger animation for achievements
+                const allAchievements = Array.from(document.querySelectorAll('.reveal-achievement'));
+                const index = allAchievements.indexOf(entry.target);
+                const delay = index >= 0 ? index * 100 : 0;
+                
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, delay);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    });
+    
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ========================================
 // ACHIEVEMENT MODAL
 // ========================================
 function initAchievementModal() {
@@ -68,8 +116,8 @@ function initAchievementModal() {
     const closeBtn = document.getElementById('achModalClose');
     const overlay = modal.querySelector('.ach-modal-overlay');
     
-    const openBtns = document.querySelectorAll('.open-cert-btn');
-    const viewBtns = document.querySelectorAll('.ach-view-btn');
+    const viewBtns = document.querySelectorAll('.image-view-btn');
+    const imageWraps = document.querySelectorAll('.achievement-image-wrap');
     
     function openModal(cert, title, event) {
         modalImage.src = cert;
@@ -83,14 +131,12 @@ function initAchievementModal() {
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        modalImage.style.animation = 'none';
-        setTimeout(() => { modalImage.style.animation = ''; }, 10);
     }
     
-    // Open buttons
-    openBtns.forEach(btn => {
+    // View buttons
+    viewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.stopPropagation();
             const cert = btn.dataset.cert;
             const title = btn.dataset.title || 'Certificate';
             const event = btn.dataset.event || '';
@@ -98,22 +144,10 @@ function initAchievementModal() {
         });
     });
     
-    // View buttons
-    viewBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const cert = btn.dataset.cert;
-            const card = btn.closest('.achievement-card');
-            const title = card ? card.querySelector('.ach-content h3')?.textContent : 'Certificate';
-            const event = card ? card.querySelector('.ach-event')?.textContent : '';
-            if (cert) openModal(cert, title, event);
-        });
-    });
-    
-    // Click on image
-    document.querySelectorAll('.ach-image-wrap').forEach(wrap => {
+    // Click on image itself
+    imageWraps.forEach(wrap => {
         wrap.addEventListener('click', () => {
-            const btn = wrap.querySelector('.ach-view-btn');
+            const btn = wrap.querySelector('.image-view-btn');
             if (btn) btn.click();
         });
     });
@@ -121,72 +155,14 @@ function initAchievementModal() {
     // Close
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
+    
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
     });
+    
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
-    });
-}
-
-// ========================================
-// VIEW BUTTONS
-// ========================================
-function initViewButtons() {
-    document.querySelectorAll('.ach-view-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    });
-}
-
-// ========================================
-// BACK TO TOP
-// ========================================
-function initBackToTop() {
-    const button = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            button.classList.add('visible');
-        } else {
-            button.classList.remove('visible');
-        }
-    });
-    
-    button.addEventListener('click', () => {
-        const top = document.getElementById('achievementsTop');
-        if (top) {
-            top.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-}
-
-// ========================================
-// SIMPLE AOS - Animate on scroll
-// ========================================
-function initAOS() {
-    const cards = document.querySelectorAll('.achievement-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                const delay = entry.target.dataset.aosDelay || 0;
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, parseInt(delay));
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px) scale(0.97)';
-        card.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        observer.observe(card);
     });
 }
