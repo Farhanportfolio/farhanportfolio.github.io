@@ -3,7 +3,7 @@
 // ========================================
 const EMAILJS_SERVICE_ID = 'service_px36p6n';
 const EMAILJS_TEMPLATE_ID = 'template_g0hgzbm';
-const EMAILJS_PUBLIC_KEY = 'PnN3JDut4Fy4lRY4c7Lad';
+const EMAILJS_PUBLIC_KEY = 'LqmXJ6msgFytUh1E-';
 
 if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -62,7 +62,7 @@ function initNavigation() {
 }
 
 // ========================================
-// CONTACT FORM (EmailJS) — with subject support
+// CONTACT FORM (EmailJS) — with subject
 // ========================================
 function initContactForm() {
     const form = document.getElementById('profileContactForm');
