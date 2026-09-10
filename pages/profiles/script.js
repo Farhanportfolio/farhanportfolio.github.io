@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardGlow();
     initScrollReveal();
     initSmoothScroll();
-    initParallaxHero();
+    initTypedText();
+    initCountUp();
+    initBackToTop();
 });
 
 // ========================================
@@ -32,7 +34,6 @@ function initNavigation() {
         link.addEventListener('click', () => {
             if (links) links.classList.remove('open');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
         });
@@ -146,7 +147,7 @@ function initScrollEffects() {
 }
 
 // ========================================
-// CARD GLOW ON MOUSE MOVE
+// CARD GLOW (3D tilt on hover)
 // ========================================
 function initCardGlow() {
     const cards = document.querySelectorAll('.profile-card-large');
@@ -156,13 +157,10 @@ function initCardGlow() {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
             const rotateX = (y - centerY) / 20;
             const rotateY = (centerX - x) / 20;
-            
             card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
         });
         
@@ -177,15 +175,8 @@ function initCardGlow() {
 // ========================================
 function initScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.reveal-up, .reveal-card, .section-header, .contact-section-divider, .contact-form-wrapper'
+        '.reveal-up, .reveal-card, .reveal-left, .reveal-right'
     );
-    
-    // Add initial hidden state to non-tagged elements
-    revealElements.forEach(el => {
-        if (!el.classList.contains('reveal-up') && !el.classList.contains('reveal-card')) {
-            el.classList.add('reveal-up');
-        }
-    });
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -217,10 +208,7 @@ function initSmoothScroll() {
                 if (target) {
                     const navHeight = 74;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             }
         });
@@ -228,34 +216,141 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// PARALLAX HERO ORBS
+// TYPED TEXT EFFECT
 // ========================================
-function initParallaxHero() {
-    const orbs = document.querySelectorAll('.hero-orb');
-    const hero = document.querySelector('.profile-hero');
+function initTypedText() {
+    const el = document.getElementById('typedText');
+    if (!el) return;
     
-    if (!hero || orbs.length === 0) return;
+    const phrases = [
+        'whoami --verbose',
+        'nmap -sV target',
+        'echo "stay curious"',
+        'cat /etc/passwd',
+        'exploit responsibly',
+        'learning every day'
+    ];
+    
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    
+    function type() {
+        const current = phrases[phraseIndex];
+        
+        if (!deleting) {
+            el.textContent = current.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === current.length) {
+                deleting = true;
+                setTimeout(type, 1800);
+                return;
+            }
+            setTimeout(type, 60);
+        } else {
+            el.textContent = current.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                deleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(type, 400);
+                return;
+            }
+            setTimeout(type, 30);
+        }
+    }
+    
+    setTimeout(type, 1200);
+}
+
+// ========================================
+// COUNT-UP NUMBER ANIMATION
+// ========================================
+function initCountUp() {
+    const nums = document.querySelectorAll('.stat-num[data-count]');
+    if (!nums.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCount(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    nums.forEach(n => observer.observe(n));
+}
+
+function animateCount(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const duration = 1600;
+    const start = performance.now();
+    
+    function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutExpo
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+    }
+    
+    requestAnimationFrame(update);
+}
+
+// ========================================
+// BACK TO TOP BUTTON + PROGRESS RING
+// ========================================
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    
+    const progress = btn.querySelector('.btt-ring-progress');
+    const circumference = 2 * Math.PI * 46; // r=46
+    
+    if (progress) {
+        progress.style.strokeDasharray = circumference;
+        progress.style.strokeDashoffset = circumference;
+    }
     
     let ticking = false;
     
+    function updateButton() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+        
+        // Show after scrolling 400px
+        if (scrollTop > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+        
+        // Update ring progress
+        if (progress) {
+            const offset = circumference * (1 - scrollPercent);
+            progress.style.strokeDashoffset = offset;
+        }
+        
+        ticking = false;
+    }
+    
     window.addEventListener('scroll', () => {
         if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrolled = window.pageYOffset;
-                const heroHeight = hero.offsetHeight;
-                
-                if (scrolled < heroHeight) {
-                    orbs.forEach((orb, i) => {
-                        const speed = 0.15 + (i * 0.08);
-                        orb.style.transform = `translateY(${scrolled * speed}px)`;
-                    });
-                }
-                
-                ticking = false;
-            });
+            window.requestAnimationFrame(updateButton);
             ticking = true;
         }
+    }, { passive: true });
+    
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+    
+    // Initial state
+    updateButton();
 }
 
 // ========================================
