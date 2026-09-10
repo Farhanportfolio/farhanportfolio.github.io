@@ -42,18 +42,92 @@
 
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
-        <section class="section profiles-page-section">
+
+        <!-- ====== HERO / PROFILE SECTION ====== -->
+        <section class="profile-hero" id="profileHero">
+            <div class="profile-hero-bg">
+                <div class="hero-grid-lines"></div>
+                <div class="hero-orb hero-orb-1"></div>
+                <div class="hero-orb hero-orb-2"></div>
+                <div class="hero-orb hero-orb-3"></div>
+            </div>
+
+            <div class="profile-hero-content">
+                <div class="profile-photo-wrapper reveal-up">
+                    <div class="profile-photo-ring"></div>
+                    <div class="profile-photo-ring profile-photo-ring-2"></div>
+                    <div class="profile-photo">
+                        <img src="profile.png" alt="Farhan Khan" />
+                    </div>
+                    <div class="profile-photo-badge">
+                        <span class="status-dot"></span>
+                        <span>Available</span>
+                    </div>
+                </div>
+
+                <div class="profile-hero-text">
+                    <span class="profile-hero-tag reveal-up" style="--delay: 0.1s">Cyber Security Enthusiast</span>
+                    <h1 class="profile-hero-name reveal-up" style="--delay: 0.2s">
+                        Farhan <span class="accent-text">Khan</span>
+                    </h1>
+                    <p class="profile-hero-desc reveal-up" style="--delay: 0.3s">
+                        Penetration Tester &amp; Security Researcher with a passion for breaking things ethically 
+                        and securing the digital world. Top 1% on TryHackMe, writing technical research, and 
+                        building tools that matter.
+                    </p>
+
+                    <div class="profile-hero-stats reveal-up" style="--delay: 0.4s">
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">Top 1%</span>
+                            <span class="hero-stat-label">TryHackMe</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">6+</span>
+                            <span class="hero-stat-label">Platforms</span>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-num">24/7</span>
+                            <span class="hero-stat-label">Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-hero-cta reveal-up" style="--delay: 0.5s">
+                        <a href="#profilesSection" class="btn btn-primary scroll-btn">
+                            Explore Profiles
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4V16M10 16L15 11M10 16L5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#contactSection" class="btn btn-ghost scroll-btn">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator reveal-up" style="--delay: 0.7s">
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                    <span>Scroll to explore</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== PROFILES SECTION ====== -->
+        <section class="section profiles-page-section" id="profilesSection">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-up">
                     <span class="section-tag">Connect</span>
-                    <h2>Profiles</h2>
+                    <h2>Find Me Online</h2>
                     <p>Connect and explore my work across platforms</p>
                 </div>
 
                 <!-- ====== PROFILES GRID ====== -->
                 <div class="profiles-page-grid">
                     <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large linkedin">
+                    <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large linkedin reveal-card" style="--card-delay: 0s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
@@ -74,8 +148,8 @@
                         <div class="profile-glow"></div>
                     </a>
 
-                    <!-- GitHub - Updated URL -->
-                    <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="profile-card-large github">
+                    <!-- GitHub -->
+                    <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="profile-card-large github reveal-card" style="--card-delay: 0.08s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
@@ -97,7 +171,7 @@
                     </a>
 
                     <!-- Medium -->
-                    <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large medium">
+                    <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card-large medium reveal-card" style="--card-delay: 0.16s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
@@ -106,7 +180,7 @@
                             </div>
                             <div class="profile-info-large">
                                 <h3>Medium</h3>
-                                <p>Technical writeups & research</p>
+                                <p>Technical writeups &amp; research</p>
                                 <span class="profile-handle">@Farhancyber</span>
                             </div>
                             <div class="profile-arrow">
@@ -118,8 +192,8 @@
                         <div class="profile-glow"></div>
                     </a>
 
-                    <!-- TryHackMe - Updated URL -->
-                    <a href="https://tryhackme.com/p/Farhankhann" target="_blank" rel="noopener noreferrer" class="profile-card-large tryhackme">
+                    <!-- TryHackMe -->
+                    <a href="https://tryhackme.com/p/Farhankhann" target="_blank" rel="noopener noreferrer" class="profile-card-large tryhackme reveal-card" style="--card-delay: 0.24s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <img src="tryhackme.png" alt="TryHackMe" width="56" height="56" />
@@ -139,7 +213,7 @@
                     </a>
 
                     <!-- WhatsApp -->
-                    <a href="https://wa.link/cz276x" target="_blank" rel="noopener noreferrer" class="profile-card-large whatsapp">
+                    <a href="https://wa.link/cz276x" target="_blank" rel="noopener noreferrer" class="profile-card-large whatsapp reveal-card" style="--card-delay: 0.32s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
@@ -160,8 +234,8 @@
                         <div class="profile-glow"></div>
                     </a>
 
-                    <!-- Gmail - Using PNG -->
-                    <a href="mailto:farhan.cybersec@gmail.com" target="_blank" rel="noopener noreferrer" class="profile-card-large gmail">
+                    <!-- Gmail -->
+                    <a href="mailto:farhan.cybersec@gmail.com" target="_blank" rel="noopener noreferrer" class="profile-card-large gmail reveal-card" style="--card-delay: 0.4s">
                         <div class="profile-card-inner">
                             <div class="profile-icon-large">
                                 <img src="gmail.png" alt="Gmail" width="56" height="56" />
@@ -180,15 +254,19 @@
                         <div class="profile-glow"></div>
                     </a>
                 </div>
+            </div>
+        </section>
 
-                <!-- ====== CONTACT FORM ====== -->
-                <div class="contact-section-divider">
+        <!-- ====== CONTACT SECTION ====== -->
+        <section class="section contact-page-section" id="contactSection">
+            <div class="container">
+                <div class="contact-section-divider reveal-up">
                     <span class="section-tag">Reach Out</span>
                     <h2>Let's Connect</h2>
                     <p>Have a question, feedback, or just want to say hello? Drop a message!</p>
                 </div>
 
-                <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper reveal-up" style="--delay: 0.15s">
                     <form class="contact-form" id="profileContactForm" novalidate>
                         <div class="form-row">
                             <div class="form-group">
