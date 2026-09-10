@@ -1,13 +1,89 @@
 // ========================================
-// DOM READY
+// INTRO ANIMATION
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
+    initIntro();
+});
+
+function initIntro() {
+    const introScreen = document.getElementById('introScreen');
+    const introCrack = document.getElementById('introCrack');
+    const introText = document.getElementById('introText');
+    const introParticles = document.getElementById('introParticles');
+    
+    // Make the crack visible
+    introCrack.style.opacity = '1';
+    
+    // Phase 1: Show crack drawing (0.1s - 0.9s)
+    // Phase 2: Show "Projects" text (1s)
+    setTimeout(() => {
+        introText.classList.add('show');
+        
+        // Spark particles burst
+        createParticles(introParticles);
+    }, 900);
+    
+    // Phase 3: Shatter text and open crack (2s)
+    setTimeout(() => {
+        introText.classList.add('shatter');
+        introScreen.classList.add('cracking');
+    }, 2000);
+    
+    // Phase 4: Open the halves (2.3s)
+    setTimeout(() => {
+        introScreen.classList.add('opening');
+        // Big particle burst
+        createParticles(introParticles, 30);
+    }, 2300);
+    
+    // Phase 5: Remove intro, reveal page (4.2s)
+    setTimeout(() => {
+        document.body.classList.remove('intro-active');
+        introScreen.style.opacity = '0';
+        introScreen.style.transition = 'opacity 1s ease';
+        
+        setTimeout(() => {
+            introScreen.style.display = 'none';
+        }, 1000);
+    }, 4200);
+}
+
+function createParticles(container, count = 15) {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'intro-particle';
+        
+        const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
+        const distance = 150 + Math.random() * 300;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        
+        particle.style.left = centerX + 'px';
+        particle.style.top = centerY + 'px';
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        particle.style.animationDelay = (Math.random() * 0.3) + 's';
+        particle.style.width = (2 + Math.random() * 4) + 'px';
+        particle.style.height = particle.style.width;
+        
+        container.appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 2000);
+    }
+}
+
+// ========================================
+// MAIN APP
+// ========================================
+window.addEventListener('load', () => {
     initNavigation();
     initScrollEffects();
     initBackToTop();
     initScrollReveal();
     init3DTilt();
-    initParallax();
 });
 
 // ========================================
@@ -86,12 +162,11 @@ function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const el = entry.target;
-                const delay = el.classList.contains('reveal-project') ? 200 : 0;
+                const delay = entry.target.classList.contains('reveal-project') ? 200 : 0;
                 setTimeout(() => {
-                    el.classList.add('revealed');
+                    entry.target.classList.add('revealed');
                 }, delay);
-                observer.unobserve(el);
+                observer.unobserve(entry.target);
             }
         });
     }, {
@@ -103,13 +178,32 @@ function initScrollReveal() {
 }
 
 // ========================================
-// 3D TILT EFFECT
+// 3D TILT - SLOW AND SMOOTH
 // ========================================
 function init3DTilt() {
     const cards = document.querySelectorAll('.tilt-card');
     
     cards.forEach(card => {
+        let rafId = null;
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
         let rect = null;
+        
+        function animate() {
+            // Smooth interpolation (slower = smoother)
+            currentX += (targetX - currentX) * 0.08;
+            currentY += (targetY - currentY) * 0.08;
+            
+            card.style.transform = `perspective(2000px) rotateX(${currentX}deg) rotateY(${currentY}deg) translateY(-6px)`;
+            
+            if (Math.abs(targetX - currentX) > 0.01 || Math.abs(targetY - currentY) > 0.01) {
+                rafId = requestAnimationFrame(animate);
+            } else {
+                rafId = null;
+            }
+        }
         
         card.addEventListener('mouseenter', () => {
             rect = card.getBoundingClientRect();
@@ -122,54 +216,24 @@ function init3DTilt() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = ((y - centerY) / centerY) * -3;
-            const rotateY = ((x - centerX) / centerX) * 3;
+            // Reduced tilt for smoother feel
+            targetX = ((y - centerY) / centerY) * -2;
+            targetY = ((x - centerX) / centerX) * 2;
             
-            card.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+            if (!rafId) rafId = requestAnimationFrame(animate);
         });
         
         card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
+            targetX = 0;
+            targetY = 0;
+            if (!rafId) rafId = requestAnimationFrame(animate);
             rect = null;
         });
     });
 }
 
 // ========================================
-// PARALLAX BACKGROUND
-// ========================================
-function initParallax() {
-    const gridLayers = document.querySelectorAll('.grid-layer');
-    const cubes = document.querySelectorAll('.cube');
-    const orbits = document.querySelectorAll('.orbit');
-    
-    let ticking = false;
-    
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollY = window.scrollY;
-                
-                gridLayers.forEach((layer, i) => {
-                    const speed = (i + 1) * 0.05;
-                    layer.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed}px)`;
-                });
-                
-                cubes.forEach((cube, i) => {
-                    const speed = (i + 1) * 0.08;
-                    const currentRotate = scrollY * speed;
-                    cube.style.marginTop = `${currentRotate}px`;
-                });
-                
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-}
-
-// ========================================
-// TYPING EFFECT - RETRIGGER ON HOVER
+// TYPING RETRIGGER
 // ========================================
 document.querySelectorAll('.project-card-3d').forEach(card => {
     const typingEl = card.querySelector('.typing-text');
