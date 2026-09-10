@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
     initBackToTop();
-    initProjectAnimation();
+    initScrollReveal();
+    init3DTilt();
+    initParallax();
 });
 
 // ========================================
@@ -60,9 +62,10 @@ function initScrollEffects() {
 // ========================================
 function initBackToTop() {
     const button = document.getElementById('backToTop');
+    if (!button) return;
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
+        if (window.scrollY > 400) {
             button.classList.add('visible');
         } else {
             button.classList.remove('visible');
@@ -70,35 +73,111 @@ function initBackToTop() {
     });
     
     button.addEventListener('click', () => {
-        const top = document.getElementById('projectsTop');
-        if (top) {
-            top.scrollIntoView({ behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ========================================
+// SCROLL REVEAL
+// ========================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-project');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.classList.contains('reveal-project') ? 200 : 0;
+                setTimeout(() => {
+                    el.classList.add('revealed');
+                }, delay);
+                observer.unobserve(el);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    });
+    
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ========================================
+// 3D TILT EFFECT
+// ========================================
+function init3DTilt() {
+    const cards = document.querySelectorAll('.tilt-card');
+    
+    cards.forEach(card => {
+        let rect = null;
+        
+        card.addEventListener('mouseenter', () => {
+            rect = card.getBoundingClientRect();
+        });
+        
+        card.addEventListener('mousemove', (e) => {
+            if (!rect) rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -3;
+            const rotateY = ((x - centerX) / centerX) * 3;
+            
+            card.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            rect = null;
+        });
+    });
+}
+
+// ========================================
+// PARALLAX BACKGROUND
+// ========================================
+function initParallax() {
+    const gridLayers = document.querySelectorAll('.grid-layer');
+    const cubes = document.querySelectorAll('.cube');
+    const orbits = document.querySelectorAll('.orbit');
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                
+                gridLayers.forEach((layer, i) => {
+                    const speed = (i + 1) * 0.05;
+                    layer.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed}px)`;
+                });
+                
+                cubes.forEach((cube, i) => {
+                    const speed = (i + 1) * 0.08;
+                    const currentRotate = scrollY * speed;
+                    cube.style.marginTop = `${currentRotate}px`;
+                });
+                
+                ticking = false;
+            });
+            ticking = true;
         }
     });
 }
 
 // ========================================
-// PROJECT CARD ANIMATION ON SCROLL
+// TYPING EFFECT - RETRIGGER ON HOVER
 // ========================================
-function initProjectAnimation() {
-    const cards = document.querySelectorAll('.project-card-large');
+document.querySelectorAll('.project-card-3d').forEach(card => {
+    const typingEl = card.querySelector('.typing-text');
+    if (!typingEl) return;
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0) scale(1)';
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    card.addEventListener('mouseenter', () => {
+        typingEl.style.animation = 'none';
+        void typingEl.offsetWidth;
+        typingEl.style.animation = '';
     });
-    
-    cards.forEach((card) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px) scale(0.98)';
-        card.style.transition = 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        observer.observe(card);
-    });
-}
+});
