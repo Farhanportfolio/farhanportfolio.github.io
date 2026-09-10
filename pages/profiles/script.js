@@ -6,12 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initScrollEffects();
     initCardGlow();
-    initHeroReveal();
-    initScrollReveal();
-    initSmoothScroll();
-    initTypedText();
-    initCountUp();
-    initBackToTop();
 });
 
 // ========================================
@@ -35,6 +29,7 @@ function initNavigation() {
         link.addEventListener('click', () => {
             if (links) links.classList.remove('open');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
         });
@@ -148,7 +143,7 @@ function initScrollEffects() {
 }
 
 // ========================================
-// CARD GLOW (3D tilt on hover)
+// CARD GLOW ON MOUSE MOVE
 // ========================================
 function initCardGlow() {
     const cards = document.querySelectorAll('.profile-card-large');
@@ -158,214 +153,20 @@ function initCardGlow() {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
+            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
+            
             const rotateX = (y - centerY) / 20;
             const rotateY = (centerX - x) / 20;
-            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+            
+            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
         });
         
         card.addEventListener('mouseleave', () => {
             card.style.transform = '';
         });
     });
-}
-
-// ========================================
-// HERO REVEAL (runs immediately on load)
-// ========================================
-function initHeroReveal() {
-    const heroElements = document.querySelectorAll(
-        '.hero-split .reveal-left, .hero-split .reveal-right'
-    );
-    
-    // Trigger on next frame so transitions play
-    requestAnimationFrame(() => {
-        heroElements.forEach(el => {
-            setTimeout(() => el.classList.add('revealed'), 80);
-        });
-    });
-}
-
-// ========================================
-// SCROLL REVEAL (for sections below hero)
-// ========================================
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll(
-        '.section .reveal-up'
-    );
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -60px 0px'
-    });
-    
-    revealElements.forEach(el => observer.observe(el));
-    
-    // Immediately reveal elements already in viewport on load
-    revealElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            setTimeout(() => el.classList.add('revealed'), 100);
-        }
-    });
-}
-
-// ========================================
-// SMOOTH SCROLL
-// ========================================
-function initSmoothScroll() {
-    const scrollBtns = document.querySelectorAll('.scroll-btn');
-    
-    scrollBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const href = btn.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    const navHeight = 74;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            }
-        });
-    });
-}
-
-// ========================================
-// TYPED TEXT EFFECT
-// ========================================
-function initTypedText() {
-    const el = document.getElementById('typedText');
-    if (!el) return;
-    
-    const phrases = [
-        'whoami --verbose',
-        'nmap -sV target',
-        'echo "stay curious"',
-        'cat /etc/passwd',
-        'exploit responsibly',
-        'learning every day'
-    ];
-    
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    
-    function type() {
-        const current = phrases[phraseIndex];
-        
-        if (!deleting) {
-            el.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === current.length) {
-                deleting = true;
-                setTimeout(type, 1800);
-                return;
-            }
-            setTimeout(type, 60);
-        } else {
-            el.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                deleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(type, 400);
-                return;
-            }
-            setTimeout(type, 30);
-        }
-    }
-    
-    setTimeout(type, 1200);
-}
-
-// ========================================
-// COUNT-UP NUMBER ANIMATION (runs on load)
-// ========================================
-function initCountUp() {
-    const nums = document.querySelectorAll('.stat-num[data-count]');
-    if (!nums.length) return;
-    
-    // Start counting after a short delay on page load
-    setTimeout(() => {
-        nums.forEach(n => animateCount(n));
-    }, 500);
-}
-
-function animateCount(el) {
-    const target = parseInt(el.getAttribute('data-count'), 10);
-    const duration = 1600;
-    const start = performance.now();
-    
-    function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        el.textContent = Math.round(eased * target);
-        if (progress < 1) requestAnimationFrame(update);
-        else el.textContent = target;
-    }
-    
-    requestAnimationFrame(update);
-}
-
-// ========================================
-// BACK TO TOP BUTTON + PROGRESS RING
-// ========================================
-function initBackToTop() {
-    const btn = document.getElementById('backToTop');
-    if (!btn) return;
-    
-    const progress = btn.querySelector('.btt-ring-progress');
-    const circumference = 2 * Math.PI * 46;
-    
-    if (progress) {
-        progress.style.strokeDasharray = circumference;
-        progress.style.strokeDashoffset = circumference;
-    }
-    
-    let ticking = false;
-    
-    function updateButton() {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
-        
-        if (scrollTop > 400) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
-        }
-        
-        if (progress) {
-            const offset = circumference * (1 - scrollPercent);
-            progress.style.strokeDashoffset = offset;
-        }
-        
-        ticking = false;
-    }
-    
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(updateButton);
-            ticking = true;
-        }
-    }, { passive: true });
-    
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    updateButton();
 }
 
 // ========================================
