@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initScrollEffects();
     initCardGlow();
+    initHeroReveal();
     initScrollReveal();
     initSmoothScroll();
     initTypedText();
@@ -171,11 +172,27 @@ function initCardGlow() {
 }
 
 // ========================================
-// SCROLL REVEAL (IntersectionObserver)
+// HERO REVEAL (runs immediately on load)
+// ========================================
+function initHeroReveal() {
+    const heroElements = document.querySelectorAll(
+        '.hero-split .reveal-left, .hero-split .reveal-right'
+    );
+    
+    // Trigger on next frame so transitions play
+    requestAnimationFrame(() => {
+        heroElements.forEach(el => {
+            setTimeout(() => el.classList.add('revealed'), 80);
+        });
+    });
+}
+
+// ========================================
+// SCROLL REVEAL (for sections below hero)
 // ========================================
 function initScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.reveal-up, .reveal-card, .reveal-left, .reveal-right'
+        '.section .reveal-up'
     );
     
     const observer = new IntersectionObserver((entries) => {
@@ -191,10 +208,18 @@ function initScrollReveal() {
     });
     
     revealElements.forEach(el => observer.observe(el));
+    
+    // Immediately reveal elements already in viewport on load
+    revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            setTimeout(() => el.classList.add('revealed'), 100);
+        }
+    });
 }
 
 // ========================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
+// SMOOTH SCROLL
 // ========================================
 function initSmoothScroll() {
     const scrollBtns = document.querySelectorAll('.scroll-btn');
@@ -264,22 +289,16 @@ function initTypedText() {
 }
 
 // ========================================
-// COUNT-UP NUMBER ANIMATION
+// COUNT-UP NUMBER ANIMATION (runs on load)
 // ========================================
 function initCountUp() {
     const nums = document.querySelectorAll('.stat-num[data-count]');
     if (!nums.length) return;
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCount(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    nums.forEach(n => observer.observe(n));
+    // Start counting after a short delay on page load
+    setTimeout(() => {
+        nums.forEach(n => animateCount(n));
+    }, 500);
 }
 
 function animateCount(el) {
@@ -290,7 +309,6 @@ function animateCount(el) {
     function update(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        // easeOutExpo
         const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
         el.textContent = Math.round(eased * target);
         if (progress < 1) requestAnimationFrame(update);
@@ -308,7 +326,7 @@ function initBackToTop() {
     if (!btn) return;
     
     const progress = btn.querySelector('.btt-ring-progress');
-    const circumference = 2 * Math.PI * 46; // r=46
+    const circumference = 2 * Math.PI * 46;
     
     if (progress) {
         progress.style.strokeDasharray = circumference;
@@ -322,14 +340,12 @@ function initBackToTop() {
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
         
-        // Show after scrolling 400px
         if (scrollTop > 400) {
             btn.classList.add('visible');
         } else {
             btn.classList.remove('visible');
         }
         
-        // Update ring progress
         if (progress) {
             const offset = circumference * (1 - scrollPercent);
             progress.style.strokeDashoffset = offset;
@@ -349,7 +365,6 @@ function initBackToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // Initial state
     updateButton();
 }
 
