@@ -287,11 +287,11 @@ function initCardGlow() {
 }
 
 // ========================================
-// HERO REVEAL
+// HERO REVEAL (includes tagline)
 // ========================================
 function initHeroReveal() {
     const heroElements = document.querySelectorAll(
-        '.hero-split .reveal-left, .hero-split .reveal-right'
+        '.hero-split .reveal-left, .hero-split .reveal-right, .hero-tagline'
     );
 
     requestAnimationFrame(() => {
