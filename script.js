@@ -5,7 +5,6 @@ const EMAILJS_SERVICE_ID = 'service_px36p6n';
 const EMAILJS_TEMPLATE_ID = 'template_g0hgzbm';
 const EMAILJS_PUBLIC_KEY = 'PnN3JDut4Fy4lRY4c7Lad';
 
-// Initialize EmailJS
 if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
 }
@@ -161,7 +160,6 @@ function initContactForm() {
         const btn = form.querySelector('button[type="submit"]');
         const originalHTML = btn.innerHTML;
 
-        // Show loading state
         btn.innerHTML = `
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="animation: spin 1s linear infinite;">
                 <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2" stroke-dasharray="15 10" stroke-linecap="round"/>
@@ -172,7 +170,6 @@ function initContactForm() {
         btn.style.transform = 'scale(0.98)';
 
         try {
-            // Send via EmailJS
             const templateParams = {
                 from_name: name.value.trim(),
                 from_email: email.value.trim(),
@@ -183,11 +180,9 @@ function initContactForm() {
             if (typeof emailjs !== 'undefined') {
                 await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
             } else {
-                // Fallback delay if EmailJS not loaded
                 await new Promise(r => setTimeout(r, 800));
             }
 
-            // Success state
             btn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M4 10L8 14L16 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -292,7 +287,7 @@ function initCardGlow() {
 }
 
 // ========================================
-// HERO REVEAL (immediately on load)
+// HERO REVEAL
 // ========================================
 function initHeroReveal() {
     const heroElements = document.querySelectorAll(
@@ -326,7 +321,6 @@ function initScrollReveal() {
 
     revealElements.forEach(el => observer.observe(el));
 
-    // Immediately reveal those already in viewport on load
     revealElements.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -336,7 +330,7 @@ function initScrollReveal() {
 }
 
 // ========================================
-// TYPED TEXT EFFECT
+// TYPED TEXT
 // ========================================
 function initTypedText() {
     const el = document.getElementById('typedText');
@@ -383,7 +377,7 @@ function initTypedText() {
 }
 
 // ========================================
-// COUNT-UP ANIMATION
+// COUNT-UP
 // ========================================
 function initCountUp() {
     const nums = document.querySelectorAll('.stat-num[data-count]');
@@ -412,7 +406,7 @@ function animateCount(el) {
 }
 
 // ========================================
-// BACK TO TOP + PROGRESS RING
+// BACK TO TOP
 // ========================================
 function initBackToTop() {
     const btn = document.getElementById('backToTop');
@@ -485,7 +479,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// SHAKE + SPIN ANIMATIONS
+// SHAKE + SPIN
 // ========================================
 const additionalStyles = document.createElement('style');
 additionalStyles.textContent = `
