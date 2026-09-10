@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initScrollEffects();
     initCardGlow();
+    initScrollReveal();
+    initSmoothScroll();
+    initParallaxHero();
 });
 
 // ========================================
@@ -160,12 +163,98 @@ function initCardGlow() {
             const rotateX = (y - centerY) / 20;
             const rotateY = (centerX - x) / 20;
             
-            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
         });
         
         card.addEventListener('mouseleave', () => {
             card.style.transform = '';
         });
+    });
+}
+
+// ========================================
+// SCROLL REVEAL (IntersectionObserver)
+// ========================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll(
+        '.reveal-up, .reveal-card, .section-header, .contact-section-divider, .contact-form-wrapper'
+    );
+    
+    // Add initial hidden state to non-tagged elements
+    revealElements.forEach(el => {
+        if (!el.classList.contains('reveal-up') && !el.classList.contains('reveal-card')) {
+            el.classList.add('reveal-up');
+        }
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
+    });
+    
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ========================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ========================================
+function initSmoothScroll() {
+    const scrollBtns = document.querySelectorAll('.scroll-btn');
+    
+    scrollBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const href = btn.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const navHeight = 74;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// ========================================
+// PARALLAX HERO ORBS
+// ========================================
+function initParallaxHero() {
+    const orbs = document.querySelectorAll('.hero-orb');
+    const hero = document.querySelector('.profile-hero');
+    
+    if (!hero || orbs.length === 0) return;
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                const heroHeight = hero.offsetHeight;
+                
+                if (scrolled < heroHeight) {
+                    orbs.forEach((orb, i) => {
+                        const speed = 0.15 + (i * 0.08);
+                        orb.style.transform = `translateY(${scrolled * speed}px)`;
+                    });
+                }
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
 }
 
