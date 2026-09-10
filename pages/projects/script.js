@@ -1,5 +1,5 @@
 // ========================================
-// INTRO ANIMATION
+// FAST INTRO ANIMATION
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
     initIntro();
@@ -9,70 +9,37 @@ function initIntro() {
     const introScreen = document.getElementById('introScreen');
     const introCrack = document.getElementById('introCrack');
     const introText = document.getElementById('introText');
-    const introParticles = document.getElementById('introParticles');
     
-    // Make the crack visible
+    // Make crack visible immediately
     introCrack.style.opacity = '1';
     
-    // Phase 1: Show crack drawing (0.1s - 0.9s)
-    // Phase 2: Show "Projects" text (1s)
+    // Phase 1: Crack draws (0-500ms) - already started via CSS
+    // Phase 2: Show "Projects" text (400ms)
     setTimeout(() => {
         introText.classList.add('show');
-        
-        // Spark particles burst
-        createParticles(introParticles);
-    }, 900);
+    }, 400);
     
-    // Phase 3: Shatter text and open crack (2s)
+    // Phase 3: Shatter text and prepare crack opening (900ms)
     setTimeout(() => {
         introText.classList.add('shatter');
         introScreen.classList.add('cracking');
-    }, 2000);
+    }, 900);
     
-    // Phase 4: Open the halves (2.3s)
+    // Phase 4: Open the halves (1100ms)
     setTimeout(() => {
         introScreen.classList.add('opening');
-        // Big particle burst
-        createParticles(introParticles, 30);
-    }, 2300);
+    }, 1100);
     
-    // Phase 5: Remove intro, reveal page (4.2s)
+    // Phase 5: Remove intro, reveal page (1900ms)
     setTimeout(() => {
         document.body.classList.remove('intro-active');
         introScreen.style.opacity = '0';
-        introScreen.style.transition = 'opacity 1s ease';
+        introScreen.style.transition = 'opacity 0.5s ease';
         
         setTimeout(() => {
             introScreen.style.display = 'none';
-        }, 1000);
-    }, 4200);
-}
-
-function createParticles(container, count = 15) {
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-    
-    for (let i = 0; i < count; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'intro-particle';
-        
-        const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
-        const distance = 150 + Math.random() * 300;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
-        
-        particle.style.left = centerX + 'px';
-        particle.style.top = centerY + 'px';
-        particle.style.setProperty('--tx', tx + 'px');
-        particle.style.setProperty('--ty', ty + 'px');
-        particle.style.animationDelay = (Math.random() * 0.3) + 's';
-        particle.style.width = (2 + Math.random() * 4) + 'px';
-        particle.style.height = particle.style.width;
-        
-        container.appendChild(particle);
-        
-        setTimeout(() => particle.remove(), 2000);
-    }
+        }, 500);
+    }, 1900);
 }
 
 // ========================================
@@ -162,7 +129,7 @@ function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const delay = entry.target.classList.contains('reveal-project') ? 200 : 0;
+                const delay = entry.target.classList.contains('reveal-project') ? 100 : 0;
                 setTimeout(() => {
                     entry.target.classList.add('revealed');
                 }, delay);
@@ -171,14 +138,14 @@ function initScrollReveal() {
         });
     }, {
         threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
+        rootMargin: '0px 0px -60px 0px'
     });
     
     revealElements.forEach(el => observer.observe(el));
 }
 
 // ========================================
-// 3D TILT - SLOW AND SMOOTH
+// SMOOTH 3D TILT
 // ========================================
 function init3DTilt() {
     const cards = document.querySelectorAll('.tilt-card');
@@ -192,9 +159,8 @@ function init3DTilt() {
         let rect = null;
         
         function animate() {
-            // Smooth interpolation (slower = smoother)
-            currentX += (targetX - currentX) * 0.08;
-            currentY += (targetY - currentY) * 0.08;
+            currentX += (targetX - currentX) * 0.1;
+            currentY += (targetY - currentY) * 0.1;
             
             card.style.transform = `perspective(2000px) rotateX(${currentX}deg) rotateY(${currentY}deg) translateY(-6px)`;
             
@@ -216,7 +182,6 @@ function init3DTilt() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            // Reduced tilt for smoother feel
             targetX = ((y - centerY) / centerY) * -2;
             targetY = ((x - centerX) / centerX) * 2;
             
@@ -231,17 +196,3 @@ function init3DTilt() {
         });
     });
 }
-
-// ========================================
-// TYPING RETRIGGER
-// ========================================
-document.querySelectorAll('.project-card-3d').forEach(card => {
-    const typingEl = card.querySelector('.typing-text');
-    if (!typingEl) return;
-    
-    card.addEventListener('mouseenter', () => {
-        typingEl.style.animation = 'none';
-        void typingEl.offsetWidth;
-        typingEl.style.animation = '';
-    });
-});
