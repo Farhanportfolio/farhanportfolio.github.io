@@ -349,7 +349,7 @@ body {
 }
 
 /* ========================================
-   HERO — SPLIT LAYOUT
+   HERO — SPLIT LAYOUT WITH LARGER CIRCLES
    ======================================== */
 .hero-split {
     position: relative;
@@ -437,28 +437,30 @@ body {
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
     gap: 70px;
     align-items: center;
 }
 
-/* ===== LEFT — PHOTO ===== */
+/* ===== LEFT — PHOTO WITH LARGER STAGE & CIRCLES ===== */
 .hero-left {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px;
 }
 
 .photo-stage {
     position: relative;
     width: 100%;
-    max-width: 320px;
+    max-width: 520px;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Concentric shining rings — larger and layered */
 .circle-ring {
     position: absolute;
     top: 50%; left: 50%;
@@ -467,38 +469,56 @@ body {
     pointer-events: none;
 }
 
+/* Ring 1 — innermost */
 .ring-1 {
-    width: 78%; height: 78%;
-    border: 1.5px solid rgba(0, 229, 255, 0.55);
-    box-shadow: 0 0 18px rgba(0, 229, 255, 0.35), inset 0 0 18px rgba(0, 229, 255, 0.2);
-    animation: ringSpin 8s linear infinite, ringPulse 3s ease-in-out infinite;
+    width: 68%; height: 68%;
+    border: 2px solid rgba(0, 229, 255, 0.65);
+    box-shadow:
+        0 0 30px rgba(0, 229, 255, 0.5),
+        inset 0 0 30px rgba(0, 229, 255, 0.25);
+    animation: ringSpin 10s linear infinite, ringPulse 3s ease-in-out infinite;
 }
 
+/* Ring 2 — thin solid */
 .ring-2 {
-    width: 88%; height: 88%;
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    border-top-color: rgba(0, 229, 255, 0.9);
-    box-shadow: 0 0 22px rgba(0, 229, 255, 0.2);
-    animation: ringSpin 12s linear infinite reverse, ringPulse 3.5s ease-in-out infinite;
+    width: 80%; height: 80%;
+    border: 1.5px solid rgba(0, 229, 255, 0.35);
+    border-top-color: rgba(0, 229, 255, 1);
+    border-right-color: rgba(0, 229, 255, 0.7);
+    box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+    animation: ringSpin 15s linear infinite reverse, ringPulse 3.5s ease-in-out infinite;
 }
 
+/* Ring 3 — dashed */
 .ring-3 {
-    width: 100%; height: 100%;
-    border: 1px dashed rgba(0, 229, 255, 0.25);
-    animation: ringSpin 24s linear infinite, ringPulse 4s ease-in-out infinite;
+    width: 92%; height: 92%;
+    border: 1.5px dashed rgba(0, 229, 255, 0.35);
+    animation: ringSpin 28s linear infinite, ringPulse 4s ease-in-out infinite;
 }
 
+/* Ring 4 — accent violet */
 .ring-4 {
-    width: 112%; height: 112%;
-    border: 1px solid rgba(124, 92, 255, 0.28);
-    border-bottom-color: rgba(124, 92, 255, 0.75);
-    animation: ringSpin 18s linear infinite reverse, ringPulse 5s ease-in-out infinite;
+    width: 105%; height: 105%;
+    border: 1.5px solid rgba(124, 92, 255, 0.35);
+    border-bottom-color: rgba(124, 92, 255, 0.85);
+    border-left-color: rgba(124, 92, 255, 0.55);
+    box-shadow: 0 0 30px rgba(124, 92, 255, 0.15);
+    animation: ringSpin 20s linear infinite reverse, ringPulse 5s ease-in-out infinite;
 }
 
+/* Ring 5 — dotted outer */
 .ring-5 {
-    width: 126%; height: 126%;
-    border: 1px dotted rgba(0, 229, 255, 0.18);
-    animation: ringSpin 30s linear infinite, ringPulse 6s ease-in-out infinite;
+    width: 118%; height: 118%;
+    border: 1.5px dotted rgba(0, 229, 255, 0.25);
+    animation: ringSpin 34s linear infinite, ringPulse 6s ease-in-out infinite;
+}
+
+/* Ring 6 — outermost accent-pink */
+.ring-6 {
+    width: 132%; height: 132%;
+    border: 1px solid rgba(255, 61, 129, 0.2);
+    border-top-color: rgba(255, 61, 129, 0.6);
+    animation: ringSpin 40s linear infinite reverse, ringPulse 7s ease-in-out infinite;
 }
 
 @keyframes ringSpin {
@@ -511,6 +531,7 @@ body {
     50% { opacity: 1; }
 }
 
+/* Orbit dashes with glowing dots */
 .orbit-dash {
     position: absolute;
     top: 50%; left: 50%;
@@ -519,15 +540,21 @@ body {
 }
 
 .orbit-dash-1 {
-    width: 112%; height: 112%;
+    width: 105%; height: 105%;
     transform: translate(-50%, -50%);
-    animation: orbitSpin 10s linear infinite;
+    animation: orbitSpin 12s linear infinite;
 }
 
 .orbit-dash-2 {
-    width: 126%; height: 126%;
+    width: 118%; height: 118%;
     transform: translate(-50%, -50%);
-    animation: orbitSpin 16s linear infinite reverse;
+    animation: orbitSpin 18s linear infinite reverse;
+}
+
+.orbit-dash-3 {
+    width: 132%; height: 132%;
+    transform: translate(-50%, -50%);
+    animation: orbitSpin 24s linear infinite;
 }
 
 @keyframes orbitSpin {
@@ -537,24 +564,34 @@ body {
 
 .orbit-dot {
     position: absolute;
-    top: -5px; left: 50%;
-    width: 10px; height: 10px;
+    top: -6px; left: 50%;
+    width: 12px; height: 12px;
     border-radius: 50%;
     background: var(--color-primary);
-    box-shadow: 0 0 12px var(--color-primary), 0 0 24px rgba(0, 229, 255, 0.7);
+    box-shadow: 0 0 16px var(--color-primary), 0 0 32px rgba(0, 229, 255, 0.7);
     transform: translateX(-50%);
 }
 
 .orbit-dash-2 .orbit-dot {
     background: var(--color-accent);
-    box-shadow: 0 0 12px var(--color-accent), 0 0 24px rgba(124, 92, 255, 0.7);
+    box-shadow: 0 0 16px var(--color-accent), 0 0 32px rgba(124, 92, 255, 0.7);
     top: auto;
-    bottom: -5px;
+    bottom: -6px;
 }
 
+.orbit-dash-3 .orbit-dot {
+    background: var(--color-accent-2);
+    box-shadow: 0 0 16px var(--color-accent-2), 0 0 32px rgba(255, 61, 129, 0.7);
+    top: 50%;
+    left: auto;
+    right: -6px;
+    transform: translateY(-50%);
+}
+
+/* Shine sweep over the photo */
 .photo-shine {
     position: absolute;
-    width: 78%; height: 78%;
+    width: 68%; height: 68%;
     border-radius: 50%;
     overflow: hidden;
     z-index: 3;
@@ -570,7 +607,7 @@ body {
         115deg,
         transparent 0%,
         transparent 40%,
-        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0.4) 50%,
         transparent 60%,
         transparent 100%
     );
@@ -583,24 +620,25 @@ body {
     60%, 100% { left: 125%; }
 }
 
+/* Photo frame */
 .photo-frame {
     position: relative;
-    width: 78%;
-    height: 78%;
+    width: 68%;
+    height: 68%;
     border-radius: 50%;
     overflow: hidden;
     z-index: 2;
-    border: 3px solid rgba(0, 229, 255, 0.55);
+    border: 3px solid rgba(0, 229, 255, 0.6);
     box-shadow:
-        0 0 60px rgba(0, 229, 255, 0.35),
-        0 0 120px rgba(0, 229, 255, 0.15),
-        inset 0 0 40px rgba(0, 229, 255, 0.08);
+        0 0 80px rgba(0, 229, 255, 0.4),
+        0 0 160px rgba(0, 229, 255, 0.2),
+        inset 0 0 60px rgba(0, 229, 255, 0.1);
     animation: photoFloat 6s ease-in-out infinite;
 }
 
 @keyframes photoFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-10px); }
 }
 
 .photo-frame img {
@@ -616,28 +654,28 @@ body {
 .photo-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(0, 229, 255, 0.15), transparent 60%);
+    background: radial-gradient(circle at 30% 20%, rgba(0, 229, 255, 0.18), transparent 60%);
     pointer-events: none;
 }
 
 .status-pill {
     position: absolute;
-    bottom: 10%;
+    bottom: 8%;
     left: 50%;
     transform: translateX(-50%);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 7px 16px;
+    padding: 8px 18px;
     background: rgba(10, 12, 16, 0.92);
     border: 1px solid rgba(0, 229, 255, 0.35);
     border-radius: 50px;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--color-text);
     z-index: 6;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55), 0 0 20px rgba(0, 229, 255, 0.15);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 229, 255, 0.15);
     animation: statusFloat 4s ease-in-out infinite;
     white-space: nowrap;
 }
@@ -662,12 +700,12 @@ body {
 
 .float-tag {
     position: absolute;
-    padding: 6px 12px;
+    padding: 7px 14px;
     background: rgba(10, 12, 16, 0.9);
     border: 1px solid rgba(0, 229, 255, 0.28);
     border-radius: 50px;
     font-family: var(--font-display);
-    font-size: 0.62rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -679,9 +717,9 @@ body {
     white-space: nowrap;
 }
 
-.float-tag-1 { top: 6%; right: -2%; animation: tagFloat1 5s ease-in-out infinite; }
-.float-tag-2 { top: 44%; left: -6%; color: var(--color-accent); border-color: rgba(124, 92, 255, 0.3); animation: tagFloat2 6s ease-in-out infinite; }
-.float-tag-3 { bottom: 6%; right: -1%; color: var(--color-accent-2); border-color: rgba(255, 61, 129, 0.3); animation: tagFloat3 7s ease-in-out infinite; }
+.float-tag-1 { top: 4%; right: -4%; animation: tagFloat1 5s ease-in-out infinite; }
+.float-tag-2 { top: 44%; left: -8%; color: var(--color-accent); border-color: rgba(124, 92, 255, 0.3); animation: tagFloat2 6s ease-in-out infinite; }
+.float-tag-3 { bottom: 4%; right: -4%; color: var(--color-accent-2); border-color: rgba(255, 61, 129, 0.3); animation: tagFloat3 7s ease-in-out infinite; }
 
 @keyframes tagFloat1 {
     0%, 100% { transform: translate(0, 0) rotate(-3deg); }
@@ -994,7 +1032,7 @@ body {
 }
 
 /* ========================================
-   DROPDOWN TOGGLE
+   DROPDOWN
    ======================================== */
 .dropdown-wrapper {
     display: flex;
@@ -1739,12 +1777,6 @@ body {
     box-shadow: 0 0 0 4px rgba(0, 229, 255, 0.04);
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--color-text-dim);
-    opacity: 0.6;
-}
-
 .form-group textarea {
     resize: vertical;
     min-height: 130px;
@@ -1968,13 +2000,14 @@ body {
     .nav-toggle { display: flex; }
 
     .hero-split { padding: 100px 20px 40px; }
-    .photo-stage { max-width: 280px; }
+    .hero-left { padding: 20px; }
+    .photo-stage { max-width: 400px; }
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .stat-block { padding: 12px 10px 16px; }
     .stat-num { font-size: 1.3rem; }
     .stat-suffix { font-size: 0.95rem; }
     .stat-label { font-size: 0.58rem; letter-spacing: 1px; }
-    .float-tag { font-size: 0.58rem; padding: 5px 10px; }
+    .float-tag { font-size: 0.6rem; padding: 5px 10px; }
 
     .skills-grid { grid-template-columns: 1fr; }
     .achievement-grid { grid-template-columns: 1fr; }
@@ -2003,8 +2036,9 @@ body {
     .container { padding: 0 16px; }
     .section { padding: 48px 0; }
     .hero-title { font-size: 2.2rem; }
-    .photo-stage { max-width: 240px; }
-    .status-pill { font-size: 0.65rem; padding: 5px 11px; }
+    .hero-left { padding: 10px; }
+    .photo-stage { max-width: 320px; }
+    .status-pill { font-size: 0.65rem; padding: 5px 12px; }
     .hero-typed { font-size: 0.7rem; padding: 8px 12px; }
     .education-box { padding: 24px 18px; }
     .experience-card { padding: 24px 20px; }
