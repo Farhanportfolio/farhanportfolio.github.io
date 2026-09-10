@@ -12,7 +12,57 @@
     
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="intro-active">
+
+    <!-- ==================== INTRO CRACK SCREEN ==================== -->
+    <div class="intro-screen" id="introScreen">
+        <div class="intro-half intro-left">
+            <div class="intro-crack-edge"></div>
+        </div>
+        <div class="intro-half intro-right">
+            <div class="intro-crack-edge"></div>
+        </div>
+        
+        <!-- The Lightning Crack SVG -->
+        <div class="intro-crack-svg" id="introCrack">
+            <svg viewBox="0 0 100 1000" preserveAspectRatio="none" fill="none">
+                <defs>
+                    <linearGradient id="crackGlow" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
+                        <stop offset="20%" stop-color="#00e5ff" stop-opacity="0.8"/>
+                        <stop offset="50%" stop-color="#ffffff" stop-opacity="1"/>
+                        <stop offset="80%" stop-color="#00e5ff" stop-opacity="0.8"/>
+                        <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+                    </linearGradient>
+                    <filter id="crackBlur" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="3"/>
+                    </filter>
+                </defs>
+                <path id="crackPath" 
+                      d="M50 0 
+                         L46 80 L54 140 L44 220 L58 290 L48 370 L60 450 L46 530 L58 610 L48 690 L60 770 L46 850 L54 920 L50 1000" 
+                      stroke="url(#crackGlow)" 
+                      stroke-width="4" 
+                      filter="url(#crackBlur)"
+                      class="crack-path"/>
+                <path id="crackCore"
+                      d="M50 0 
+                         L46 80 L54 140 L44 220 L58 290 L48 370 L60 450 L46 530 L58 610 L48 690 L60 770 L46 850 L54 920 L50 1000" 
+                      stroke="#ffffff" 
+                      stroke-width="1.5"
+                      class="crack-core"/>
+            </svg>
+        </div>
+
+        <!-- Intro Text -->
+        <div class="intro-text" id="introText">
+            <span class="intro-word">Projects</span>
+        </div>
+
+        <!-- Intro Particles -->
+        <div class="intro-particles" id="introParticles"></div>
+    </div>
+
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -41,7 +91,7 @@
     </nav>
 
     <!-- ==================== MAIN CONTENT ==================== -->
-    <main>
+    <main class="main-content">
         <section class="section projects-page-section" id="projectsTop">
             <!-- 3D Floating Background Grid -->
             <div class="bg-grid-3d">
@@ -50,39 +100,14 @@
                 <div class="grid-layer grid-layer-3"></div>
             </div>
 
-            <!-- Rolling Orbits -->
-            <div class="orbit-container">
-                <div class="orbit orbit-1"><span class="orbit-dot"></span></div>
-                <div class="orbit orbit-2"><span class="orbit-dot"></span></div>
-                <div class="orbit orbit-3"><span class="orbit-dot"></span></div>
-            </div>
-
-            <!-- Floating Cubes -->
-            <div class="floating-cubes">
-                <div class="cube cube-1">
-                    <div class="cube-face cube-front"></div>
-                    <div class="cube-face cube-back"></div>
-                    <div class="cube-face cube-left"></div>
-                    <div class="cube-face cube-right"></div>
-                    <div class="cube-face cube-top"></div>
-                    <div class="cube-face cube-bottom"></div>
-                </div>
-                <div class="cube cube-2">
-                    <div class="cube-face cube-front"></div>
-                    <div class="cube-face cube-back"></div>
-                    <div class="cube-face cube-left"></div>
-                    <div class="cube-face cube-right"></div>
-                    <div class="cube-face cube-top"></div>
-                    <div class="cube-face cube-bottom"></div>
-                </div>
-                <div class="cube cube-3">
-                    <div class="cube-face cube-front"></div>
-                    <div class="cube-face cube-back"></div>
-                    <div class="cube-face cube-left"></div>
-                    <div class="cube-face cube-right"></div>
-                    <div class="cube-face cube-top"></div>
-                    <div class="cube-face cube-bottom"></div>
-                </div>
+            <!-- Rolling Square Pop-ups -->
+            <div class="rolling-squares">
+                <div class="roll-square rs-1"></div>
+                <div class="roll-square rs-2"></div>
+                <div class="roll-square rs-3"></div>
+                <div class="roll-square rs-4"></div>
+                <div class="roll-square rs-5"></div>
+                <div class="roll-square rs-6"></div>
             </div>
 
             <div class="container">
@@ -90,13 +115,33 @@
                 <div class="projects-hero">
                     <div class="hero-3d-icon">
                         <div class="hero-icon-inner">
+                            <!-- Pickaxe SVG (Tool) -->
                             <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                                <rect x="10" y="10" width="70" height="70" rx="18" stroke="#00e5ff" stroke-width="2"/>
-                                <path d="M30 30L60 60M30 60L60 30" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="30" cy="30" r="6" fill="#00e5ff"/>
-                                <circle cx="60" cy="60" r="6" fill="#00e5ff"/>
-                                <circle cx="30" cy="60" r="6" fill="#00e5ff"/>
-                                <circle cx="60" cy="30" r="6" fill="#00e5ff"/>
+                                <defs>
+                                    <linearGradient id="pickGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#66f0ff"/>
+                                        <stop offset="100%" stop-color="#00b4d8"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Pickaxe head -->
+                                <path d="M20 22 Q45 14 70 22 L66 30 Q45 24 24 30 Z" 
+                                      fill="url(#pickGrad)" 
+                                      stroke="#00e5ff" 
+                                      stroke-width="1.5"
+                                      stroke-linejoin="round"/>
+                                <!-- Pickaxe handle -->
+                                <rect x="42" y="28" width="6" height="52" rx="3" 
+                                      fill="url(#pickGrad)" 
+                                      stroke="#00e5ff" 
+                                      stroke-width="1"/>
+                                <!-- Handle grip lines -->
+                                <line x1="42" y1="60" x2="48" y2="60" stroke="#0a0c10" stroke-width="0.8" opacity="0.5"/>
+                                <line x1="42" y1="66" x2="48" y2="66" stroke="#0a0c10" stroke-width="0.8" opacity="0.5"/>
+                                <line x1="42" y1="72" x2="48" y2="72" stroke="#0a0c10" stroke-width="0.8" opacity="0.5"/>
+                                <!-- Sparkle accents -->
+                                <circle cx="18" cy="20" r="1.5" fill="#00e5ff" opacity="0.8"/>
+                                <circle cx="72" cy="20" r="1.5" fill="#00e5ff" opacity="0.8"/>
+                                <circle cx="45" cy="12" r="2" fill="#66f0ff" opacity="0.6"/>
                             </svg>
                         </div>
                         <div class="hero-icon-ring"></div>
@@ -117,28 +162,47 @@
                     <!-- ====== PROJECT 1: MALT RACKER ============ -->
                     <!-- ============================================ -->
                     <div class="project-wrapper reveal-project">
-                        <!-- Project Number Background -->
                         <div class="project-number-bg">01</div>
                         
                         <div class="project-card-3d tilt-card">
-                            <!-- Animated corner accents -->
                             <div class="corner-accent corner-tl"></div>
                             <div class="corner-accent corner-tr"></div>
                             <div class="corner-accent corner-bl"></div>
                             <div class="corner-accent corner-br"></div>
 
-                            <!-- Rolling scan line -->
-                            <div class="scan-line"></div>
-
-                            <!-- Header -->
                             <div class="project-header-3d">
                                 <div class="project-icon-3d" data-tilt>
-                                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                                        <rect x="8" y="8" width="40" height="40" rx="8" stroke="#00e5ff" stroke-width="2"/>
-                                        <path d="M20 28L26 34L38 22" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <circle cx="28" cy="28" r="18" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+                                    <!-- Detector / Scanner SVG -->
+                                    <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+                                        <defs>
+                                            <linearGradient id="detectGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00e5ff"/>
+                                                <stop offset="100%" stop-color="#00b4d8"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <!-- Outer radar circle -->
+                                        <circle cx="32" cy="32" r="26" stroke="url(#detectGrad)" stroke-width="1.5" opacity="0.4"/>
+                                        <circle cx="32" cy="32" r="20" stroke="url(#detectGrad)" stroke-width="1.5" opacity="0.6"/>
+                                        <circle cx="32" cy="32" r="14" stroke="url(#detectGrad)" stroke-width="2"/>
+                                        <!-- Radar sweep wedge -->
+                                        <path d="M32 32 L32 12 A20 20 0 0 1 49.5 22 Z" 
+                                              fill="#00e5ff" 
+                                              opacity="0.15"/>
+                                        <!-- Center detection point -->
+                                        <circle cx="32" cy="32" r="4" fill="#00e5ff"/>
+                                        <circle cx="32" cy="32" r="2" fill="#fff"/>
+                                        <!-- Detected threats -->
+                                        <circle cx="24" cy="26" r="2" fill="#66f0ff"/>
+                                        <circle cx="42" cy="38" r="2" fill="#66f0ff"/>
+                                        <circle cx="38" cy="24" r="1.5" fill="#00e5ff" opacity="0.7"/>
+                                        <!-- Crosshair -->
+                                        <line x1="32" y1="6" x2="32" y2="10" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="32" y1="54" x2="32" y2="58" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="6" y1="32" x2="10" y2="32" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="54" y1="32" x2="58" y2="32" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                     <div class="icon-pulse"></div>
+                                    <div class="icon-radar"></div>
                                 </div>
                                 <div class="project-title-group">
                                     <h3>MalTracker</h3>
@@ -168,7 +232,6 @@
                                 </div>
                             </div>
 
-                            <!-- Content -->
                             <div class="project-body">
                                 <p class="project-description">
                                     A cybersecurity-focused project designed to detect potentially malicious or fake banking applications using static and behavioral analysis techniques. It analyzes app behavior and patterns to identify phishing or malicious indicators before users interact with them.
@@ -176,10 +239,7 @@
 
                                 <div class="project-content-grid">
                                     <div class="project-features-3d">
-                                        <h4>
-                                            <span class="h4-line"></span>
-                                            Features
-                                        </h4>
+                                        <h4><span class="h4-line"></span>Features</h4>
                                         <ul>
                                             <li><span class="li-dot"></span>Detects suspicious banking apps</li>
                                             <li><span class="li-dot"></span>Analyzes app behavior and patterns</li>
@@ -189,10 +249,7 @@
                                     </div>
 
                                     <div class="project-tech-3d">
-                                        <h4>
-                                            <span class="h4-line"></span>
-                                            Tech Stack
-                                        </h4>
+                                        <h4><span class="h4-line"></span>Tech Stack</h4>
                                         <div class="tech-tags-3d">
                                             <span class="tech-tag-3d">Python</span>
                                             <span class="tech-tag-3d">Android Analysis</span>
@@ -202,10 +259,7 @@
                                 </div>
 
                                 <div class="project-install-3d">
-                                    <h4>
-                                        <span class="h4-line"></span>
-                                        Installation
-                                    </h4>
+                                    <h4><span class="h4-line"></span>Installation</h4>
                                     <div class="code-block-3d">
                                         <div class="code-header">
                                             <span class="code-dot dot-red"></span>
@@ -222,7 +276,6 @@
                                 </div>
                             </div>
 
-                            <!-- Open Project CTA -->
                             <div class="project-open-cta">
                                 <a href="https://github.com/mr-farhankhan/maltracker" target="_blank" rel="noopener noreferrer" class="btn btn-open-project">
                                     <span class="btn-glow"></span>
@@ -249,16 +302,24 @@
                             <div class="corner-accent corner-bl"></div>
                             <div class="corner-accent corner-br"></div>
 
-                            <div class="scan-line"></div>
-
-                            <!-- Header -->
                             <div class="project-header-3d">
                                 <div class="project-icon-3d" data-tilt>
-                                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                                        <circle cx="28" cy="28" r="20" stroke="#00e5ff" stroke-width="2"/>
-                                        <circle cx="28" cy="28" r="12" stroke="#00e5ff" stroke-width="2"/>
-                                        <circle cx="28" cy="28" r="4" fill="#00e5ff"/>
-                                        <path d="M28 8V4M28 52V48M8 28H4M52 28H48" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    <!-- Radar Scanner SVG -->
+                                    <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+                                        <defs>
+                                            <linearGradient id="reconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#00e5ff"/>
+                                                <stop offset="100%" stop-color="#00b4d8"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="32" cy="32" r="24" stroke="url(#reconGrad)" stroke-width="1.5" opacity="0.4"/>
+                                        <circle cx="32" cy="32" r="16" stroke="url(#reconGrad)" stroke-width="1.5" opacity="0.6"/>
+                                        <circle cx="32" cy="32" r="8" stroke="url(#reconGrad)" stroke-width="2"/>
+                                        <circle cx="32" cy="32" r="3" fill="#00e5ff"/>
+                                        <line x1="32" y1="8" x2="32" y2="56" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+                                        <line x1="8" y1="32" x2="56" y2="32" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+                                        <line x1="15" y1="15" x2="49" y2="49" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+                                        <line x1="49" y1="15" x2="15" y2="49" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
                                     </svg>
                                     <div class="icon-pulse"></div>
                                     <div class="icon-radar"></div>
@@ -284,7 +345,6 @@
                                 </div>
                             </div>
 
-                            <!-- Content -->
                             <div class="project-body">
                                 <p class="project-description">
                                     1Recon is a Bash-based reconnaissance automation framework designed to streamline the initial information-gathering phase of penetration testing and bug bounty assessments. It combines multiple reconnaissance and enumeration tools into a single workflow — helping security researchers discover subdomains, validate DNS records, identify open ports and services, detect web technologies, enumerate directories, crawl web applications, and organize reconnaissance results.
@@ -292,10 +352,7 @@
 
                                 <div class="project-content-grid">
                                     <div class="project-features-3d">
-                                        <h4>
-                                            <span class="h4-line"></span>
-                                            Features
-                                        </h4>
+                                        <h4><span class="h4-line"></span>Features</h4>
                                         <ul>
                                             <li><span class="li-dot"></span>Subdomain enumeration (Subfinder &amp; Assetfinder)</li>
                                             <li><span class="li-dot"></span>Automatic result deduplication</li>
@@ -313,10 +370,7 @@
                                     </div>
 
                                     <div class="project-tech-3d">
-                                        <h4>
-                                            <span class="h4-line"></span>
-                                            Requirements
-                                        </h4>
+                                        <h4><span class="h4-line"></span>Requirements</h4>
                                         <div class="tech-tags-3d">
                                             <span class="tech-tag-3d">Bash</span>
                                             <span class="tech-tag-3d">Subfinder</span>
@@ -334,92 +388,88 @@
 
                                 <!-- Workflow -->
                                 <div class="project-workflow-3d">
-                                    <h4>
-                                        <span class="h4-line"></span>
-                                        Reconnaissance Workflow
-                                    </h4>
+                                    <h4><span class="h4-line"></span>Reconnaissance Workflow</h4>
                                     <div class="workflow-svg-3d">
-                                        <svg width="100%" height="auto" viewBox="0 0 640 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg width="100%" height="auto" viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <defs>
-                                                <linearGradient id="flowGrad3d" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <linearGradient id="flowGradNew" x1="0%" y1="0%" x2="0%" y2="100%">
                                                     <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.9"/>
-                                                    <stop offset="100%" stop-color="#00b4d8" stop-opacity="0.5"/>
+                                                    <stop offset="100%" stop-color="#00b4d8" stop-opacity="0.6"/>
                                                 </linearGradient>
-                                                <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                    <stop offset="0%" stop-color="rgba(0,229,255,0.08)"/>
+                                                <linearGradient id="boxGradNew" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" stop-color="rgba(0,229,255,0.1)"/>
                                                     <stop offset="100%" stop-color="rgba(0,180,216,0.03)"/>
                                                 </linearGradient>
-                                                <marker id="arrow3d" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                                                    <path d="M0 0 L10 5 L0 10 Z" fill="#00e5ff" opacity="0.7"/>
-                                                </marker>
+                                                <filter id="boxGlow">
+                                                    <feGaussianBlur stdDeviation="2" result="blur"/>
+                                                    <feMerge>
+                                                        <feMergeNode in="blur"/>
+                                                        <feMergeNode in="SourceGraphic"/>
+                                                    </feMerge>
+                                                </filter>
                                             </defs>
 
-                                            <!-- Target Domain -->
+                                            <!-- 1. Target Domain -->
                                             <g class="flow-node">
-                                                <rect x="240" y="10" width="160" height="40" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="320" y="35" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter" font-weight="600">Target Domain</text>
+                                                <rect x="250" y="15" width="200" height="44" rx="12" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="350" y="42" text-anchor="middle" fill="#00e5ff" font-size="14" font-family="Inter" font-weight="600">🎯 Target Domain</text>
                                             </g>
-                                            <path d="M320 50 V86" stroke="url(#flowGrad3d)" stroke-width="1.5" marker-end="url(#arrow3d)" class="flow-path"/>
+                                            <line x1="350" y1="60" x2="350" y2="95" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- Subdomain Discovery -->
+                                            <!-- 2. Subdomain Discovery -->
                                             <g class="flow-node">
-                                                <rect x="210" y="90" width="220" height="40" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="320" y="115" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter" font-weight="600">Subdomain Discovery</text>
+                                                <rect x="220" y="100" width="260" height="44" rx="12" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="350" y="127" text-anchor="middle" fill="#00e5ff" font-size="14" font-family="Inter" font-weight="600">Subdomain Discovery</text>
                                             </g>
-                                            <path d="M320 130 V166" stroke="url(#flowGrad3d)" stroke-width="1.5" marker-end="url(#arrow3d)" class="flow-path"/>
+                                            <line x1="350" y1="145" x2="350" y2="180" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- Deduplication -->
+                                            <!-- 3. Deduplication -->
                                             <g class="flow-node">
-                                                <rect x="240" y="170" width="160" height="36" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="320" y="193" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">Deduplication</text>
+                                                <rect x="260" y="185" width="180" height="40" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="350" y="209" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter">Deduplication</text>
                                             </g>
-                                            <path d="M320 206 V242" stroke="url(#flowGrad3d)" stroke-width="1.5" marker-end="url(#arrow3d)" class="flow-path"/>
+                                            <line x1="350" y1="226" x2="350" y2="261" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- DNS Validation -->
+                                            <!-- 4. DNS Validation -->
                                             <g class="flow-node">
-                                                <rect x="240" y="246" width="160" height="36" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="320" y="269" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">DNS Validation</text>
+                                                <rect x="260" y="266" width="180" height="40" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="350" y="290" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter">DNS Validation</text>
                                             </g>
-                                            <path d="M320 282 V312" stroke="url(#flowGrad3d)" stroke-width="1.5" class="flow-path"/>
+                                            <line x1="350" y1="307" x2="350" y2="335" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- Split -->
-                                            <path d="M320 312 L140 330" stroke="url(#flowGrad3d)" stroke-width="1.5" class="flow-path"/>
-                                            <path d="M320 312 L500 330" stroke="url(#flowGrad3d)" stroke-width="1.5" class="flow-path"/>
-                                            <path d="M320 312 L320 340" stroke="url(#flowGrad3d)" stroke-width="1.5" class="flow-path"/>
+                                            <!-- Split point -->
+                                            <path d="M350 335 L140 355" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
+                                            <path d="M350 335 L350 360" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
+                                            <path d="M350 335 L560 355" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- Three Branches -->
+                                            <!-- 5. Three branches -->
                                             <g class="flow-node">
-                                                <rect x="60" y="336" width="160" height="36" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="140" y="359" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">Nmap Port Scan</text>
+                                                <rect x="60" y="360" width="160" height="44" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="140" y="387" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter">Nmap Port Scan</text>
                                             </g>
-
                                             <g class="flow-node">
-                                                <rect x="240" y="336" width="160" height="36" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="320" y="359" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">HTTPX Probing</text>
+                                                <rect x="270" y="360" width="160" height="44" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="350" y="387" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter">HTTPX Probing</text>
                                             </g>
-
                                             <g class="flow-node">
-                                                <rect x="420" y="336" width="160" height="36" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGrad)"/>
-                                                <text x="500" y="359" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">WHOIS Lookup</text>
+                                                <rect x="480" y="360" width="160" height="44" rx="10" stroke="#00e5ff" stroke-width="1.5" fill="url(#boxGradNew)"/>
+                                                <text x="560" y="387" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter">WHOIS Lookup</text>
                                             </g>
 
                                             <!-- Merge -->
-                                            <path d="M320 372 V398" stroke="url(#flowGrad3d)" stroke-width="1.5" marker-end="url(#arrow3d)" class="flow-path"/>
+                                            <path d="M140 405 L350 435 L560 405" stroke="url(#flowGradNew)" stroke-width="2" stroke-dasharray="6 4" class="flow-line-anim"/>
 
-                                            <!-- Final Result -->
+                                            <!-- 6. Final Result -->
                                             <g class="flow-node flow-final">
-                                                <rect x="220" y="402" width="200" height="40" rx="12" stroke="#00e5ff" stroke-width="2" fill="rgba(0,229,255,0.12)"/>
-                                                <text x="320" y="427" text-anchor="middle" fill="#00e5ff" font-size="13" font-family="Inter" font-weight="700">Organized Results</text>
+                                                <rect x="240" y="440" width="220" height="48" rx="14" stroke="#00e5ff" stroke-width="2.5" fill="rgba(0,229,255,0.15)" filter="url(#boxGlow)"/>
+                                                <text x="350" y="471" text-anchor="middle" fill="#66f0ff" font-size="15" font-family="Inter" font-weight="800">✓ Organized Results</text>
                                             </g>
                                         </svg>
                                     </div>
                                 </div>
 
                                 <div class="project-install-3d">
-                                    <h4>
-                                        <span class="h4-line"></span>
-                                        Installation &amp; Usage
-                                    </h4>
+                                    <h4><span class="h4-line"></span>Installation &amp; Usage</h4>
                                     <div class="code-block-3d">
                                         <div class="code-header">
                                             <span class="code-dot dot-red"></span>
@@ -444,7 +494,6 @@
                                 </div>
                             </div>
 
-                            <!-- Open Project CTA -->
                             <div class="project-open-cta">
                                 <a href="https://github.com/mr-farhankhan/1Recon" target="_blank" rel="noopener noreferrer" class="btn btn-open-project">
                                     <span class="btn-glow"></span>
