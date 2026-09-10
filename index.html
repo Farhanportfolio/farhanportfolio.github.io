@@ -17,104 +17,29 @@
 <body class="intro-active">
 
     <!-- ==================== LIGHTNING CRACK INTRO ==================== -->
-    <div class="crack-intro" id="crackIntro">
-        <!-- Left Half -->
-        <div class="crack-half crack-half-left">
-            <div class="crack-half-bg"></div>
-            <div class="crack-edge-glow"></div>
-        </div>
+    <div class="intro" id="intro">
+        <!-- Left half -->
+        <div class="intro-half intro-half-left"></div>
+        <!-- Right half -->
+        <div class="intro-half intro-half-right"></div>
 
-        <!-- Right Half -->
-        <div class="crack-half crack-half-right">
-            <div class="crack-half-bg"></div>
-            <div class="crack-edge-glow"></div>
-        </div>
-
-        <!-- Lightning SVG -->
-        <div class="crack-svg-wrap" id="crackSvg">
-            <svg viewBox="0 0 100 1000" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="crackGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#00e5ff" stop-opacity="0"/>
-                        <stop offset="15%" stop-color="#00e5ff" stop-opacity="0.9"/>
-                        <stop offset="50%" stop-color="#ffffff" stop-opacity="1"/>
-                        <stop offset="85%" stop-color="#00e5ff" stop-opacity="0.9"/>
-                        <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
-                    </linearGradient>
-                    <filter id="crackGlowFilter" x="-100%" y="-10%" width="300%" height="120%">
-                        <feGaussianBlur stdDeviation="4"/>
-                    </filter>
-                    <filter id="crackGlowFilter2" x="-200%" y="-10%" width="500%" height="120%">
-                        <feGaussianBlur stdDeviation="12"/>
-                    </filter>
-                </defs>
-
-                <!-- Outer glow layer -->
-                <path class="crack-path-glow"
-                      d="M50 0 L46 60 L54 120 L44 200 L58 280 L48 360 L60 440 L46 520 L58 600 L48 680 L60 760 L46 840 L54 920 L50 1000"
-                      stroke="url(#crackGrad)"
-                      stroke-width="18"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      filter="url(#crackGlowFilter2)"/>
-
-                <!-- Mid glow layer -->
-                <path class="crack-path-mid"
-                      d="M50 0 L46 60 L54 120 L44 200 L58 280 L48 360 L60 440 L46 520 L58 600 L48 680 L60 760 L46 840 L54 920 L50 1000"
-                      stroke="url(#crackGrad)"
-                      stroke-width="6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      filter="url(#crackGlowFilter)"/>
-
-                <!-- Bright core -->
-                <path class="crack-path-core"
-                      d="M50 0 L46 60 L54 120 L44 200 L58 280 L48 360 L60 440 L46 520 L58 600 L48 680 L60 760 L46 840 L54 920 L50 1000"
-                      stroke="#ffffff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
-
-                <!-- Branch cracks (sparkles) -->
-                <path class="crack-branch"
-                      d="M46 60 L38 72 L44 82"
-                      stroke="#00e5ff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity="0"/>
-                <path class="crack-branch"
-                      d="M58 280 L68 292 L62 302"
-                      stroke="#00e5ff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity="0"/>
-                <path class="crack-branch"
-                      d="M48 520 L38 532 L44 542"
-                      stroke="#00e5ff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity="0"/>
-                <path class="crack-branch"
-                      d="M60 760 L70 772 L64 782"
-                      stroke="#00e5ff"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      opacity="0"/>
+        <!-- Lightning crack SVG -->
+        <div class="intro-crack">
+            <svg viewBox="0 0 40 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="crack-glow"
+                      d="M20 0 L15 100 L25 200 L13 320 L28 440 L15 560 L28 680 L15 800 L25 900 L20 1000"
+                      stroke="#00e5ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="crack-line"
+                      d="M20 0 L15 100 L25 200 L13 320 L28 440 L15 560 L28 680 L15 800 L25 900 L20 1000"
+                      stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
 
-        <!-- Intro Title -->
-        <div class="crack-title" id="crackTitle">
-            <span class="crack-title-line">Farhan Khan</span>
-            <span class="crack-title-sub">Cyber Security Enthusiast</span>
+        <!-- Title -->
+        <div class="intro-title" id="introTitle">
+            <span class="intro-title-line">Farhan Khan</span>
+            <span class="intro-title-sub">Cyber Security Enthusiast</span>
         </div>
-
-        <!-- Center Flash -->
-        <div class="crack-flash" id="crackFlash"></div>
     </div>
 
     <!-- ==================== NAVIGATION ==================== -->
@@ -147,7 +72,7 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
-        <!-- ====== HERO — SPLIT LAYOUT ====== -->
+        <!-- ====== HERO ====== -->
         <section class="hero-split">
             <div class="hero-bg">
                 <div class="bg-grid"></div>
@@ -167,15 +92,9 @@
                         <div class="circle-ring ring-5"></div>
                         <div class="circle-ring ring-6"></div>
 
-                        <div class="orbit-dash orbit-dash-1">
-                            <span class="orbit-dot"></span>
-                        </div>
-                        <div class="orbit-dash orbit-dash-2">
-                            <span class="orbit-dot"></span>
-                        </div>
-                        <div class="orbit-dash orbit-dash-3">
-                            <span class="orbit-dot"></span>
-                        </div>
+                        <div class="orbit-dash orbit-dash-1"><span class="orbit-dot"></span></div>
+                        <div class="orbit-dash orbit-dash-2"><span class="orbit-dot"></span></div>
+                        <div class="orbit-dash orbit-dash-3"><span class="orbit-dot"></span></div>
 
                         <div class="photo-shine"></div>
 
@@ -550,7 +469,6 @@
                                         <circle cx="180" cy="90" r="40" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="25" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="10" fill="rgba(0, 229, 255, 0.15)"/>
-                                        <path d="M140 50L160 70M220 50L200 70M140 130L160 110M220 130L200 110" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
@@ -582,7 +500,6 @@
                                         <circle cx="180" cy="90" r="42" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="24" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="6" fill="#00e5ff"/>
-                                        <path d="M180 48V60M180 120V132M138 90H150M210 90H222" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
@@ -612,11 +529,7 @@
                                         <rect width="360" height="180" rx="12" fill="#0a0c10"/>
                                         <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
                                         <rect x="60" y="50" width="240" height="80" rx="6" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
-                                        <rect x="80" y="70" width="80" height="6" rx="3" fill="#00e5ff" opacity="0.3"/>
-                                        <rect x="80" y="86" width="120" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
-                                        <rect x="80" y="102" width="100" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
                                         <circle cx="260" cy="100" r="16" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
-                                        <circle cx="260" cy="100" r="6" fill="#00e5ff" opacity="0.5"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
