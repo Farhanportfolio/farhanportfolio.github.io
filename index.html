@@ -47,9 +47,8 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
-        <!-- ====== HERO — SPLIT LAYOUT (same as profiles) ====== -->
+        <!-- ====== HERO — SPLIT LAYOUT ====== -->
         <section class="hero-split">
-            <!-- Ambient background -->
             <div class="hero-bg">
                 <div class="bg-grid"></div>
                 <div class="bg-orb bg-orb-1"></div>
@@ -59,7 +58,7 @@
             </div>
 
             <div class="hero-split-inner">
-                <!-- LEFT — PHOTO WITH CONCENTRIC RINGS -->
+                <!-- LEFT — PHOTO WITH LARGER CIRCLES -->
                 <div class="hero-left reveal-left">
                     <div class="photo-stage">
                         <div class="circle-ring ring-1"></div>
@@ -67,11 +66,15 @@
                         <div class="circle-ring ring-3"></div>
                         <div class="circle-ring ring-4"></div>
                         <div class="circle-ring ring-5"></div>
+                        <div class="circle-ring ring-6"></div>
 
                         <div class="orbit-dash orbit-dash-1">
                             <span class="orbit-dot"></span>
                         </div>
                         <div class="orbit-dash orbit-dash-2">
+                            <span class="orbit-dot"></span>
+                        </div>
+                        <div class="orbit-dash orbit-dash-3">
                             <span class="orbit-dot"></span>
                         </div>
 
@@ -811,15 +814,15 @@
                     <form class="contact-form reveal-up" id="contactForm" novalidate style="--d: 0.15s">
                         <div class="form-group">
                             <label for="contactName">Your Name</label>
-                            <input type="text" id="contactName" name="name" placeholder="John Doe" required />
+                            <input type="text" id="contactName" name="name" required />
                         </div>
                         <div class="form-group">
                             <label for="contactEmail">Email Address</label>
-                            <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required />
+                            <input type="email" id="contactEmail" name="email" required />
                         </div>
                         <div class="form-group">
                             <label for="contactMessage">Message</label>
-                            <textarea id="contactMessage" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+                            <textarea id="contactMessage" name="message" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">
                             Send Message
