@@ -10,36 +10,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
+    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <link rel="stylesheet" href="style.css" />
 </head>
-<body class="intro-active">
+<body class="curtain-active">
 
-    <!-- ==================== LIGHTNING CRACK INTRO ==================== -->
-    <div class="intro" id="intro">
-        <!-- Left half -->
-        <div class="intro-half intro-half-left"></div>
-        <!-- Right half -->
-        <div class="intro-half intro-half-right"></div>
-
-        <!-- Lightning crack SVG -->
-        <div class="intro-crack">
-            <svg viewBox="0 0 40 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="crack-glow"
-                      d="M20 0 L15 100 L25 200 L13 320 L28 440 L15 560 L28 680 L15 800 L25 900 L20 1000"
-                      stroke="#00e5ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-                <path class="crack-line"
-                      d="M20 0 L15 100 L25 200 L13 320 L28 440 L15 560 L28 680 L15 800 L25 900 L20 1000"
-                      stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+    <!-- ==================== CURTAIN INTRO ==================== -->
+    <div class="curtain-intro" id="curtainIntro">
+        <!-- Left Curtain Panel -->
+        <div class="curtain-panel curtain-left">
+            <div class="curtain-wrinkles">
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+            </div>
+            <div class="curtain-fold"></div>
+            <div class="curtain-fringe"></div>
         </div>
 
-        <!-- Title -->
-        <div class="intro-title" id="introTitle">
-            <span class="intro-title-line">Farhan Khan</span>
-            <span class="intro-title-sub">Cyber Security Enthusiast</span>
+        <!-- Right Curtain Panel -->
+        <div class="curtain-panel curtain-right">
+            <div class="curtain-wrinkles">
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+                <div class="wrinkle"></div>
+            </div>
+            <div class="curtain-fold"></div>
+            <div class="curtain-fringe"></div>
         </div>
+
+        <!-- Center Title -->
+        <div class="curtain-title" id="curtainTitle">
+            <span class="curtain-title-line">Farhan Khan</span>
+            <span class="curtain-title-sub">Cyber Security Enthusiast</span>
+        </div>
+
+        <!-- Center Light Beam -->
+        <div class="curtain-light"></div>
     </div>
 
     <!-- ==================== NAVIGATION ==================== -->
@@ -72,7 +91,7 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
-        <!-- ====== HERO ====== -->
+        <!-- ====== HERO — SPLIT LAYOUT ====== -->
         <section class="hero-split">
             <div class="hero-bg">
                 <div class="bg-grid"></div>
@@ -83,6 +102,7 @@
             </div>
 
             <div class="hero-split-inner">
+                <!-- LEFT — PHOTO WITH LARGER CIRCLES -->
                 <div class="hero-left reveal-left">
                     <div class="photo-stage">
                         <div class="circle-ring ring-1"></div>
@@ -92,9 +112,15 @@
                         <div class="circle-ring ring-5"></div>
                         <div class="circle-ring ring-6"></div>
 
-                        <div class="orbit-dash orbit-dash-1"><span class="orbit-dot"></span></div>
-                        <div class="orbit-dash orbit-dash-2"><span class="orbit-dot"></span></div>
-                        <div class="orbit-dash orbit-dash-3"><span class="orbit-dot"></span></div>
+                        <div class="orbit-dash orbit-dash-1">
+                            <span class="orbit-dot"></span>
+                        </div>
+                        <div class="orbit-dash orbit-dash-2">
+                            <span class="orbit-dot"></span>
+                        </div>
+                        <div class="orbit-dash orbit-dash-3">
+                            <span class="orbit-dot"></span>
+                        </div>
 
                         <div class="photo-shine"></div>
 
@@ -114,6 +140,7 @@
                     </div>
                 </div>
 
+                <!-- RIGHT — TEXT -->
                 <div class="hero-right">
                     <span class="hero-eyebrow reveal-right" style="--d: 0.05s">
                         <span class="eyebrow-line"></span>
@@ -469,6 +496,7 @@
                                         <circle cx="180" cy="90" r="40" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="25" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="10" fill="rgba(0, 229, 255, 0.15)"/>
+                                        <path d="M140 50L160 70M220 50L200 70M140 130L160 110M220 130L200 110" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
@@ -500,6 +528,7 @@
                                         <circle cx="180" cy="90" r="42" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="24" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="6" fill="#00e5ff"/>
+                                        <path d="M180 48V60M180 120V132M138 90H150M210 90H222" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
@@ -529,7 +558,11 @@
                                         <rect width="360" height="180" rx="12" fill="#0a0c10"/>
                                         <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
                                         <rect x="60" y="50" width="240" height="80" rx="6" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
+                                        <rect x="80" y="70" width="80" height="6" rx="3" fill="#00e5ff" opacity="0.3"/>
+                                        <rect x="80" y="86" width="120" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
+                                        <rect x="80" y="102" width="100" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
                                         <circle cx="260" cy="100" r="16" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+                                        <circle cx="260" cy="100" r="6" fill="#00e5ff" opacity="0.5"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
