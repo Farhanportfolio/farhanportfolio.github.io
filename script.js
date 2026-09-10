@@ -287,7 +287,7 @@ function initCardGlow() {
 }
 
 // ========================================
-// HERO REVEAL (includes tagline)
+// HERO REVEAL
 // ========================================
 function initHeroReveal() {
     const heroElements = document.querySelectorAll(
