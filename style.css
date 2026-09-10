@@ -235,6 +235,20 @@ body {
     background: rgba(0, 229, 255, 0.04);
 }
 
+.btn-resume {
+    background: linear-gradient(135deg, var(--color-accent), #5a3fe0);
+    color: #ffffff;
+    box-shadow: 0 4px 24px rgba(124, 92, 255, 0.3);
+}
+
+.btn-resume:hover {
+    box-shadow: 0 8px 48px rgba(124, 92, 255, 0.45);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.btn-resume svg { transition: transform var(--transition-slow) var(--transition-bounce); }
+.btn-resume:hover svg { transform: translateY(3px) scale(1.1); }
+
 .btn-full { width: 100%; justify-content: center; }
 .btn-sm { padding: 8px 20px; font-size: 0.85rem; min-width: auto; }
 .section-action { text-align: center; margin-top: 40px; }
@@ -349,7 +363,7 @@ body {
 }
 
 /* ========================================
-   HERO — SPLIT LAYOUT WITH LARGER CIRCLES
+   HERO — SPLIT LAYOUT WITH SMALLER PHOTO + TAGLINE
    ======================================== */
 .hero-split {
     position: relative;
@@ -437,30 +451,32 @@ body {
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-    gap: 70px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 60px;
     align-items: center;
 }
 
-/* ===== LEFT — PHOTO WITH LARGER STAGE & CIRCLES ===== */
+/* ===== LEFT — PHOTO (SMALLER) WITH TAGLINE ===== */
 .hero-left {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    gap: 28px;
+    padding: 20px;
 }
 
 .photo-stage {
     position: relative;
     width: 100%;
-    max-width: 520px;
+    max-width: 340px;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Concentric shining rings — larger and layered */
+/* Concentric shining rings */
 .circle-ring {
     position: absolute;
     top: 50%; left: 50%;
@@ -469,7 +485,6 @@ body {
     pointer-events: none;
 }
 
-/* Ring 1 — innermost */
 .ring-1 {
     width: 68%; height: 68%;
     border: 2px solid rgba(0, 229, 255, 0.65);
@@ -479,7 +494,6 @@ body {
     animation: ringSpin 10s linear infinite, ringPulse 3s ease-in-out infinite;
 }
 
-/* Ring 2 — thin solid */
 .ring-2 {
     width: 80%; height: 80%;
     border: 1.5px solid rgba(0, 229, 255, 0.35);
@@ -489,14 +503,12 @@ body {
     animation: ringSpin 15s linear infinite reverse, ringPulse 3.5s ease-in-out infinite;
 }
 
-/* Ring 3 — dashed */
 .ring-3 {
     width: 92%; height: 92%;
     border: 1.5px dashed rgba(0, 229, 255, 0.35);
     animation: ringSpin 28s linear infinite, ringPulse 4s ease-in-out infinite;
 }
 
-/* Ring 4 — accent violet */
 .ring-4 {
     width: 105%; height: 105%;
     border: 1.5px solid rgba(124, 92, 255, 0.35);
@@ -506,14 +518,12 @@ body {
     animation: ringSpin 20s linear infinite reverse, ringPulse 5s ease-in-out infinite;
 }
 
-/* Ring 5 — dotted outer */
 .ring-5 {
     width: 118%; height: 118%;
     border: 1.5px dotted rgba(0, 229, 255, 0.25);
     animation: ringSpin 34s linear infinite, ringPulse 6s ease-in-out infinite;
 }
 
-/* Ring 6 — outermost accent-pink */
 .ring-6 {
     width: 132%; height: 132%;
     border: 1px solid rgba(255, 61, 129, 0.2);
@@ -588,7 +598,6 @@ body {
     transform: translateY(-50%);
 }
 
-/* Shine sweep over the photo */
 .photo-shine {
     position: absolute;
     width: 68%; height: 68%;
@@ -620,7 +629,6 @@ body {
     60%, 100% { left: 125%; }
 }
 
-/* Photo frame */
 .photo-frame {
     position: relative;
     width: 68%;
@@ -733,6 +741,67 @@ body {
     0%, 100% { transform: translate(0, 0) rotate(-2deg); }
     50% { transform: translate(-8px, 8px) rotate(2deg); }
 }
+
+/* ===== TAGLINE — Perfectly aligned below profile picture ===== */
+.hero-tagline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 360px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s var(--transition-bounce), transform 0.9s var(--transition-bounce);
+}
+
+.hero-tagline.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tagline-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.5));
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.tagline-line:last-child {
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.5), transparent);
+}
+
+.tagline-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    animation: taglineShimmer 3s ease-in-out infinite;
+}
+
+.tagline-line:last-child::after { animation-delay: 1.5s; }
+
+@keyframes taglineShimmer {
+    0% { left: -100%; }
+    60%, 100% { left: 100%; }
+}
+
+.tagline-text {
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    white-space: nowrap;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+.tagline-text .gradient-text { font-weight: 900; }
 
 /* ===== RIGHT — TEXT ===== */
 .hero-right {
@@ -1632,6 +1701,16 @@ body {
 .profile-icon {
     color: var(--color-primary);
     transition: transform var(--transition-slow) var(--transition-bounce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.profile-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .profile-card:hover .profile-icon { transform: scale(1.1) rotate(-4deg); }
@@ -2000,14 +2079,15 @@ body {
     .nav-toggle { display: flex; }
 
     .hero-split { padding: 100px 20px 40px; }
-    .hero-left { padding: 20px; }
-    .photo-stage { max-width: 400px; }
+    .hero-left { padding: 10px; gap: 20px; }
+    .photo-stage { max-width: 300px; }
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .stat-block { padding: 12px 10px 16px; }
     .stat-num { font-size: 1.3rem; }
     .stat-suffix { font-size: 0.95rem; }
     .stat-label { font-size: 0.58rem; letter-spacing: 1px; }
     .float-tag { font-size: 0.6rem; padding: 5px 10px; }
+    .tagline-text { font-size: 0.72rem; letter-spacing: 2px; }
 
     .skills-grid { grid-template-columns: 1fr; }
     .achievement-grid { grid-template-columns: 1fr; }
@@ -2030,19 +2110,19 @@ body {
 
 @media (max-width: 480px) {
     .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stat-card { padding: 18px 16px; }
-    .stat-number { font-size: 2rem; }
     .profiles-grid { grid-template-columns: 1fr; }
     .container { padding: 0 16px; }
     .section { padding: 48px 0; }
     .hero-title { font-size: 2.2rem; }
-    .hero-left { padding: 10px; }
-    .photo-stage { max-width: 320px; }
+    .hero-left { padding: 6px; gap: 16px; }
+    .photo-stage { max-width: 260px; }
     .status-pill { font-size: 0.65rem; padding: 5px 12px; }
     .hero-typed { font-size: 0.7rem; padding: 8px 12px; }
     .education-box { padding: 24px 18px; }
     .experience-card { padding: 24px 20px; }
     .contact-form { padding: 20px 16px; }
+    .tagline-text { font-size: 0.65rem; letter-spacing: 1.5px; }
+    .hero-tagline { gap: 10px; max-width: 280px; }
 
     .btn {
         padding: 12px 24px;
@@ -2053,7 +2133,6 @@ body {
 
     .btn-open-page { width: 40px; height: 40px; }
     .btn-open-page svg { width: 16px; height: 16px; }
-    .hero-tags span { font-size: 0.75rem; padding: 4px 14px; white-space: normal; }
     .back-to-top { bottom: 16px; right: 16px; width: 46px; height: 46px; }
 }
 
