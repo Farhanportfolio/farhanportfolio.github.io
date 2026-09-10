@@ -1,51 +1,7 @@
 // ========================================
-// FAST INTRO ANIMATION
-// ========================================
-document.addEventListener('DOMContentLoaded', () => {
-    initIntro();
-});
-
-function initIntro() {
-    const introScreen = document.getElementById('introScreen');
-    const introCrack = document.getElementById('introCrack');
-    const introText = document.getElementById('introText');
-    
-    // Make crack visible immediately
-    introCrack.style.opacity = '1';
-    
-    // Phase 1: Crack draws (0-500ms) - already started via CSS
-    // Phase 2: Show "Projects" text (400ms)
-    setTimeout(() => {
-        introText.classList.add('show');
-    }, 400);
-    
-    // Phase 3: Shatter text and prepare crack opening (900ms)
-    setTimeout(() => {
-        introText.classList.add('shatter');
-        introScreen.classList.add('cracking');
-    }, 900);
-    
-    // Phase 4: Open the halves (1100ms)
-    setTimeout(() => {
-        introScreen.classList.add('opening');
-    }, 1100);
-    
-    // Phase 5: Remove intro, reveal page (1900ms)
-    setTimeout(() => {
-        document.body.classList.remove('intro-active');
-        introScreen.style.opacity = '0';
-        introScreen.style.transition = 'opacity 0.5s ease';
-        
-        setTimeout(() => {
-            introScreen.style.display = 'none';
-        }, 500);
-    }, 1900);
-}
-
-// ========================================
 // MAIN APP
 // ========================================
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
     initBackToTop();
