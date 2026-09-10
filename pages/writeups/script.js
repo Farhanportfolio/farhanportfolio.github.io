@@ -1,10 +1,11 @@
 // ========================================
-// DOM READY
+// MAIN APP
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollEffects();
-    initCardGlow();
+    initBackToTop();
+    initScrollReveal();
 });
 
 // ========================================
@@ -28,7 +29,6 @@ function initNavigation() {
         link.addEventListener('click', () => {
             if (links) links.classList.remove('open');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
         });
@@ -50,39 +50,56 @@ function initNavigation() {
 // ========================================
 function initScrollEffects() {
     const navbar = document.querySelector('.navbar');
-    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 30);
     });
 }
 
 // ========================================
-// CARD GLOW ON MOUSE MOVE
+// BACK TO TOP
 // ========================================
-function initCardGlow() {
-    const cards = document.querySelectorAll('.writeup-card-large');
+function initBackToTop() {
+    const button = document.getElementById('backToTop');
+    if (!button) return;
     
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            button.classList.add('visible');
+        } else {
+            button.classList.remove('visible');
+        }
     });
+    
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ========================================
+// SCROLL REVEAL
+// ========================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll, .reveal-writeup');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Stagger writeups
+                const allWriteups = Array.from(document.querySelectorAll('.reveal-writeup'));
+                const index = allWriteups.indexOf(entry.target);
+                const delay = index >= 0 ? (index % 2) * 100 : 0;
+                
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, delay);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    });
+    
+    revealElements.forEach(el => observer.observe(el));
 }
