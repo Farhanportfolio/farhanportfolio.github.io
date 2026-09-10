@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Farhan Khan - Open Source Security Projects" />
+    <title>Projects — Farhan Khan</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../../index.html">
+                    <span>Farhan Khan</span>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../experience/index.html">Experience</a></li>
+                <li><a href="../achievements/index.html">Achievements</a></li>
+                <li><a href="../projects/index.html" class="active">Projects</a></li>
+                <li><a href="../writeups/index.html">Writeups</a></li>
+                <li><a href="../certifications/index.html">Certifications</a></li>
+                <li><a href="../profiles/index.html">Profiles</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+        <section class="section projects-page-section" id="projectsTop">
+            <!-- Floating Background Boxes -->
+            <div class="floating-bg">
+                <div class="float-box fb-1"></div>
+                <div class="float-box fb-2"></div>
+                <div class="float-box fb-3"></div>
+                <div class="float-box fb-4"></div>
+                <div class="float-box fb-5"></div>
+                <div class="float-box fb-6"></div>
+                <div class="float-box fb-7"></div>
+                <div class="float-box fb-8"></div>
+            </div>
+
+            <div class="container">
+                <!-- ====== HERO PROJECT ICON ====== -->
+                <div class="projects-hero">
+                    <div class="hero-icon-wrap">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <rect x="8" y="8" width="64" height="64" rx="16" stroke="#00e5ff" stroke-width="2"/>
+                            <path d="M28 28L52 52M28 52L52 28" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="28" cy="28" r="5" fill="#00e5ff"/>
+                            <circle cx="52" cy="52" r="5" fill="#00e5ff"/>
+                            <circle cx="28" cy="52" r="5" fill="#00e5ff"/>
+                            <circle cx="52" cy="28" r="5" fill="#00e5ff"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">Open Source</span>
+                    <h2>Projects</h2>
+                    <p>Offensive security tooling, reconnaissance frameworks and analysis tools</p>
+                </div>
+
+                <!-- ====== PROJECTS LIST ====== -->
+                <div class="projects-list">
+
+                    <!-- ====== Maltracker ====== -->
+                    <div class="project-card-large">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                                    <rect x="8" y="8" width="40" height="40" rx="8" stroke="#00e5ff" stroke-width="2"/>
+                                    <path d="M20 28L26 34L38 22" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="28" cy="28" r="18" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+                                </svg>
+                            </div>
+                            <div class="project-title-group">
+                                <h3>Maltracker</h3>
+                                <p class="project-subtitle">Malicious Banking App Detector</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/mr-farhankhan/maltracker" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                                <a href="https://fakebankappdetector2.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Demo">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M10 9L15 12L10 15V9Z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="project-description">
+                            A cybersecurity-focused project designed to detect potentially malicious or fake banking applications using static and behavioral analysis techniques. It analyzes app behavior and patterns to identify phishing or malicious indicators before users interact with them.
+                        </p>
+
+                        <div class="project-features">
+                            <h4>Features</h4>
+                            <ul>
+                                <li>Detects suspicious banking apps</li>
+                                <li>Analyzes app behavior and patterns</li>
+                                <li>Identifies potential phishing or malicious indicators</li>
+                                <li>Lightweight and easy to use</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-tech">
+                            <h4>Tech Stack</h4>
+                            <div class="tech-tags">
+                                <span>Python</span>
+                                <span>Android Analysis</span>
+                                <span>Security Libraries</span>
+                            </div>
+                        </div>
+
+                        <div class="project-install">
+                            <h4>Installation</h4>
+                            <div class="code-block">
+                                <code>git clone https://github.com/mr-farhankhan/maltracker.git</code>
+                                <code>cd maltracker</code>
+                                <code>pip install -r requirements.txt</code>
+                            </div>
+                        </div>
+
+                        <div class="project-glow"></div>
+                    </div>
+
+                    <!-- ====== 1Recon ====== -->
+                    <div class="project-card-large">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                                    <circle cx="28" cy="28" r="20" stroke="#00e5ff" stroke-width="2"/>
+                                    <circle cx="28" cy="28" r="12" stroke="#00e5ff" stroke-width="2"/>
+                                    <circle cx="28" cy="28" r="4" fill="#00e5ff"/>
+                                    <path d="M28 8V4M28 52V48M8 28H4M52 28H48" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="project-title-group">
+                                <h3>1Recon</h3>
+                                <p class="project-subtitle">Modern Reconnaissance Automation Framework</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/mr-farhankhan/1Recon" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="currentColor"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="project-description">
+                            1Recon is a Bash-based reconnaissance automation framework designed to streamline the initial information-gathering phase of penetration testing and bug bounty assessments. It combines multiple reconnaissance and enumeration tools into a single workflow — helping security researchers discover subdomains, validate DNS records, identify open ports and services, detect web technologies, enumerate directories, crawl web applications, and organize reconnaissance results.
+                        </p>
+
+                        <div class="project-features">
+                            <h4>Features</h4>
+                            <ul>
+                                <li>Subdomain enumeration using Subfinder &amp; Assetfinder</li>
+                                <li>Automatic result deduplication</li>
+                                <li>DNS validation using dnsx</li>
+                                <li>Port and service scanning using Nmap</li>
+                                <li>HTTP probing using ProjectDiscovery httpx</li>
+                                <li>Technology detection using Wappalyzer</li>
+                                <li>Directory enumeration using Gobuster</li>
+                                <li>Web crawling using Katana</li>
+                                <li>WHOIS information gathering</li>
+                                <li>Organized output for each target</li>
+                                <li>Colored terminal output and status messages</li>
+                                <li>Automatic dependency detection</li>
+                            </ul>
+                        </div>
+
+                        <!-- Workflow SVG -->
+                        <div class="project-workflow">
+                            <h4>Reconnaissance Workflow</h4>
+                            <div class="workflow-svg">
+                                <svg width="100%" height="auto" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.8"/>
+                                            <stop offset="100%" stop-color="#00b4d8" stop-opacity="0.4"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Target -->
+                                    <rect x="230" y="10" width="140" height="36" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="300" y="33" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">Target Domain</text>
+                                    <path d="M300 46 V76" stroke="url(#flowGrad)" stroke-width="1.5" marker-end="url(#arrow)"/>
+                                    
+                                    <!-- Subdomain -->
+                                    <rect x="210" y="80" width="180" height="36" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="300" y="103" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter">Subdomain Discovery</text>
+                                    <path d="M300 116 V146" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    
+                                    <!-- Dedup -->
+                                    <rect x="230" y="150" width="140" height="32" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="300" y="171" text-anchor="middle" fill="#00e5ff" font-size="11" font-family="Inter">Deduplication</text>
+                                    <path d="M300 182 V212" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    
+                                    <!-- DNS -->
+                                    <rect x="230" y="216" width="140" height="32" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="300" y="237" text-anchor="middle" fill="#00e5ff" font-size="11" font-family="Inter">DNS Validation</text>
+                                    <path d="M300 248 V278" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    
+                                    <!-- Split -->
+                                    <path d="M300 278 L150 300" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    <path d="M300 278 L450 300" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    <path d="M300 278 L300 300" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    
+                                    <!-- Three branches -->
+                                    <rect x="70" y="305" width="160" height="32" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="150" y="326" text-anchor="middle" fill="#00e5ff" font-size="11" font-family="Inter">Nmap Port Scan</text>
+                                    
+                                    <rect x="220" y="305" width="160" height="32" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="300" y="326" text-anchor="middle" fill="#00e5ff" font-size="11" font-family="Inter">HTTPX Probing</text>
+                                    
+                                    <rect x="370" y="305" width="160" height="32" rx="8" stroke="#00e5ff" stroke-width="1.5" fill="rgba(0,229,255,0.05)"/>
+                                    <text x="450" y="326" text-anchor="middle" fill="#00e5ff" font-size="11" font-family="Inter">WHOIS Lookup</text>
+                                    
+                                    <!-- Final -->
+                                    <path d="M300 337 L300 360" stroke="url(#flowGrad)" stroke-width="1.5"/>
+                                    <rect x="210" y="364" width="180" height="32" rx="8" stroke="#00e5ff" stroke-width="2" fill="rgba(0,229,255,0.1)"/>
+                                    <text x="300" y="385" text-anchor="middle" fill="#00e5ff" font-size="12" font-family="Inter" font-weight="bold">Organized Results</text>
+                                    
+                                    <!-- Arrow marker -->
+                                    <defs>
+                                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                            <path d="M0 0 L10 5 L0 10 Z" fill="#00e5ff"/>
+                                        </marker>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="project-tech">
+                            <h4>Requirements</h4>
+                            <div class="tech-tags">
+                                <span>Bash</span>
+                                <span>Subfinder</span>
+                                <span>Assetfinder</span>
+                                <span>dnsx</span>
+                                <span>Nmap</span>
+                                <span>httpx</span>
+                                <span>WHOIS</span>
+                                <span>Wappalyzer</span>
+                                <span>Gobuster</span>
+                                <span>Katana</span>
+                            </div>
+                        </div>
+
+                        <div class="project-install">
+                            <h4>Installation</h4>
+                            <div class="code-block">
+                                <code>git clone https://github.com/mr-farhankhan/1Recon.git</code>
+                                <code>cd 1Recon</code>
+                                <code>chmod +x 1Recon.sh</code>
+                            </div>
+                            <h4>Usage</h4>
+                            <div class="code-block">
+                                <code>./1Recon.sh -d example.com</code>
+                            </div>
+                        </div>
+
+                        <div class="project-status">
+                            <span class="status-badge">🚧 Active Development</span>
+                        </div>
+
+                        <div class="project-glow"></div>
+                    </div>
+
+                </div>
+
+                <!-- ====== CTA ====== -->
+                <div class="projects-cta">
+                    <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        View All on GitHub
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../../index.html">
+                        <span>Farhan Khan</span>
+                    </a>
+                    <p>Cyber Security Enthusiast &amp; Engineer</p>
+                </div>
+                
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../../index.html">Home</a>
+                    <a href="../experience/index.html">Experience</a>
+                    <a href="../achievements/index.html">Achievements</a>
+                    <a href="../projects/index.html">Projects</a>
+                    <a href="../writeups/index.html">Writeups</a>
+                    <a href="../certifications/index.html">Certifications</a>
+                    <a href="../profiles/index.html">Profiles</a>
+                </nav>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Farhan Khan. All rights reserved.</p>
+                    <p>Built with precision &amp; passion</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
