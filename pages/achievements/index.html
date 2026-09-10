@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -43,33 +44,80 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
         <section class="section achievements-page-section" id="achievementsTop">
-            <!-- Animated Wavy Background -->
+            <!-- Wavy Background -->
             <div class="wavy-background">
                 <div class="wave wave-1"></div>
                 <div class="wave wave-2"></div>
                 <div class="wave wave-3"></div>
                 <div class="wave wave-4"></div>
                 <div class="wave wave-5"></div>
-                <!-- Floating particles -->
+            </div>
+            
+            <!-- Floating Particles -->
+            <div class="particles-container">
                 <div class="particle p1"></div>
                 <div class="particle p2"></div>
                 <div class="particle p3"></div>
                 <div class="particle p4"></div>
                 <div class="particle p5"></div>
                 <div class="particle p6"></div>
-                <div class="particle p7"></div>
-                <div class="particle p8"></div>
             </div>
-            
+
+            <!-- Grid Background -->
+            <div class="grid-overlay"></div>
+
             <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">🏆 Victories</span>
-                    <h2>CTF Achievements</h2>
-                    <p>Competition wins, platform rankings, and cybersecurity milestones</p>
+                <!-- ====== HERO SECTION ====== -->
+                <div class="achievements-hero">
+                    <div class="hero-icon-wrap">
+                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                            <defs>
+                                <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#66f0ff"/>
+                                    <stop offset="100%" stop-color="#00b4d8"/>
+                                </linearGradient>
+                                <linearGradient id="trophyShine" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+                                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Trophy Cup -->
+                            <path d="M30 20 L30 45 Q30 60 50 60 Q70 60 70 45 L70 20 Z" 
+                                  stroke="url(#trophyGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                            
+                            <!-- Handles -->
+                            <path d="M30 25 Q18 25 18 38 Q18 48 30 48" stroke="url(#trophyGrad)" stroke-width="2" fill="none"/>
+                            <path d="M70 25 Q82 25 82 38 Q82 48 70 48" stroke="url(#trophyGrad)" stroke-width="2" fill="none"/>
+                            
+                            <!-- Base -->
+                            <rect x="42" y="60" width="16" height="12" stroke="url(#trophyGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                            <rect x="34" y="72" width="32" height="8" rx="2" stroke="url(#trophyGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                            
+                            <!-- Star on trophy -->
+                            <path d="M50 32 L53 40 L61 40 L55 45 L57 53 L50 48 L43 53 L45 45 L39 40 L47 40 Z" 
+                                  fill="url(#trophyGrad)" opacity="0.8"/>
+                            
+                            <!-- Sparkles -->
+                            <circle cx="22" cy="15" r="2" fill="#00e5ff" opacity="0.7"/>
+                            <circle cx="78" cy="15" r="2" fill="#00e5ff" opacity="0.7"/>
+                            <circle cx="50" cy="6" r="1.5" fill="#66f0ff" opacity="0.6"/>
+                            <circle cx="15" cy="55" r="1.5" fill="#00e5ff" opacity="0.5"/>
+                            <circle cx="85" cy="55" r="1.5" fill="#00e5ff" opacity="0.5"/>
+                        </svg>
+                        <div class="hero-ring"></div>
+                        <div class="hero-ring hero-ring-2"></div>
+                    </div>
                 </div>
 
-                <!-- ====== STATS BANNER ====== -->
-                <div class="achievement-stats">
+                <div class="section-header reveal-on-scroll">
+                    <span class="section-tag">Victories</span>
+                    <h2>CTF Achievements</h2>
+                    <p>Competition wins, platform rankings &amp; cybersecurity milestones</p>
+                </div>
+
+                <!-- ====== STATS ====== -->
+                <div class="achievement-stats reveal-on-scroll">
                     <div class="stat-block">
                         <span class="stat-number">4</span>
                         <span class="stat-label">CTF Wins</span>
@@ -86,34 +134,52 @@
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-block">
-                        <span class="stat-number">🎯</span>
-                        <span class="stat-label">Top Performer</span>
+                        <span class="stat-number">Top 1%</span>
+                        <span class="stat-label">TryHackMe</span>
                     </div>
                 </div>
 
                 <!-- ====== ACHIEVEMENTS LIST ====== -->
                 <div class="achievements-list">
-                    
-                    <!-- Achievement 1 - VYUH CTF -->
-                    <div class="achievement-card achievement-1" data-aos="fade-up">
-                        <div class="ach-image-wrap">
+
+                    <!-- ============================================ -->
+                    <!-- ACHIEVEMENT 1: VYUH CTF ================== -->
+                    <!-- ============================================ -->
+                    <div class="achievement-card reveal-achievement" data-rank="gold">
+                        <div class="rank-badge">
+                            <div class="rank-medal">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4L19 12L27 12L21 17L23 25L16 20L9 25L11 17L5 12L13 12L16 4Z" fill="#FFD700" stroke="#B8860B" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="rank-text">1st</span>
+                        </div>
+                        
+                        <div class="achievement-image-wrap">
                             <img src="meetup.png" alt="VYUH CTF Certificate" />
-                            <div class="ach-image-overlay">
-                                <button class="ach-view-btn" data-cert="meetup.png">
-                                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                            <div class="image-overlay">
+                                <button class="image-view-btn" data-cert="meetup.png" data-title="VYUH CTF — 1st Place" data-event="Hackers Meetup Indore · 14 Feb 2026">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
                                         <path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                                    View
+                                    View Certificate
                                 </button>
                             </div>
                         </div>
-                        <div class="ach-content">
-                            <div class="ach-badge">🥇 1st Place</div>
+                        
+                        <div class="achievement-content">
+                            <div class="ach-badge ach-badge-gold">1st Place</div>
                             <h3>VYUH CTF — Cybersecurity Challenge</h3>
-                            <p class="ach-event">Hackers Meetup Indore · 14 Feb 2026</p>
+                            <p class="ach-event">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 1V3M11 1V3M2 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Hackers Meetup Indore · 14 Feb 2026
+                            </p>
                             <p class="ach-description">
-                                Secured 1st position at VYUH CTF, a high-intensity competition featuring web exploitation, cryptography, reverse engineering, and forensics. The event pushed participants beyond limits with complex challenges demanding deep technical knowledge and creative problem-solving.
+                                Secured 1st position at the VYUH CTF Cybersecurity Challenge hosted at Hackers Meetup Indore. The competition featured complex challenges spanning web exploitation, cryptography, reverse engineering, and digital forensics. Competing against talented security researchers, the victory reflects deep technical knowledge and rapid problem-solving under pressure.
                             </p>
                             <div class="ach-tags">
                                 <span>Web Exploitation</span>
@@ -121,36 +187,49 @@
                                 <span>Reverse Engineering</span>
                                 <span>Forensics</span>
                             </div>
-                            <button class="btn btn-primary btn-sm open-cert-btn" data-cert="meetup.png" data-title="VYUH CTF - 1st Place" data-event="Hackers Meetup Indore · 14 Feb 2026">
-                                View Certificate
-                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
                         </div>
+                        
                         <div class="ach-glow"></div>
                     </div>
 
-                    <!-- Achievement 2 - Sagar Fiesta -->
-                    <div class="achievement-card achievement-2" data-aos="fade-up" data-aos-delay="100">
-                        <div class="ach-image-wrap">
+                    <!-- ============================================ -->
+                    <!-- ACHIEVEMENT 2: SAGAR FIESTA ============== -->
+                    <!-- ============================================ -->
+                    <div class="achievement-card reveal-achievement" data-rank="silver">
+                        <div class="rank-badge">
+                            <div class="rank-medal">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4L19 12L27 12L21 17L23 25L16 20L9 25L11 17L5 12L13 12L16 4Z" fill="#C0C0C0" stroke="#808080" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="rank-text">2nd</span>
+                        </div>
+                        
+                        <div class="achievement-image-wrap">
                             <img src="fiesta.png" alt="Sagar Fiesta Certificate" />
-                            <div class="ach-image-overlay">
-                                <button class="ach-view-btn" data-cert="fiesta.png">
-                                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                            <div class="image-overlay">
+                                <button class="image-view-btn" data-cert="fiesta.png" data-title="Sagar Fiesta 2026 — 1st Runner-Up" data-event="SISTec Bhopal">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                         <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2"/>
                                         <path d="M15 15L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                                    View
+                                    View Certificate
                                 </button>
                             </div>
                         </div>
-                        <div class="ach-content">
-                            <div class="ach-badge">🥈 1st Runner-Up</div>
-                            <h3>Sagar Fiesta 2026 — Logic Arena</h3>
-                            <p class="ach-event">SISTec Bhopal</p>
+                        
+                        <div class="achievement-content">
+                            <div class="ach-badge ach-badge-silver">1st Runner-Up</div>
+                            <h3>Sagar Fiesta 2026 — Logic Arena CTF</h3>
+                            <p class="ach-event">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 1V3M11 1V3M2 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Sagar Group of Institutions · SISTec, Bhopal
+                            </p>
                             <p class="ach-description">
-                                Secured 1st Runner-Up in Logic Arena CTF at Sagar Fiesta 2026. The competition featured network analysis, system exploitation, and logical reasoning challenges. Competing against talented peers, this achievement reflects strong offensive security skills.
+                                Secured 1st Runner-Up in the Logic Arena CTF at Sagar Fiesta 2026, a premier inter-collegiate cybersecurity competition. The event featured challenging puzzles and security problems spanning network analysis, system exploitation, and logical reasoning. Competing against talented peers from across the region, this achievement reflects a strong foundation in offensive security and analytical thinking.
                             </p>
                             <div class="ach-tags">
                                 <span>Network Analysis</span>
@@ -158,37 +237,56 @@
                                 <span>Logical Reasoning</span>
                                 <span>Puzzle Solving</span>
                             </div>
-                            <button class="btn btn-primary btn-sm open-cert-btn" data-cert="fiesta.png" data-title="Sagar Fiesta 2026 - 1st Runner-Up" data-event="SISTec Bhopal">
-                                View Certificate
-                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
                         </div>
+                        
                         <div class="ach-glow"></div>
                     </div>
 
-                    <!-- Achievement 3 - Hack the Hacker -->
-                    <div class="achievement-card achievement-3" data-aos="fade-up" data-aos-delay="200">
-                        <div class="ach-image-wrap">
+                    <!-- ============================================ -->
+                    <!-- ACHIEVEMENT 3: HACK THE HACKER ============ -->
+                    <!-- ============================================ -->
+                    <div class="achievement-card reveal-achievement" data-rank="bronze">
+                        <div class="rank-badge">
+                            <div class="rank-medal">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4L19 12L27 12L21 17L23 25L16 20L9 25L11 17L5 12L13 12L16 4Z" fill="#CD7F32" stroke="#8B4513" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="rank-text">Finalist</span>
+                        </div>
+                        
+                        <div class="achievement-image-wrap">
                             <div class="ach-no-image">
-                                <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
-                                    <path d="M32 8L40 24L58 28L44 42L48 58L32 50L16 58L20 42L6 28L24 24L32 8Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
-                                    <circle cx="32" cy="32" r="8" stroke="#00e5ff" stroke-width="2"/>
-                                    <path d="M28 28L36 36M28 36L36 28" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <defs>
+                                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00e5ff"/>
+                                            <stop offset="100%" stop-color="#00b4d8"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M32 6 L54 14 L54 32 Q54 48 32 58 Q10 48 10 32 L10 14 Z" 
+                                          stroke="url(#shieldGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                                    <path d="M24 32 L30 38 L42 26" stroke="url(#shieldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 <span class="no-image-label">Certificate</span>
                             </div>
-                            <div class="ach-image-overlay">
+                            <div class="image-overlay">
                                 <span class="ach-no-cert">Certificate Pending</span>
                             </div>
                         </div>
-                        <div class="ach-content">
-                            <div class="ach-badge">🏅 Participant</div>
+                        
+                        <div class="achievement-content">
+                            <div class="ach-badge ach-badge-bronze">Participant</div>
                             <h3>Hack the Hacker — CTF Challenge</h3>
-                            <p class="ach-event">Cybrom Technology · 7 Jun 2025</p>
+                            <p class="ach-event">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 1V3M11 1V3M2 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                Cybrom Technology · 7 Jun 2025
+                            </p>
                             <p class="ach-description">
-                                Participated in Hack the Hacker CTF, gaining hands-on exposure to cryptography, reverse engineering, digital forensics, and Linux networking challenges. The experience strengthened practical skills and reinforced passion for cybersecurity.
+                                Participated in the Hack the Hacker CTF competition organized by Cybrom Technology, gaining hands-on exposure to cryptography, reverse engineering, digital forensics, and Linux networking challenges. The competition provided practical experience in solving real-world security problems under time constraints, strengthening problem-solving abilities and technical skills.
                             </p>
                             <div class="ach-tags">
                                 <span>Cryptography</span>
@@ -196,32 +294,59 @@
                                 <span>Digital Forensics</span>
                                 <span>Linux Networking</span>
                             </div>
-                            <span class="btn btn-secondary btn-sm disabled-btn">Certificate Pending</span>
                         </div>
+                        
                         <div class="ach-glow"></div>
                     </div>
 
-                    <!-- Achievement 4 - Oscillation CTF -->
-                    <div class="achievement-card achievement-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="ach-image-wrap">
+                    <!-- ============================================ -->
+                    <!-- ACHIEVEMENT 4: OSCILLATION CTF ========== -->
+                    <!-- ============================================ -->
+                    <div class="achievement-card reveal-achievement" data-rank="gold">
+                        <div class="rank-badge">
+                            <div class="rank-medal">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4L19 12L27 12L21 17L23 25L16 20L9 25L11 17L5 12L13 12L16 4Z" fill="#FFD700" stroke="#B8860B" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span class="rank-text">Winner</span>
+                        </div>
+                        
+                        <div class="achievement-image-wrap">
                             <div class="ach-no-image">
-                                <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
-                                    <path d="M32 8L40 24L58 28L44 42L48 58L32 50L16 58L20 42L6 28L24 24L32 8Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
-                                    <circle cx="32" cy="32" r="8" stroke="#00e5ff" stroke-width="2"/>
-                                    <path d="M28 28L36 36M28 36L36 28" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                                    <defs>
+                                        <linearGradient id="trophyMiniGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00e5ff"/>
+                                            <stop offset="100%" stop-color="#00b4d8"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M22 14 L22 30 Q22 40 32 40 Q42 40 42 30 L42 14 Z" 
+                                          stroke="url(#trophyMiniGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                                    <path d="M22 18 Q14 18 14 26 Q14 32 22 32" stroke="url(#trophyMiniGrad)" stroke-width="2" fill="none"/>
+                                    <path d="M42 18 Q50 18 50 26 Q50 32 42 32" stroke="url(#trophyMiniGrad)" stroke-width="2" fill="none"/>
+                                    <rect x="28" y="40" width="8" height="8" stroke="url(#trophyMiniGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
+                                    <rect x="22" y="48" width="20" height="6" rx="2" stroke="url(#trophyMiniGrad)" stroke-width="2" fill="rgba(0,229,255,0.05)"/>
                                 </svg>
                                 <span class="no-image-label">Certificate</span>
                             </div>
-                            <div class="ach-image-overlay">
+                            <div class="image-overlay">
                                 <span class="ach-no-cert">Certificate Pending</span>
                             </div>
                         </div>
-                        <div class="ach-content">
-                            <div class="ach-badge">🏆 Winner</div>
+                        
+                        <div class="achievement-content">
+                            <div class="ach-badge ach-badge-gold">Winner</div>
                             <h3>Oscillation CTF 2026</h3>
-                            <p class="ach-event">International CTF Competition</p>
+                            <p class="ach-event">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 1V3M11 1V3M2 7H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                International CTF Competition · 2026
+                            </p>
                             <p class="ach-description">
-                                Two-time CTF winner, competing solo against full teams. Oscillation CTF features advanced binary exploitation, kernel-level vulnerabilities, and complex cryptographic challenges. Competing solo required exceptional versatility, rapid adaptation, and deep technical knowledge.
+                                Two-time CTF winner, competing solo against full teams at Oscillation CTF 2026. The competition features advanced binary exploitation, kernel-level vulnerabilities, and complex cryptographic challenges. Competing solo required exceptional versatility, rapid adaptation, and deep technical knowledge across multiple security domains. This achievement stands as a testament to consistent dedication and skill development in cybersecurity.
                             </p>
                             <div class="ach-tags">
                                 <span>Binary Exploitation</span>
@@ -229,8 +354,8 @@
                                 <span>Cryptography</span>
                                 <span>Solo Competition</span>
                             </div>
-                            <span class="btn btn-secondary btn-sm disabled-btn">Certificate Pending</span>
                         </div>
+                        
                         <div class="ach-glow"></div>
                     </div>
 
