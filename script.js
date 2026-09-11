@@ -9,31 +9,32 @@
         return;
     }
 
-    // Phase 1 (0.5s): Shield appears, crack begins
+    // Phase 1 (0.6s): Shield is stable — begin cracking
     setTimeout(() => {
         intro.classList.add('breaking');
-    }, 500);
+    }, 600);
 
-    // Phase 2 (1.2s): Shield explodes into fragments
+    // Phase 2 (1.5s): Full explosion — shield tears apart
     setTimeout(() => {
         intro.classList.add('exploding');
-    }, 1200);
+    }, 1500);
 
-    // Phase 3 (1.6s): Title appears
+    // Phase 3 (2.0s): Name fades in over the wreckage
     setTimeout(() => {
         title.classList.add('show');
-    }, 1600);
+    }, 2000);
 
-    // Phase 4 (2.6s): Fade out intro, reveal main page
+    // Phase 4 (3.2s): Complete vanish — no trace
     setTimeout(() => {
         intro.classList.add('done');
         document.body.classList.remove('intro-active');
-    }, 2600);
+    }, 3200);
 
-    // Phase 5 (3.2s): Remove from DOM
+    // Phase 5 (3.9s): Remove from DOM entirely
     setTimeout(() => {
         intro.style.display = 'none';
-    }, 3300);
+        intro.remove();
+    }, 3900);
 })();
 
 // ========================================
