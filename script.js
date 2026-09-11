@@ -3,13 +3,11 @@
 // ========================================
 (function initThemeSwitcher() {
     const THEMES = ['1', '2', '3', '4', '5'];
-    const MOON_THEMES = new Set(['1', '3', '5']); // dark themes → show moon
     const STORAGE_KEY = 'fk-portfolio-theme';
 
     const btn = document.getElementById('themeToggle');
     const htmlEl = document.documentElement;
 
-    // Restore saved theme
     let currentTheme = localStorage.getItem(STORAGE_KEY) || '1';
     if (!THEMES.includes(currentTheme)) currentTheme = '1';
 
@@ -18,15 +16,8 @@
         htmlEl.setAttribute('data-theme', theme);
 
         if (btn) {
-            if (MOON_THEMES.has(theme)) {
-                btn.classList.add('is-moon');
-            } else {
-                btn.classList.remove('is-moon');
-            }
-
             if (withAnimation) {
                 btn.classList.remove('spin');
-                // Force reflow so animation can restart
                 void btn.offsetWidth;
                 btn.classList.add('spin');
                 setTimeout(() => btn.classList.remove('spin'), 900);
@@ -36,7 +27,6 @@
         localStorage.setItem(STORAGE_KEY, theme);
     }
 
-    // Apply on load (no animation)
     applyTheme(currentTheme, false);
 
     if (!btn) return;
@@ -265,7 +255,7 @@ function initContactForm() {
             `;
             btn.style.background = 'var(--color-primary)';
             btn.style.borderColor = 'var(--color-primary)';
-            btn.style.color = 'var(--color-bg)';
+            btn.style.color = '#FFFFFF';
 
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
