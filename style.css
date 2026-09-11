@@ -1182,22 +1182,23 @@ body.intro-active .back-to-top {
     max-width: 1200px;
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
-    gap: 70px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+    gap: 60px;
     align-items: center;
 }
 
+/* ===== LEFT — SMALLER PHOTO ===== */
 .hero-left {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 24px;
 }
 
 .photo-stage {
     position: relative;
     width: 100%;
-    max-width: 520px;
+    max-width: 380px;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
@@ -1384,11 +1385,11 @@ body.intro-active .back-to-top {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 18px;
+    padding: 7px 16px;
     background: rgba(10, 12, 16, 0.92);
     border: 1px solid rgba(0, 229, 255, 0.35);
     border-radius: 50px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--color-text);
     z-index: 6;
@@ -1404,7 +1405,7 @@ body.intro-active .back-to-top {
 }
 
 .status-dot {
-    width: 8px; height: 8px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: #00ff88;
     box-shadow: 0 0 10px #00ff88, 0 0 20px rgba(0, 255, 136, 0.5);
@@ -1418,12 +1419,12 @@ body.intro-active .back-to-top {
 
 .float-tag {
     position: absolute;
-    padding: 7px 14px;
+    padding: 6px 12px;
     background: rgba(10, 12, 16, 0.9);
     border: 1px solid rgba(0, 229, 255, 0.28);
     border-radius: 50px;
     font-family: var(--font-display);
-    font-size: 0.68rem;
+    font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -2719,14 +2720,14 @@ body.intro-active .back-to-top {
     .nav-toggle { display: flex; }
 
     .hero-split { padding: 100px 20px 40px; }
-    .hero-left { padding: 20px; }
-    .photo-stage { max-width: 400px; }
+    .hero-left { padding: 12px; }
+    .photo-stage { max-width: 300px; }
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .stat-block { padding: 12px 10px 16px; }
     .stat-num { font-size: 1.3rem; }
     .stat-suffix { font-size: 0.95rem; }
     .stat-label { font-size: 0.58rem; letter-spacing: 1px; }
-    .float-tag { font-size: 0.6rem; padding: 5px 10px; }
+    .float-tag { font-size: 0.55rem; padding: 4px 8px; }
 
     .skills-grid { grid-template-columns: 1fr; }
     .achievement-grid { grid-template-columns: 1fr; }
@@ -2755,9 +2756,9 @@ body.intro-active .back-to-top {
     .container { padding: 0 16px; }
     .section { padding: 48px 0; }
     .hero-title { font-size: 2.2rem; }
-    .hero-left { padding: 10px; }
-    .photo-stage { max-width: 320px; }
-    .status-pill { font-size: 0.65rem; padding: 5px 12px; }
+    .hero-left { padding: 8px; }
+    .photo-stage { max-width: 240px; }
+    .status-pill { font-size: 0.6rem; padding: 5px 10px; }
     .hero-typed { font-size: 0.7rem; padding: 8px 12px; }
     .education-box { padding: 24px 18px; }
     .experience-card { padding: 24px 20px; }
@@ -2783,9 +2784,6 @@ body.intro-active .back-to-top {
     .shield {
         width: 160px;
         height: 200px;
-    }
-    .shield-shell {
-        /* clip-path already scales with width/height */
     }
     .shield-emblem {
         width: 60px;
