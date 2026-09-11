@@ -543,6 +543,104 @@ body {
     background: var(--color-border);
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(10, 12, 16, 0.9);
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.5s var(--transition-bounce);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 229, 255, 0.15);
+    padding: 0;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.35), 0 0 0 1px rgba(0, 229, 255, 0.4);
+}
+
+.back-to-top:active { transform: translateY(-2px) scale(0.96); }
+
+.btt-ring {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.btt-ring-track {
+    fill: none;
+    stroke: rgba(0, 229, 255, 0.1);
+    stroke-width: 2;
+}
+
+.btt-ring-progress {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 289;
+    stroke-dashoffset: 289;
+    filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.8));
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+.btt-icon {
+    position: relative;
+    z-index: 2;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-medium) var(--transition-bounce);
+}
+
+.back-to-top:hover .btt-icon {
+    color: var(--color-text);
+    transform: translateY(-3px);
+}
+
+.back-to-top:hover .btt-icon svg { animation: arrowBounce 0.6s ease; }
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    70% { transform: translateY(-2px); }
+}
+
+.btt-glow {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3), transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    animation: bttPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes bttPulse {
+    0%, 100% { opacity: 0; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
 .cert-modal {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -801,6 +899,8 @@ body {
     .cert-modal-img { max-height: 42vh; }
     .cert-modal-info { padding: 16px 20px 20px; }
     .cert-modal-info h3 { font-size: 1rem; }
+
+    .back-to-top { bottom: 20px; right: 20px; width: 50px; height: 50px; }
 }
 
 @media (max-width: 480px) {
@@ -825,6 +925,8 @@ body {
 
     .cert-modal-image-wrap { padding: 12px; min-height: 160px; }
     .cert-modal-img { max-height: 35vh; }
+
+    .back-to-top { bottom: 16px; right: 16px; width: 46px; height: 46px; }
 }
 
 img, svg, video, iframe, canvas {
