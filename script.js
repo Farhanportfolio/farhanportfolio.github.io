@@ -1,44 +1,4 @@
 // ========================================
-// THEME SWITCHER
-// ========================================
-(function initThemeSwitcher() {
-    const THEMES = ['1', '2', '3', '4', '5'];
-    const STORAGE_KEY = 'fk-portfolio-theme';
-
-    const btn = document.getElementById('themeToggle');
-    const htmlEl = document.documentElement;
-
-    let currentTheme = localStorage.getItem(STORAGE_KEY) || '1';
-    if (!THEMES.includes(currentTheme)) currentTheme = '1';
-
-    function applyTheme(theme, withAnimation) {
-        document.body.setAttribute('data-theme', theme);
-        htmlEl.setAttribute('data-theme', theme);
-
-        if (btn) {
-            if (withAnimation) {
-                btn.classList.remove('spin');
-                void btn.offsetWidth;
-                btn.classList.add('spin');
-                setTimeout(() => btn.classList.remove('spin'), 900);
-            }
-        }
-
-        localStorage.setItem(STORAGE_KEY, theme);
-    }
-
-    applyTheme(currentTheme, false);
-
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-        const idx = THEMES.indexOf(currentTheme);
-        currentTheme = THEMES[(idx + 1) % THEMES.length];
-        applyTheme(currentTheme, true);
-    });
-})();
-
-// ========================================
 // SHIELD INTRO
 // ========================================
 (function initShieldIntro() {
@@ -49,13 +9,28 @@
         return;
     }
 
-    setTimeout(() => { intro.classList.add('breaking'); }, 600);
-    setTimeout(() => { intro.classList.add('exploding'); }, 1500);
-    setTimeout(() => { title.classList.add('show'); }, 2000);
+    // Phase 1 (0.6s): Shield is stable — begin cracking
+    setTimeout(() => {
+        intro.classList.add('breaking');
+    }, 600);
+
+    // Phase 2 (1.5s): Full explosion — shield tears apart
+    setTimeout(() => {
+        intro.classList.add('exploding');
+    }, 1500);
+
+    // Phase 3 (2.0s): Name fades in over the wreckage
+    setTimeout(() => {
+        title.classList.add('show');
+    }, 2000);
+
+    // Phase 4 (3.2s): Complete vanish — no trace
     setTimeout(() => {
         intro.classList.add('done');
         document.body.classList.remove('intro-active');
     }, 3200);
+
+    // Phase 5 (3.9s): Remove from DOM entirely
     setTimeout(() => {
         intro.style.display = 'none';
         intro.remove();
@@ -196,22 +171,22 @@ function initContactForm() {
 
         if (!name.value.trim()) {
             isValid = false;
-            name.style.borderColor = 'var(--color-primary)';
-            name.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
+            name.style.borderColor = '#00e5ff';
+            name.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             name.focus();
         }
 
         if (!email.value.trim() || !isValidEmail(email.value)) {
             isValid = false;
-            email.style.borderColor = 'var(--color-primary)';
-            email.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
+            email.style.borderColor = '#00e5ff';
+            email.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             if (isValid) email.focus();
         }
 
         if (!message.value.trim()) {
             isValid = false;
-            message.style.borderColor = 'var(--color-primary)';
-            message.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
+            message.style.borderColor = '#00e5ff';
+            message.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
             if (isValid) message.focus();
         }
 
@@ -253,9 +228,9 @@ function initContactForm() {
                 </svg>
                 Sent Successfully!
             `;
-            btn.style.background = 'var(--color-primary)';
-            btn.style.borderColor = 'var(--color-primary)';
-            btn.style.color = '#FFFFFF';
+            btn.style.background = '#00e5ff';
+            btn.style.borderColor = '#00e5ff';
+            btn.style.color = '#0a0c10';
 
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
