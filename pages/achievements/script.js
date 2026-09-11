@@ -85,7 +85,6 @@ function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Stagger animation for achievements
                 const allAchievements = Array.from(document.querySelectorAll('.reveal-achievement'));
                 const index = allAchievements.indexOf(entry.target);
                 const delay = index >= 0 ? index * 100 : 0;
@@ -133,7 +132,6 @@ function initAchievementModal() {
         document.body.style.overflow = '';
     }
     
-    // View buttons
     viewBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -144,7 +142,6 @@ function initAchievementModal() {
         });
     });
     
-    // Click on image itself
     imageWraps.forEach(wrap => {
         wrap.addEventListener('click', () => {
             const btn = wrap.querySelector('.image-view-btn');
@@ -152,7 +149,6 @@ function initAchievementModal() {
         });
     });
     
-    // Close
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', closeModal);
     
