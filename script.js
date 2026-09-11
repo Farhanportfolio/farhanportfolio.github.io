@@ -1,4 +1,42 @@
 // ========================================
+// SHIELD INTRO
+// ========================================
+(function initShieldIntro() {
+    const intro = document.getElementById('shieldIntro');
+    const title = document.getElementById('introTitle');
+    if (!intro || !title) {
+        document.body.classList.remove('intro-active');
+        return;
+    }
+
+    // Phase 1 (0.5s): Shield appears, crack begins
+    setTimeout(() => {
+        intro.classList.add('breaking');
+    }, 500);
+
+    // Phase 2 (1.2s): Shield explodes into fragments
+    setTimeout(() => {
+        intro.classList.add('exploding');
+    }, 1200);
+
+    // Phase 3 (1.6s): Title appears
+    setTimeout(() => {
+        title.classList.add('show');
+    }, 1600);
+
+    // Phase 4 (2.6s): Fade out intro, reveal main page
+    setTimeout(() => {
+        intro.classList.add('done');
+        document.body.classList.remove('intro-active');
+    }, 2600);
+
+    // Phase 5 (3.2s): Remove from DOM
+    setTimeout(() => {
+        intro.style.display = 'none';
+    }, 3300);
+})();
+
+// ========================================
 // EmailJS CONFIGURATION
 // ========================================
 const EMAILJS_SERVICE_ID = 'service_px36p6n';
@@ -171,8 +209,8 @@ function initContactForm() {
 
         try {
             const templateParams = {
-                from_name: name.value.trim(),
-                from_email: email.value.trim(),
+                name: name.value.trim(),
+                email: email.value.trim(),
                 message: message.value.trim(),
                 to_name: 'Farhan Khan',
             };
@@ -263,7 +301,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// CARD GLOW (3D tilt)
+// CARD GLOW
 // ========================================
 function initCardGlow() {
     const cards = document.querySelectorAll('.skill-card, .project-card, .cert-card, .profile-card, .achievement-card, .stat-block');
@@ -291,14 +329,12 @@ function initCardGlow() {
 // ========================================
 function initHeroReveal() {
     const heroElements = document.querySelectorAll(
-        '.hero-split .reveal-left, .hero-split .reveal-right, .hero-tagline'
+        '.hero-split .reveal-left, .hero-split .reveal-right'
     );
 
-    requestAnimationFrame(() => {
-        heroElements.forEach(el => {
-            setTimeout(() => el.classList.add('revealed'), 80);
-        });
-    });
+    setTimeout(() => {
+        heroElements.forEach(el => el.classList.add('revealed'));
+    }, 2700);
 }
 
 // ========================================
@@ -320,13 +356,6 @@ function initScrollReveal() {
     });
 
     revealElements.forEach(el => observer.observe(el));
-
-    revealElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            setTimeout(() => el.classList.add('revealed'), 150);
-        }
-    });
 }
 
 // ========================================
@@ -373,7 +402,7 @@ function initTypedText() {
         }
     }
 
-    setTimeout(type, 1200);
+    setTimeout(type, 3400);
 }
 
 // ========================================
@@ -385,7 +414,7 @@ function initCountUp() {
 
     setTimeout(() => {
         nums.forEach(n => animateCount(n));
-    }, 500);
+    }, 3200);
 }
 
 function animateCount(el) {
