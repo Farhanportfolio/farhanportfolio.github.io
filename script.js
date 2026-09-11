@@ -1,45 +1,3 @@
-// ========================================
-// SHIELD INTRO
-// ========================================
-(function initShieldIntro() {
-    const intro = document.getElementById('shieldIntro');
-    const title = document.getElementById('introTitle');
-    if (!intro || !title) {
-        document.body.classList.remove('intro-active');
-        return;
-    }
-
-    // Phase 1 (0.6s): Shield is stable — begin cracking
-    setTimeout(() => {
-        intro.classList.add('breaking');
-    }, 600);
-
-    // Phase 2 (1.5s): Full explosion — shield tears apart
-    setTimeout(() => {
-        intro.classList.add('exploding');
-    }, 1500);
-
-    // Phase 3 (2.0s): Name fades in over the wreckage
-    setTimeout(() => {
-        title.classList.add('show');
-    }, 2000);
-
-    // Phase 4 (3.2s): Complete vanish — no trace
-    setTimeout(() => {
-        intro.classList.add('done');
-        document.body.classList.remove('intro-active');
-    }, 3200);
-
-    // Phase 5 (3.9s): Remove from DOM entirely
-    setTimeout(() => {
-        intro.style.display = 'none';
-        intro.remove();
-    }, 3900);
-})();
-
-// ========================================
-// EmailJS CONFIGURATION
-// ========================================
 const EMAILJS_SERVICE_ID = 'service_px36p6n';
 const EMAILJS_TEMPLATE_ID = 'template_g0hgzbm';
 const EMAILJS_PUBLIC_KEY = 'LqmXJ6msgFytUh1E-';
@@ -48,9 +6,6 @@ if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
 }
 
-// ========================================
-// DOM READY
-// ========================================
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initDropdowns();
@@ -65,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
 });
 
-// ========================================
-// NAVIGATION
-// ========================================
 function initNavigation() {
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
@@ -102,9 +54,6 @@ function initNavigation() {
     });
 }
 
-// ========================================
-// DROPDOWNS
-// ========================================
 function initDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown-toggle');
 
@@ -147,9 +96,6 @@ styleDropdown.textContent = `
 `;
 document.head.appendChild(styleDropdown);
 
-// ========================================
-// CONTACT FORM (EmailJS)
-// ========================================
 function initContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
@@ -210,8 +156,8 @@ function initContactForm() {
 
         try {
             const templateParams = {
-                name: name.value.trim(),
-                email: email.value.trim(),
+                from_name: name.value.trim(),
+                from_email: email.value.trim(),
                 message: message.value.trim(),
                 to_name: 'Farhan Khan',
             };
@@ -269,9 +215,6 @@ function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// ========================================
-// SCROLL EFFECTS
-// ========================================
 function initScrollEffects() {
     const navbar = document.querySelector('.navbar');
 
@@ -284,9 +227,6 @@ function initScrollEffects() {
     });
 }
 
-// ========================================
-// SMOOTH SCROLL
-// ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -301,9 +241,6 @@ function initSmoothScroll() {
     });
 }
 
-// ========================================
-// CARD GLOW
-// ========================================
 function initCardGlow() {
     const cards = document.querySelectorAll('.skill-card, .project-card, .cert-card, .profile-card, .achievement-card, .stat-block');
 
@@ -325,22 +262,18 @@ function initCardGlow() {
     });
 }
 
-// ========================================
-// HERO REVEAL
-// ========================================
 function initHeroReveal() {
     const heroElements = document.querySelectorAll(
-        '.hero-split .reveal-left, .hero-split .reveal-right'
+        '.hero-split .reveal-left, .hero-split .reveal-right, .hero-tagline'
     );
 
-    setTimeout(() => {
-        heroElements.forEach(el => el.classList.add('revealed'));
-    }, 2700);
+    requestAnimationFrame(() => {
+        heroElements.forEach(el => {
+            setTimeout(() => el.classList.add('revealed'), 80);
+        });
+    });
 }
 
-// ========================================
-// SCROLL REVEAL
-// ========================================
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.section .reveal-up');
 
@@ -357,11 +290,15 @@ function initScrollReveal() {
     });
 
     revealElements.forEach(el => observer.observe(el));
+
+    revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            setTimeout(() => el.classList.add('revealed'), 150);
+        }
+    });
 }
 
-// ========================================
-// TYPED TEXT
-// ========================================
 function initTypedText() {
     const el = document.getElementById('typedText');
     if (!el) return;
@@ -403,19 +340,16 @@ function initTypedText() {
         }
     }
 
-    setTimeout(type, 3400);
+    setTimeout(type, 1200);
 }
 
-// ========================================
-// COUNT-UP
-// ========================================
 function initCountUp() {
     const nums = document.querySelectorAll('.stat-num[data-count]');
     if (!nums.length) return;
 
     setTimeout(() => {
         nums.forEach(n => animateCount(n));
-    }, 3200);
+    }, 500);
 }
 
 function animateCount(el) {
@@ -435,9 +369,6 @@ function animateCount(el) {
     requestAnimationFrame(update);
 }
 
-// ========================================
-// BACK TO TOP
-// ========================================
 function initBackToTop() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
@@ -485,9 +416,6 @@ function initBackToTop() {
     updateButton();
 }
 
-// ========================================
-// KEYBOARD SUPPORT
-// ========================================
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         document.querySelectorAll('.dropdown-toggle').forEach(button => {
@@ -508,9 +436,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ========================================
-// SHAKE + SPIN
-// ========================================
 const additionalStyles = document.createElement('style');
 additionalStyles.textContent = `
     @keyframes shake {
