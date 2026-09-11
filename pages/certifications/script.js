@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initCertModal();
     initViewButtons();
+    initBackToTop();
 });
 
 function initNavigation() {
@@ -117,4 +118,51 @@ function initViewButtons() {
             e.stopPropagation();
         });
     });
+}
+
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    const progress = btn.querySelector('.btt-ring-progress');
+    const circumference = 2 * Math.PI * 46;
+
+    if (progress) {
+        progress.style.strokeDasharray = circumference;
+        progress.style.strokeDashoffset = circumference;
+    }
+
+    let ticking = false;
+
+    function updateButton() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+        if (scrollTop > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+
+        if (progress) {
+            const offset = circumference * (1 - scrollPercent);
+            progress.style.strokeDashoffset = offset;
+        }
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateButton);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    updateButton();
 }
