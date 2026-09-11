@@ -78,7 +78,6 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-primary-dark); }
 
-/* SHIELD INTRO */
 body.intro-active {
     overflow: hidden;
 }
@@ -660,7 +659,6 @@ body.intro-active .back-to-top {
     100% { opacity: 0; filter: blur(20px); transform: scale(1.1); visibility: hidden; }
 }
 
-/* UTILITY */
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -1043,14 +1041,14 @@ body.intro-active .back-to-top {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 28px;
-    padding: 20px;
+    gap: 24px;
+    padding: 16px;
 }
 
 .photo-stage {
     position: relative;
     width: 100%;
-    max-width: 340px;
+    max-width: 300px;
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
@@ -1298,9 +1296,9 @@ body.intro-active .back-to-top {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 12px;
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.9s var(--transition-bounce), transform 0.9s var(--transition-bounce);
@@ -2527,8 +2525,8 @@ body.intro-active .back-to-top {
     .nav-toggle { display: flex; }
 
     .hero-split { padding: 100px 20px 40px; }
-    .hero-left { padding: 10px; gap: 20px; }
-    .photo-stage { max-width: 300px; }
+    .hero-left { padding: 12px; gap: 20px; }
+    .photo-stage { max-width: 260px; }
     .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .stat-block { padding: 12px 10px 16px; }
     .stat-num { font-size: 1.3rem; }
@@ -2565,15 +2563,15 @@ body.intro-active .back-to-top {
     .container { padding: 0 16px; }
     .section { padding: 48px 0; }
     .hero-title { font-size: 2.2rem; }
-    .hero-left { padding: 6px; gap: 16px; }
-    .photo-stage { max-width: 260px; }
+    .hero-left { padding: 8px; gap: 16px; }
+    .photo-stage { max-width: 220px; }
     .status-pill { font-size: 0.65rem; padding: 5px 12px; }
     .hero-typed { font-size: 0.7rem; padding: 8px 12px; }
     .education-box { padding: 24px 18px; }
     .experience-card { padding: 24px 20px; }
     .contact-form { padding: 20px 16px; }
     .tagline-text { font-size: 0.65rem; letter-spacing: 1.5px; }
-    .hero-tagline { gap: 10px; max-width: 280px; }
+    .hero-tagline { gap: 10px; max-width: 260px; }
 
     .btn {
         padding: 12px 24px;
