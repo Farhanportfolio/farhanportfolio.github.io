@@ -10,12 +10,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="intro-active">
+
+    <!-- ==================== SHIELD INTRO ==================== -->
+    <div class="shield-intro" id="shieldIntro">
+        <div class="intro-backdrop"></div>
+
+        <div class="shield-stage" id="shieldStage">
+            <div class="shield" id="shield">
+                <div class="shield-body">
+                    <div class="shield-half shield-half-left">
+                        <div class="shield-surface"></div>
+                    </div>
+                    <div class="shield-half shield-half-right">
+                        <div class="shield-surface"></div>
+                    </div>
+                    <div class="shield-inner-glow"></div>
+                    <div class="shield-emblem">
+                        <div class="emblem-ring"></div>
+                        <div class="emblem-core"></div>
+                    </div>
+                </div>
+
+                <div class="shield-crack"></div>
+
+                <span class="frag frag-1"></span>
+                <span class="frag frag-2"></span>
+                <span class="frag frag-3"></span>
+                <span class="frag frag-4"></span>
+                <span class="frag frag-5"></span>
+                <span class="frag frag-6"></span>
+                <span class="frag frag-7"></span>
+                <span class="frag frag-8"></span>
+                <span class="frag frag-9"></span>
+                <span class="frag frag-10"></span>
+            </div>
+
+            <div class="shockwave"></div>
+            <div class="shockwave shockwave-2"></div>
+        </div>
+
+        <div class="intro-title" id="introTitle">
+            <span class="intro-title-line">Farhan Khan</span>
+            <span class="intro-title-sub">Cyber Security Enthusiast</span>
+        </div>
+    </div>
 
     <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -47,7 +90,7 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main>
 
-        <!-- ====== HERO — SPLIT LAYOUT ====== -->
+        <!-- ====== HERO ====== -->
         <section class="hero-split">
             <div class="hero-bg">
                 <div class="bg-grid"></div>
@@ -58,7 +101,6 @@
             </div>
 
             <div class="hero-split-inner">
-                <!-- LEFT — PHOTO WITH TAGLINE -->
                 <div class="hero-left reveal-left">
                     <div class="photo-stage">
                         <div class="circle-ring ring-1"></div>
@@ -68,15 +110,9 @@
                         <div class="circle-ring ring-5"></div>
                         <div class="circle-ring ring-6"></div>
 
-                        <div class="orbit-dash orbit-dash-1">
-                            <span class="orbit-dot"></span>
-                        </div>
-                        <div class="orbit-dash orbit-dash-2">
-                            <span class="orbit-dot"></span>
-                        </div>
-                        <div class="orbit-dash orbit-dash-3">
-                            <span class="orbit-dot"></span>
-                        </div>
+                        <div class="orbit-dash orbit-dash-1"><span class="orbit-dot"></span></div>
+                        <div class="orbit-dash orbit-dash-2"><span class="orbit-dot"></span></div>
+                        <div class="orbit-dash orbit-dash-3"><span class="orbit-dot"></span></div>
 
                         <div class="photo-shine"></div>
 
@@ -94,15 +130,8 @@
                         <div class="float-tag float-tag-2">Top 1%</div>
                         <div class="float-tag float-tag-3">Researcher</div>
                     </div>
-
-                    <div class="hero-tagline">
-                        <span class="tagline-line"></span>
-                        <span class="tagline-text">Day Zero To <span class="gradient-text">ZeroDay</span></span>
-                        <span class="tagline-line"></span>
-                    </div>
                 </div>
 
-                <!-- RIGHT — NAME, DESCRIPTION, STATS -->
                 <div class="hero-right">
                     <span class="hero-eyebrow reveal-right" style="--d: 0.05s">
                         <span class="eyebrow-line"></span>
@@ -134,7 +163,7 @@
                             <div class="stat-bar"><span style="--w: 75%"></span></div>
                         </div>
                         <div class="stat-block">
-                            <div class="stat-num" data-count="300">0</div>
+                            <div class="stat-num" data-count="100">0</div>
                             <div class="stat-suffix">+</div>
                             <div class="stat-label">Challenges</div>
                             <div class="stat-bar"><span style="--w: 90%"></span></div>
@@ -153,12 +182,6 @@
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                        </a>
-                        <a href="resume.pdf" download class="btn btn-resume">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M10 3V13M10 13L6 9M10 13L14 9M4 17H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Download Resume
                         </a>
                         <a href="pages/writeups/index.html" class="btn btn-secondary">
                             Read Writeups
@@ -258,34 +281,14 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/experience/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                     
                     <div class="dropdown-content" hidden>
-                        <!-- Amroha Police -->
-                        <div class="experience-card">
-                            <div class="exp-header">
-                                <div class="exp-icon">
-                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                        <rect x="3" y="8" width="22" height="15" rx="3" stroke="#00e5ff" stroke-width="2"/>
-                                        <path d="M10 4L14 8L18 4" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
-                                <div class="exp-title">
-                                    <h4>Cyber Security Intern</h4>
-                                    <span class="exp-company">Amroha Police · Internship</span>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-date">2025 — Present</span>
-                                    <span class="exp-location">Amroha, India</span>
-                                </div>
-                            </div>
-                            <ul class="exp-details">
-                                <li>Assisted in cybercrime investigation workflows and digital evidence handling.</li>
-                                <li>Contributed to awareness initiatives around online fraud and cybersecurity hygiene.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Content Writer -->
                         <div class="experience-card">
                             <div class="exp-header">
                                 <div class="exp-icon">
@@ -309,7 +312,6 @@
                             </ul>
                         </div>
 
-                        <!-- Bug Hunter -->
                         <div class="experience-card">
                             <div class="exp-header">
                                 <div class="exp-icon">
@@ -333,14 +335,27 @@
                             </ul>
                         </div>
 
-                        <!-- View More button -->
-                        <div class="dropdown-view-more">
-                            <a href="pages/experience/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                        <div class="experience-card">
+                            <div class="exp-header">
+                                <div class="exp-icon">
+                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                        <rect x="3" y="8" width="22" height="15" rx="3" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M10 4L14 8L18 4" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="exp-title">
+                                    <h4>CTF Player</h4>
+                                    <span class="exp-company">TryHackMe · Part-time</span>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-date">Jan 2025 — Present</span>
+                                    <span class="exp-location">Remote</span>
+                                </div>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Solves CTF challenges across AD, web exploitation, privilege escalation, and network security.</li>
+                                <li>Maintains a top 1% global ranking on TryHackMe.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -364,6 +379,11 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/achievements/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="dropdown-content" hidden>
@@ -371,17 +391,17 @@
                             <div class="achievement-card">
                                 <div class="ach-badge">1st</div>
                                 <h4>Hackers Meetup — Indore Chapter</h4>
-                                <p>CTF Winner · Indore, India</p>
+                                <p>CTF Winner · Indore, India · 14 Feb 2026</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="ach-badge">1st</div>
+                                <h4>VYUH CTF — 1st Place</h4>
+                                <p>VYUH Community · Bhopal · 2026</p>
                             </div>
                             <div class="achievement-card">
                                 <div class="ach-badge">2nd</div>
-                                <h4>Sagar Fiesta 2026 — 1st Runner-Up</h4>
+                                <h4>Sagar Fiesta 2026 — Runner Up</h4>
                                 <p>Logic Arena CTF · SISTec Bhopal</p>
-                            </div>
-                            <div class="achievement-card">
-                                <div class="ach-badge">3rd</div>
-                                <h4>VYUH CTF — 3rd Place</h4>
-                                <p>Hackers Meetup Indore · 14 Feb 2026</p>
                             </div>
                             <div class="achievement-card">
                                 <div class="ach-badge">Top 1%</div>
@@ -389,20 +409,15 @@
                                 <p>Sustained top-percentile ranking across offensive paths.</p>
                             </div>
                             <div class="achievement-card">
-                                <div class="ach-badge">1st</div>
-                                <h4>First Winner of CTF</h4>
-                                <p>Won my first-ever CTF competition — the start of the journey.</p>
+                                <div class="ach-badge">7x</div>
+                                <h4>Bug Bounty Rewards</h4>
+                                <p>Rewarded findings on public programs.</p>
                             </div>
-                        </div>
-
-                        <!-- View More button -->
-                        <div class="dropdown-view-more">
-                            <a href="pages/achievements/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                            <div class="achievement-card">
+                                <div class="ach-badge">30+</div>
+                                <h4>Technical Writeups</h4>
+                                <p>Published across AD, web security, and exploit development.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -431,7 +446,7 @@
                         <p class="edu-description">
                             Currently pursuing B.Tech in Cyber Security — running offensive security research,
                             CTFs, and bug bounty work alongside coursework. Focused on practical security
-                            assessments.
+                            assessments and exploit development.
                         </p>
                     </div>
                 </div>
@@ -455,6 +470,11 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/projects/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="dropdown-content" hidden>
@@ -467,12 +487,16 @@
                                         <circle cx="180" cy="90" r="40" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="25" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="10" fill="rgba(0, 229, 255, 0.15)"/>
-                                        <path d="M140 50L160 70M220 50L200 70M140 130L160 110M220 130L200 110" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
                                     <div class="project-header">
                                         <h4>MalTracker</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View project">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
                                     </div>
                                     <p>Malicious banking app detector using static and behavioural analysis.</p>
                                     <div class="project-tags">
@@ -494,12 +518,16 @@
                                         <circle cx="180" cy="90" r="42" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
                                         <circle cx="180" cy="90" r="24" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
                                         <circle cx="180" cy="90" r="6" fill="#00e5ff"/>
-                                        <path d="M180 48V60M180 120V132M138 90H150M210 90H222" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
                                     <div class="project-header">
                                         <h4>1Recon</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View project">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
                                     </div>
                                     <p>Bash-based reconnaissance automation framework for pentesting and bug bounty.</p>
                                     <div class="project-tags">
@@ -519,16 +547,17 @@
                                         <rect width="360" height="180" rx="12" fill="#0a0c10"/>
                                         <rect x="24" y="24" width="312" height="132" rx="8" fill="#05070a"/>
                                         <rect x="60" y="50" width="240" height="80" rx="6" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
-                                        <rect x="80" y="70" width="80" height="6" rx="3" fill="#00e5ff" opacity="0.3"/>
-                                        <rect x="80" y="86" width="120" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
-                                        <rect x="80" y="102" width="100" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
                                         <circle cx="260" cy="100" r="16" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
-                                        <circle cx="260" cy="100" r="6" fill="#00e5ff" opacity="0.5"/>
                                     </svg>
                                 </div>
                                 <div class="project-body">
                                     <div class="project-header">
                                         <h4>More Coming</h4>
+                                        <a href="pages/projects/index.html" class="project-link" aria-label="View projects">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
                                     </div>
                                     <p>Actively building more offensive security tooling and analysis frameworks.</p>
                                     <div class="project-tags">
@@ -541,15 +570,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- View More button -->
-                        <div class="dropdown-view-more">
-                            <a href="pages/projects/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                        <div class="projects-footer">
+                            <span>View all repositories on GitHub</span>
+                            <a href="pages/projects/index.html" class="btn btn-sm btn-outline">View All →</a>
                         </div>
                     </div>
                 </div>
@@ -562,7 +585,7 @@
                 <div class="section-header reveal-up">
                     <span class="section-tag">Research</span>
                     <h2>Writeups</h2>
-                    <p>Technical articles and walkthroughs covering Active Directory, web security, and more</p>
+                    <p>Technical articles and walkthroughs covering Active Directory, web security, exploit development &amp; more</p>
                 </div>
 
                 <div class="writeups-dropdown reveal-up">
@@ -573,6 +596,11 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/writeups/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="dropdown-content" hidden>
@@ -630,22 +658,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Two buttons: View More + View on Medium -->
-                        <div class="dropdown-view-more dropdown-view-more--dual">
-                            <a href="pages/writeups/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                            <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="btn btn-medium">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                    <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.53v13.222c-.034.197.048.404.213.53l1.87 1.837v.403h-9.412v-.403l1.937-1.881c.19-.19.19-.246.19-.53v-10.7l-5.387 13.683h-.728l-6.274-13.683v9.174c-.052.385.076.774.347 1.053l2.52 3.058v.403h-7.146v-.403l2.52-3.058c.27-.279.39-.67.325-1.053v-10.608z" fill="currentColor"/>
-                                </svg>
-                                View on Medium
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -668,6 +680,11 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/certifications/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="dropdown-content" hidden>
@@ -706,16 +723,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- View More button -->
-                        <div class="dropdown-view-more">
-                            <a href="pages/certifications/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -738,55 +745,55 @@
                                 <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
+                        <a href="pages/profiles/index.html" class="btn-open-page" aria-label="Open full page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="dropdown-content" hidden>
                         <div class="profiles-grid">
-                            <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card">
+                            <a href="pages/profiles/index.html" class="profile-card">
                                 <div class="profile-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M24 2H8C4.686 2 2 4.686 2 8V24C2 27.314 4.686 30 8 30H24C27.314 30 30 27.314 30 24V8C30 4.686 27.314 2 24 2Z" stroke="#00e5ff" stroke-width="2"/>
+                                        <circle cx="22" cy="10" r="2" fill="#00e5ff"/>
+                                        <path d="M10 14H22V26H10V14Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <span>LinkedIn</span>
                                 <span class="profile-followers">1.2k+ followers</span>
                             </a>
-                            <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="profile-card">
+                            <a href="pages/profiles/index.html" class="profile-card">
                                 <div class="profile-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="currentColor"/>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M16 4C9.373 4 4 9.373 4 16C4 22.627 9.373 28 16 28C22.627 28 28 22.627 28 16C28 9.373 22.627 4 16 4Z" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M12 8L20 8M12 24L20 24M8 12L8 20M24 12L24 20" stroke="#00e5ff" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <span>GitHub</span>
                                 <span class="profile-followers">Repositories</span>
                             </a>
-                            <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="profile-card">
+                            <a href="pages/profiles/index.html" class="profile-card">
                                 <div class="profile-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                                        <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.53v13.222c-.034.197.048.404.213.53l1.87 1.837v.403h-9.412v-.403l1.937-1.881c.19-.19.19-.246.19-.53v-10.7l-5.387 13.683h-.728l-6.274-13.683v9.174c-.052.385.076.774.347 1.053l2.52 3.058v.403h-7.146v-.403l2.52-3.058c.27-.279.39-.67.325-1.053v-10.608z" fill="currentColor"/>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="6" width="24" height="20" rx="2" stroke="#00e5ff" stroke-width="2"/>
+                                        <path d="M8 12L24 12" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 18L20 18" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </div>
                                 <span>Medium</span>
                                 <span class="profile-followers">30+ writeups</span>
                             </a>
-                            <a href="https://tryhackme.com/p/Farhankhann" target="_blank" rel="noopener noreferrer" class="profile-card">
+                            <a href="pages/profiles/index.html" class="profile-card">
                                 <div class="profile-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2ZM12 11H19C18.56 14.91 15.71 18.4 12 19.92V11H5V7.3L12 4.19V11Z" fill="currentColor"/>
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M16 4L20 12L28 14L22 20L24 28L16 24L8 28L10 20L4 14L12 12L16 4Z" stroke="#00e5ff" stroke-width="2" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                                 <span>TryHackMe</span>
                                 <span class="profile-followers">Top 1% globally</span>
-                            </a>
-                        </div>
-
-                        <!-- View More button -->
-                        <div class="dropdown-view-more">
-                            <a href="pages/profiles/index.html" class="btn btn-primary">
-                                View More
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
                             </a>
                         </div>
                     </div>
@@ -802,12 +809,12 @@
                         <span class="section-tag">Let's Talk</span>
                         <h2>Get In Touch</h2>
                         <p>
-                            Interested in collaborating on security research, bug bounty programs,
-                            or penetration testing engagements? Reach out and let's talk.
+                            Interested in collaborating on security research, exploit development,
+                            bug bounty programs, or penetration testing engagements? Reach out and let's talk.
                         </p>
                         <p class="contact-ethics">
                             I take on web and API assessments, network and Active Directory engagements,
-                            and LLM red teaming.
+                            AWS configuration reviews, LLM red teaming, and exploit-development research.
                         </p>
                         <div class="contact-social">
                             <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
