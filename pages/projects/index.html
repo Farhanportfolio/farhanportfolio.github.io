@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Farhan Khan - Open Source Security Projects" />
     <title>Projects — Farhan Khan</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    
+
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="../../index.html">
-                    <span>Farhan Khan</span>
-                </a>
+                <a href="../../index.html"><span>Farhan Khan</span></a>
             </div>
-            
+
             <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            
+
             <ul class="nav-links">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="../experience/index.html">Experience</a></li>
@@ -41,17 +38,15 @@
         </div>
     </nav>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
     <main>
         <section class="section projects-page-section" id="projectsTop">
-            <!-- 3D Background Grid -->
+
             <div class="bg-grid-3d">
                 <div class="grid-layer grid-layer-1"></div>
                 <div class="grid-layer grid-layer-2"></div>
                 <div class="grid-layer grid-layer-3"></div>
             </div>
 
-            <!-- Floating Orbits -->
             <div class="orbit-container">
                 <div class="orbit orbit-1"><span class="orbit-dot"></span></div>
                 <div class="orbit orbit-2"><span class="orbit-dot"></span></div>
@@ -60,11 +55,10 @@
             </div>
 
             <div class="container">
-                <!-- ====== HERO SECTION ====== -->
+
                 <div class="projects-hero">
                     <div class="hero-3d-icon">
                         <div class="hero-icon-inner">
-                            <!-- Project SVG Icon -->
                             <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" width="80" height="80">
                                 <style type="text/css">
                                     .project-icon-fill { fill: #00e5ff; }
@@ -88,13 +82,11 @@
                     <p>Offensive tooling, reconnaissance frameworks &amp; analysis tools</p>
                 </div>
 
-                <!-- ====== PROJECTS LIST ====== -->
                 <div class="projects-list">
 
-                    <!-- ====== PROJECT 1: MALT RACKER ====== -->
                     <div class="project-wrapper reveal-project">
                         <div class="project-number-bg">01</div>
-                        
+
                         <div class="project-card-3d tilt-card">
                             <div class="corner-accent corner-tl"></div>
                             <div class="corner-accent corner-tr"></div>
@@ -103,7 +95,6 @@
 
                             <div class="project-header-3d">
                                 <div class="project-icon-3d">
-                                    <!-- Detector/Scanner SVG -->
                                     <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
                                         <defs>
                                             <linearGradient id="detectGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -209,10 +200,9 @@
                         </div>
                     </div>
 
-                    <!-- ====== PROJECT 2: 1RECON ====== -->
                     <div class="project-wrapper reveal-project">
                         <div class="project-number-bg">02</div>
-                        
+
                         <div class="project-card-3d tilt-card">
                             <div class="corner-accent corner-tl"></div>
                             <div class="corner-accent corner-tr"></div>
@@ -221,7 +211,6 @@
 
                             <div class="project-header-3d">
                                 <div class="project-icon-3d">
-                                    <!-- Radar Scanner SVG -->
                                     <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
                                         <defs>
                                             <linearGradient id="reconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -299,7 +288,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Workflow -->
                                 <div class="project-workflow-3d">
                                     <h4><span class="h4-line"></span>Reconnaissance Workflow</h4>
                                     <div class="workflow-svg-3d">
@@ -408,7 +396,6 @@
 
                 </div>
 
-                <!-- ====== CTA ====== -->
                 <div class="projects-cta reveal-on-scroll">
                     <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-cta-3d">
                         <span class="btn-glow"></span>
@@ -422,24 +409,27 @@
         </section>
     </main>
 
-    <!-- ==================== BACK TO TOP ==================== -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="btt-ring" viewBox="0 0 100 100" width="100%" height="100%">
+            <circle class="btt-ring-track" cx="50" cy="50" r="46" />
+            <circle class="btt-ring-progress" cx="50" cy="50" r="46" />
         </svg>
+        <span class="btt-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <span class="btt-glow"></span>
     </button>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="../../index.html">
-                        <span>Farhan Khan</span>
-                    </a>
+                    <a href="../../index.html"><span>Farhan Khan</span></a>
                     <p>Cyber Security Enthusiast &amp; Engineer</p>
                 </div>
-                
+
                 <nav class="footer-nav" aria-label="Footer navigation">
                     <a href="../../index.html">Home</a>
                     <a href="../experience/index.html">Experience</a>
@@ -449,7 +439,7 @@
                     <a href="../certifications/index.html">Certifications</a>
                     <a href="../profiles/index.html">Profiles</a>
                 </nav>
-                
+
                 <div class="footer-bottom">
                     <p>&copy; 2026 Farhan Khan. All rights reserved.</p>
                     <p>Built with precision &amp; passion</p>
