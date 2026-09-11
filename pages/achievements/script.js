@@ -87,7 +87,7 @@ function initScrollReveal() {
             if (entry.isIntersecting) {
                 const allAchievements = Array.from(document.querySelectorAll('.reveal-achievement'));
                 const index = allAchievements.indexOf(entry.target);
-                const delay = index >= 0 ? index * 100 : 0;
+                const delay = index >= 0 ? index * 120 : 0;
                 
                 setTimeout(() => {
                     entry.target.classList.add('revealed');
