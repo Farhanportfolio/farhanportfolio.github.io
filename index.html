@@ -11,7 +11,103 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="intro-active">
+
+    <div class="shield-intro" id="shieldIntro">
+        <div class="intro-backdrop"></div>
+
+        <div class="shield-stage" id="shieldStage">
+            <div class="shield" id="shield">
+                <div class="shield-shell">
+                    <div class="shield-surface"></div>
+                    <div class="shield-field"></div>
+
+                    <span class="rivet rivet-1"></span>
+                    <span class="rivet rivet-2"></span>
+                    <span class="rivet rivet-3"></span>
+                    <span class="rivet rivet-4"></span>
+                    <span class="rivet rivet-5"></span>
+                    <span class="rivet rivet-6"></span>
+                    <span class="rivet rivet-7"></span>
+                    <span class="rivet rivet-8"></span>
+
+                    <div class="shield-emblem">
+                        <svg viewBox="0 0 80 80" class="emblem-svg">
+                            <defs>
+                                <linearGradient id="embGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#aef7ff"/>
+                                    <stop offset="50%" stop-color="#00e5ff"/>
+                                    <stop offset="100%" stop-color="#0090b0"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="40" cy="40" r="30" fill="none" stroke="url(#embGrad)" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="40" cy="40" r="22" fill="none" stroke="url(#embGrad)" stroke-width="1" opacity="0.7"/>
+                            <path d="M40 18 V 62 M18 40 H 62"
+                                  stroke="url(#embGrad)" stroke-width="3.5" stroke-linecap="round"/>
+                            <circle cx="40" cy="40" r="5" fill="url(#embGrad)"/>
+                        </svg>
+                    </div>
+
+                    <div class="shield-toplight"></div>
+                    <div class="shield-bottomshadow"></div>
+                </div>
+
+                <svg class="crack-layer" viewBox="0 0 200 240" preserveAspectRatio="none">
+                    <path class="crack crack-main"
+                          d="M100 0 L 96 40 L 104 70 L 92 110 L 100 150 L 90 190 L 100 240"
+                          fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" stroke-linecap="round"/>
+                    <path class="crack crack-b1"
+                          d="M96 40 L 70 60 L 55 90 L 40 120"
+                          fill="none" stroke="rgba(190,250,255,0.9)" stroke-width="1.1" stroke-linecap="round"/>
+                    <path class="crack crack-b2"
+                          d="M104 70 L 135 55 L 155 80 L 170 110"
+                          fill="none" stroke="rgba(190,250,255,0.9)" stroke-width="1.1" stroke-linecap="round"/>
+                    <path class="crack crack-b3"
+                          d="M92 110 L 62 130 L 45 160"
+                          fill="none" stroke="rgba(190,250,255,0.85)" stroke-width="1" stroke-linecap="round"/>
+                    <path class="crack crack-b4"
+                          d="M100 150 L 130 165 L 148 195"
+                          fill="none" stroke="rgba(190,250,255,0.85)" stroke-width="1" stroke-linecap="round"/>
+                    <path class="crack crack-b5"
+                          d="M70 60 L 78 30"
+                          fill="none" stroke="rgba(190,250,255,0.7)" stroke-width="0.8" stroke-linecap="round"/>
+                    <path class="crack crack-b6"
+                          d="M135 55 L 130 25"
+                          fill="none" stroke="rgba(190,250,255,0.7)" stroke-width="0.8" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <div class="shard-field" id="shardField">
+                <span class="shard shard-1"></span>
+                <span class="shard shard-2"></span>
+                <span class="shard shard-3"></span>
+                <span class="shard shard-4"></span>
+                <span class="shard shard-5"></span>
+                <span class="shard shard-6"></span>
+                <span class="shard shard-7"></span>
+                <span class="shard shard-8"></span>
+            </div>
+
+            <div class="dust-field" id="dustField">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="impact-flash"></div>
+            <div class="shockwave"></div>
+            <div class="shockwave shockwave-2"></div>
+            <div class="shockwave shockwave-3"></div>
+        </div>
+
+        <div class="intro-title" id="introTitle">
+            <span class="intro-title-line">Farhan Khan</span>
+            <span class="intro-title-sub">Cyber Security Enthusiast</span>
+        </div>
+    </div>
 
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
