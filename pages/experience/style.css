@@ -430,12 +430,6 @@ body {
     font-weight: 500;
 }
 
-.exp-date {
-    font-size: 0.85rem;
-    color: var(--color-text-dim);
-    margin-top: 2px;
-}
-
 .exp-location {
     font-size: 0.85rem;
     color: var(--color-text-dim);
@@ -445,7 +439,7 @@ body {
 .exp-description {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    line-height: 1.7;
+    line-height: 1.75;
     margin-top: 12px;
 }
 
@@ -554,7 +548,7 @@ body {
 .edu-description {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    line-height: 1.7;
+    line-height: 1.75;
     margin-top: 10px;
 }
 
