@@ -1,4 +1,54 @@
 // ========================================
+// THEME SWITCHER
+// ========================================
+(function initThemeSwitcher() {
+    const THEMES = ['1', '2', '3', '4', '5'];
+    const MOON_THEMES = new Set(['1', '3', '5']); // dark themes → show moon
+    const STORAGE_KEY = 'fk-portfolio-theme';
+
+    const btn = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    // Restore saved theme
+    let currentTheme = localStorage.getItem(STORAGE_KEY) || '1';
+    if (!THEMES.includes(currentTheme)) currentTheme = '1';
+
+    function applyTheme(theme, withAnimation) {
+        document.body.setAttribute('data-theme', theme);
+        htmlEl.setAttribute('data-theme', theme);
+
+        if (btn) {
+            if (MOON_THEMES.has(theme)) {
+                btn.classList.add('is-moon');
+            } else {
+                btn.classList.remove('is-moon');
+            }
+
+            if (withAnimation) {
+                btn.classList.remove('spin');
+                // Force reflow so animation can restart
+                void btn.offsetWidth;
+                btn.classList.add('spin');
+                setTimeout(() => btn.classList.remove('spin'), 900);
+            }
+        }
+
+        localStorage.setItem(STORAGE_KEY, theme);
+    }
+
+    // Apply on load (no animation)
+    applyTheme(currentTheme, false);
+
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+        const idx = THEMES.indexOf(currentTheme);
+        currentTheme = THEMES[(idx + 1) % THEMES.length];
+        applyTheme(currentTheme, true);
+    });
+})();
+
+// ========================================
 // SHIELD INTRO
 // ========================================
 (function initShieldIntro() {
@@ -9,28 +59,13 @@
         return;
     }
 
-    // Phase 1 (0.6s): Shield is stable — begin cracking
-    setTimeout(() => {
-        intro.classList.add('breaking');
-    }, 600);
-
-    // Phase 2 (1.5s): Full explosion — shield tears apart
-    setTimeout(() => {
-        intro.classList.add('exploding');
-    }, 1500);
-
-    // Phase 3 (2.0s): Name fades in over the wreckage
-    setTimeout(() => {
-        title.classList.add('show');
-    }, 2000);
-
-    // Phase 4 (3.2s): Complete vanish — no trace
+    setTimeout(() => { intro.classList.add('breaking'); }, 600);
+    setTimeout(() => { intro.classList.add('exploding'); }, 1500);
+    setTimeout(() => { title.classList.add('show'); }, 2000);
     setTimeout(() => {
         intro.classList.add('done');
         document.body.classList.remove('intro-active');
     }, 3200);
-
-    // Phase 5 (3.9s): Remove from DOM entirely
     setTimeout(() => {
         intro.style.display = 'none';
         intro.remove();
@@ -171,22 +206,22 @@ function initContactForm() {
 
         if (!name.value.trim()) {
             isValid = false;
-            name.style.borderColor = '#00e5ff';
-            name.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
+            name.style.borderColor = 'var(--color-primary)';
+            name.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
             name.focus();
         }
 
         if (!email.value.trim() || !isValidEmail(email.value)) {
             isValid = false;
-            email.style.borderColor = '#00e5ff';
-            email.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
+            email.style.borderColor = 'var(--color-primary)';
+            email.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
             if (isValid) email.focus();
         }
 
         if (!message.value.trim()) {
             isValid = false;
-            message.style.borderColor = '#00e5ff';
-            message.style.boxShadow = '0 0 0 4px rgba(0, 229, 255, 0.1)';
+            message.style.borderColor = 'var(--color-primary)';
+            message.style.boxShadow = '0 0 0 4px var(--color-glow-soft)';
             if (isValid) message.focus();
         }
 
@@ -228,9 +263,9 @@ function initContactForm() {
                 </svg>
                 Sent Successfully!
             `;
-            btn.style.background = '#00e5ff';
-            btn.style.borderColor = '#00e5ff';
-            btn.style.color = '#0a0c10';
+            btn.style.background = 'var(--color-primary)';
+            btn.style.borderColor = 'var(--color-primary)';
+            btn.style.color = 'var(--color-bg)';
 
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
