@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollEffects();
     initBackToTop();
     initScrollReveal();
-    initAchievementModal();
 });
 
 // ========================================
@@ -102,63 +101,4 @@ function initScrollReveal() {
     });
     
     revealElements.forEach(el => observer.observe(el));
-}
-
-// ========================================
-// ACHIEVEMENT MODAL
-// ========================================
-function initAchievementModal() {
-    const modal = document.getElementById('achModal');
-    const modalImage = document.getElementById('achModalImage');
-    const modalTitle = document.getElementById('achModalTitle');
-    const modalEvent = document.getElementById('achModalEvent');
-    const closeBtn = document.getElementById('achModalClose');
-    const overlay = modal.querySelector('.ach-modal-overlay');
-    
-    const viewBtns = document.querySelectorAll('.image-view-btn');
-    const imageWraps = document.querySelectorAll('.achievement-image-wrap');
-    
-    function openModal(cert, title, event) {
-        modalImage.src = cert;
-        modalImage.alt = title || 'Certificate';
-        modalTitle.textContent = title || 'Certificate';
-        modalEvent.textContent = event || '';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    viewBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const cert = btn.dataset.cert;
-            const title = btn.dataset.title || 'Certificate';
-            const event = btn.dataset.event || '';
-            if (cert) openModal(cert, title, event);
-        });
-    });
-    
-    imageWraps.forEach(wrap => {
-        wrap.addEventListener('click', () => {
-            const btn = wrap.querySelector('.image-view-btn');
-            if (btn) btn.click();
-        });
-    });
-    
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal);
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
 }
