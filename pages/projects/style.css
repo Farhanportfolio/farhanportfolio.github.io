@@ -1,39 +1,33 @@
-/* ========================================
-   ROOT VARIABLES
-   ======================================== */
 :root {
     --color-primary: #00e5ff;
     --color-primary-dark: #00b4d8;
     --color-primary-light: #66f0ff;
-    
+
     --color-bg: #0a0c10;
     --color-bg-card: rgba(5, 7, 10, 0.85);
     --color-bg-elevated: rgba(13, 17, 23, 0.6);
-    
+
     --color-text: #e8f0f5;
     --color-text-muted: #8899aa;
     --color-text-dim: #445566;
-    
+
     --color-border: rgba(26, 42, 51, 0.4);
     --color-border-hover: rgba(0, 229, 255, 0.4);
-    
+
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Orbitron', 'Inter', monospace;
     --font-code: 'Fira Code', 'Consolas', monospace;
-    
+
     --ease-smooth: cubic-bezier(0.34, 1.56, 0.64, 1);
     --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);
     --ease-out-slow: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-out-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
+
     --duration-slow: 1s;
     --duration-medium: 0.5s;
     --duration-fast: 0.3s;
 }
 
-/* ========================================
-   RESET
-   ======================================== */
 html, body {
     overflow-x: hidden !important;
     width: 100% !important;
@@ -64,9 +58,6 @@ body {
     max-width: 100vw !important;
 }
 
-/* ========================================
-   PAGE
-   ======================================== */
 .projects-page-section {
     position: relative;
     padding-top: 130px;
@@ -75,9 +66,6 @@ body {
     background: var(--color-bg);
 }
 
-/* ========================================
-   3D BACKGROUND GRID
-   ======================================== */
 .bg-grid-3d {
     position: absolute;
     inset: 0;
@@ -116,9 +104,6 @@ body {
     to { transform: translate(60px, 60px); }
 }
 
-/* ========================================
-   FLOATING ORBITS
-   ======================================== */
 .orbit-container {
     position: absolute;
     inset: 0;
@@ -163,9 +148,6 @@ body {
     z-index: 0;
 }
 
-/* ========================================
-   UTILITY
-   ======================================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -237,9 +219,6 @@ body {
     margin: 0 auto;
 }
 
-/* ========================================
-   HERO ICON
-   ======================================== */
 .projects-hero {
     display: flex;
     justify-content: center;
@@ -322,9 +301,6 @@ body {
     50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
 }
 
-/* ========================================
-   REVEAL ANIMATIONS
-   ======================================== */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -347,9 +323,6 @@ body {
     transform: translateY(0) scale(1);
 }
 
-/* ========================================
-   BUTTONS
-   ======================================== */
 .btn {
     position: relative;
     display: inline-flex;
@@ -405,9 +378,6 @@ body {
     transform: translateY(-4px) scale(1.03);
 }
 
-/* ========================================
-   NAVIGATION
-   ======================================== */
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -533,9 +503,6 @@ body {
     background: var(--color-primary);
 }
 
-/* ========================================
-   PROJECTS LIST
-   ======================================== */
 .projects-list {
     display: flex;
     flex-direction: column;
@@ -569,9 +536,6 @@ body {
     transform: translateX(-10px);
 }
 
-/* ========================================
-   3D PROJECT CARD
-   ======================================== */
 .project-card-3d {
     position: relative;
     background: linear-gradient(135deg, rgba(5, 7, 10, 0.95), rgba(13, 17, 23, 0.9));
@@ -598,7 +562,6 @@ body {
         inset 0 1px 0 rgba(0, 229, 255, 0.15);
 }
 
-/* Corner accents */
 .corner-accent {
     position: absolute;
     width: 30px;
@@ -619,9 +582,6 @@ body {
     height: 42px;
 }
 
-/* ========================================
-   PROJECT HEADER
-   ======================================== */
 .project-header-3d {
     display: flex;
     align-items: center;
@@ -768,9 +728,6 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-/* ========================================
-   PROJECT BODY
-   ======================================== */
 .project-body {
     position: relative;
     z-index: 2;
@@ -946,9 +903,6 @@ body {
     margin-right: 6px;
 }
 
-/* ========================================
-   WORKFLOW SVG
-   ======================================== */
 .project-workflow-3d { margin-bottom: 28px; }
 
 .workflow-svg-3d {
@@ -991,9 +945,6 @@ body {
     50% { filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.5)); }
 }
 
-/* ========================================
-   STATUS BADGE
-   ======================================== */
 .project-status-3d {
     display: flex;
     justify-content: flex-start;
@@ -1034,9 +985,6 @@ body {
     50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-/* ========================================
-   OPEN PROJECT CTA
-   ======================================== */
 .project-open-cta {
     margin-top: 28px;
     padding-top: 24px;
@@ -1117,9 +1065,6 @@ body {
     opacity: 1;
 }
 
-/* ========================================
-   CTA
-   ======================================== */
 .projects-cta {
     text-align: center;
     margin-top: 80px;
@@ -1139,56 +1084,104 @@ body {
     50% { transform: translateY(-6px); }
 }
 
-/* ========================================
-   BACK TO TOP
-   ======================================== */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-    width: 54px;
-    height: 54px;
+    bottom: 32px;
+    right: 32px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: rgba(10, 12, 16, 0.8);
-    backdrop-filter: blur(20px);
-    color: var(--color-text-muted);
+    background: rgba(10, 12, 16, 0.9);
+    border: none;
     cursor: pointer;
-    transition: all 0.6s var(--ease-out-smooth);
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
+    visibility: hidden;
     transform: translateY(20px) scale(0.8);
-    pointer-events: none;
+    transition: all 0.5s var(--ease-smooth);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 229, 255, 0.15);
+    padding: 0;
 }
 
 .back-to-top.visible {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0) scale(1);
-    pointer-events: auto;
 }
 
 .back-to-top:hover {
-    border-color: var(--color-primary);
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 229, 255, 0.35), 0 0 0 1px rgba(0, 229, 255, 0.4);
+}
+
+.back-to-top:active { transform: translateY(-2px) scale(0.96); }
+
+.btt-ring {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.btt-ring-track {
+    fill: none;
+    stroke: rgba(0, 229, 255, 0.1);
+    stroke-width: 2;
+}
+
+.btt-ring-progress {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 289;
+    stroke-dashoffset: 289;
+    filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.8));
+    transition: stroke-dashoffset 0.1s linear;
+}
+
+.btt-icon {
+    position: relative;
+    z-index: 2;
     color: var(--color-primary);
-    transform: translateY(-6px) scale(1.1);
-    box-shadow: 0 12px 40px rgba(0, 229, 255, 0.3);
-    background: rgba(0, 229, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-medium) var(--ease-smooth);
 }
 
-.back-to-top:active { transform: scale(0.9); }
-
-.back-to-top svg {
-    transition: transform 0.5s var(--ease-smooth);
+.back-to-top:hover .btt-icon {
+    color: var(--color-text);
+    transform: translateY(-3px);
 }
 
-.back-to-top:hover svg { transform: translateY(-4px); }
+.back-to-top:hover .btt-icon svg { animation: arrowBounce 0.6s ease; }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+    70% { transform: translateY(-2px); }
+}
+
+.btt-glow {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.3), transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    animation: bttPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes bttPulse {
+    0%, 100% { opacity: 0; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+}
+
 .footer {
     border-top: 1px solid var(--color-border);
     padding: 48px 0 28px;
@@ -1267,9 +1260,6 @@ body {
     color: var(--color-text-muted);
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
 @media (max-width: 992px) {
     .project-content-grid {
         grid-template-columns: 1fr;
@@ -1295,37 +1285,37 @@ body {
     .nav-links a { padding: 14px 18px; width: 100%; border-radius: 8px; white-space: normal; }
     .nav-links a::after { display: none; }
     .nav-toggle { display: flex; }
-    
+
     .section-header h2 { font-size: 2.2rem; }
     .section-header p { font-size: 1rem; }
-    
+
     .project-card-3d { padding: 26px 22px; }
-    
+
     .project-header-3d {
         flex-direction: column;
         align-items: flex-start;
         gap: 18px;
     }
-    
+
     .project-links-3d { align-self: flex-end; }
     .project-title-group h3 { font-size: 1.4rem; }
     .project-description { font-size: 0.9rem; }
     .project-features-3d li { font-size: 0.85rem; }
-    
+
     .workflow-svg-3d { padding: 12px; }
     .project-number-bg { font-size: 5rem; top: -40px; left: -10px; }
-    
+
     .footer-nav { flex-direction: column; gap: 6px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-    
-    .back-to-top { bottom: 20px; right: 20px; width: 46px; height: 46px; }
-    
+
+    .back-to-top { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+
     .hero-3d-icon { width: 110px; height: 110px; }
     .hero-icon-inner { padding: 16px; }
     .hero-icon-inner svg { width: 65px; height: 65px; }
     .hero-icon-ring { width: 130px; height: 130px; }
     .hero-icon-ring-2 { width: 160px; height: 160px; }
-    
+
     .orbit-1, .orbit-2, .orbit-4 { display: none; }
     .orbit-3 { top: 40%; left: 40%; }
 }
@@ -1334,33 +1324,32 @@ body {
     .container { padding: 0 14px; }
     .section { padding: 60px 0; }
     .projects-page-section { padding-top: 100px; }
-    
+
     .projects-list { gap: 56px; }
-    
+
     .project-card-3d { padding: 20px 16px; border-radius: 18px; }
     .project-icon-3d { width: 56px; height: 56px; }
     .project-icon-3d svg { width: 40px; height: 40px; }
-    
+
     .project-title-group h3 { font-size: 1.15rem; }
     .project-subtitle { font-size: 0.8rem; }
-    
+
     .project-link-3d { width: 40px; height: 40px; border-radius: 12px; }
     .project-link-3d svg { width: 18px; height: 18px; }
-    
+
     .code-body code { font-size: 0.72rem; }
-    
+
     .btn-open-project { padding: 13px 28px; font-size: 0.85rem; }
     .btn { padding: 12px 24px; font-size: 0.85rem; min-width: 120px; }
-    
+
     .project-number-bg { font-size: 4rem; }
     .link-tooltip { display: none; }
-    
+
     .orbit-3 { display: none; }
+
+    .back-to-top { bottom: 16px; right: 16px; width: 46px; height: 46px; }
 }
 
-/* ========================================
-   PREVENT OVERFLOW
-   ======================================== */
 img, svg, video, iframe, canvas {
     max-width: 100%;
     height: auto;
