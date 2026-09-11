@@ -1,3 +1,24 @@
+(function initShieldIntro() {
+    const intro = document.getElementById('shieldIntro');
+    const title = document.getElementById('introTitle');
+    if (!intro || !title) {
+        document.body.classList.remove('intro-active');
+        return;
+    }
+
+    setTimeout(() => { intro.classList.add('breaking'); }, 600);
+    setTimeout(() => { intro.classList.add('exploding'); }, 1500);
+    setTimeout(() => { title.classList.add('show'); }, 2000);
+    setTimeout(() => {
+        intro.classList.add('done');
+        document.body.classList.remove('intro-active');
+    }, 3200);
+    setTimeout(() => {
+        intro.style.display = 'none';
+        intro.remove();
+    }, 3900);
+})();
+
 const EMAILJS_SERVICE_ID = 'service_px36p6n';
 const EMAILJS_TEMPLATE_ID = 'template_g0hgzbm';
 const EMAILJS_PUBLIC_KEY = 'LqmXJ6msgFytUh1E-';
@@ -267,11 +288,9 @@ function initHeroReveal() {
         '.hero-split .reveal-left, .hero-split .reveal-right, .hero-tagline'
     );
 
-    requestAnimationFrame(() => {
-        heroElements.forEach(el => {
-            setTimeout(() => el.classList.add('revealed'), 80);
-        });
-    });
+    setTimeout(() => {
+        heroElements.forEach(el => el.classList.add('revealed'));
+    }, 2700);
 }
 
 function initScrollReveal() {
@@ -340,7 +359,7 @@ function initTypedText() {
         }
     }
 
-    setTimeout(type, 1200);
+    setTimeout(type, 3400);
 }
 
 function initCountUp() {
@@ -349,7 +368,7 @@ function initCountUp() {
 
     setTimeout(() => {
         nums.forEach(n => animateCount(n));
-    }, 500);
+    }, 3200);
 }
 
 function animateCount(el) {
