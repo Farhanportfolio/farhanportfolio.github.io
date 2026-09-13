@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -11,7 +11,7 @@
     <meta name="keywords" content="Farhan Khan, Cyber Security, Penetration Tester, Ethical Hacker, Bug Bounty, TryHackMe, Active Directory, Web Security, CTF Player, Security Researcher, Farhan Cyber, farhancyber" />
     <meta name="author" content="Farhan Khan" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="theme-color" content="#0a0c10" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href="https://farhancyber.vercel.app/" />
 
     <meta name="google-site-verification" content="HPqX77JCVCDljvpo2hwEBUbDxG0lb0wrPHe-5Ck4r94" />
@@ -35,6 +35,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Apply saved theme BEFORE first paint (no flash) -->
+    <script src="/theme.js"></script>
 
     <script type="application/ld+json">
     {
@@ -65,7 +68,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body class="intro-active">
 
@@ -168,23 +171,47 @@
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="index.html"><span>Farhan Khan</span></a>
+                <a href="/index.html"><span>Farhan Khan</span></a>
             </div>
 
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
+            <div class="nav-controls">
+                <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                    <span class="theme-toggle-track">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+                            <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <line x1="12" y1="2.4" x2="12" y2="4.6"/>
+                                <line x1="12" y1="19.4" x2="12" y2="21.6"/>
+                                <line x1="2.4" y1="12" x2="4.6" y2="12"/>
+                                <line x1="19.4" y1="12" x2="21.6" y2="12"/>
+                                <line x1="5.2" y1="5.2" x2="6.8" y2="6.8"/>
+                                <line x1="17.2" y1="17.2" x2="18.8" y2="18.8"/>
+                                <line x1="5.2" y1="18.8" x2="6.8" y2="17.2"/>
+                                <line x1="17.2" y1="6.8" x2="18.8" y2="5.2"/>
+                            </g>
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z"
+                                  fill="currentColor"/>
+                        </svg>
+                    </span>
+                </button>
+
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
 
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="pages/experience/index.html">Experience</a></li>
-                <li><a href="pages/achievements/index.html">Achievements</a></li>
-                <li><a href="pages/projects/index.html">Projects</a></li>
-                <li><a href="pages/writeups/index.html">Writeups</a></li>
-                <li><a href="pages/certifications/index.html">Certifications</a></li>
-                <li><a href="pages/profiles/index.html">Profiles</a></li>
+                <li><a href="/index.html" class="active">Home</a></li>
+                <li><a href="/pages/experience/index.html">Experience</a></li>
+                <li><a href="/pages/achievements/index.html">Achievements</a></li>
+                <li><a href="/pages/projects/index.html">Projects</a></li>
+                <li><a href="/pages/writeups/index.html">Writeups</a></li>
+                <li><a href="/pages/certifications/index.html">Certifications</a></li>
+                <li><a href="/pages/profiles/index.html">Profiles</a></li>
             </ul>
         </div>
     </nav>
@@ -217,7 +244,7 @@
                         <div class="photo-shine"></div>
 
                         <div class="photo-frame">
-                            <img src="profiles.gif" alt="Farhan Khan" />
+                            <img src="/profiles.gif" alt="Farhan Khan" />
                             <div class="photo-overlay"></div>
                         </div>
 
@@ -289,13 +316,13 @@
                                 <path d="M4.16663 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
-                        <a href="farhankhanresume.pdf" download class="btn btn-resume">
+                        <a href="/farhankhanresume.pdf" download class="btn btn-resume">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M10 3V13M10 13L6 9M10 13L14 9M4 17H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             Download Resume
                         </a>
-                        <a href="pages/writeups/index.html" class="btn btn-secondary">
+                        <a href="/pages/writeups/index.html" class="btn btn-secondary">
                             Read Writeups
                         </a>
                     </div>
@@ -370,7 +397,7 @@
                 </div>
 
                 <div class="section-action reveal-up">
-                    <a href="pages/experience/index.html" class="btn btn-outline">Explore Skills →</a>
+                    <a href="/pages/experience/index.html" class="btn btn-outline">Explore Skills →</a>
                 </div>
             </div>
         </section>
@@ -461,7 +488,7 @@
                         </div>
 
                         <div class="dropdown-view-more">
-                            <a href="pages/experience/index.html" class="btn btn-primary">
+                            <a href="/pages/experience/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -516,7 +543,7 @@
                         </div>
 
                         <div class="dropdown-view-more">
-                            <a href="pages/achievements/index.html" class="btn btn-primary">
+                            <a href="/pages/achievements/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -660,7 +687,7 @@
                         </div>
 
                         <div class="dropdown-view-more">
-                            <a href="pages/projects/index.html" class="btn btn-primary">
+                            <a href="/pages/projects/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -747,7 +774,7 @@
                         </div>
 
                         <div class="dropdown-view-more dropdown-view-more--dual">
-                            <a href="pages/writeups/index.html" class="btn btn-primary">
+                            <a href="/pages/writeups/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -821,7 +848,7 @@
                         </div>
 
                         <div class="dropdown-view-more">
-                            <a href="pages/certifications/index.html" class="btn btn-primary">
+                            <a href="/pages/certifications/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -892,7 +919,7 @@
                         </div>
 
                         <div class="dropdown-view-more">
-                            <a href="pages/profiles/index.html" class="btn btn-primary">
+                            <a href="/pages/profiles/index.html" class="btn btn-primary">
                                 View More
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H6.24996M15.8333 4.16663V13.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -921,22 +948,22 @@
                         <div class="contact-social">
                             <a href="https://www.linkedin.com/in/farhancyber" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="#00e5ff"/>
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
                                 </svg>
                             </a>
                             <a href="https://github.com/mr-farhankhan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="#00e5ff"/>
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="currentColor"/>
                                 </svg>
                             </a>
                             <a href="https://medium.com/@Farhancyber" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Medium">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.53v13.222c-.034.197.048.404.213.53l1.87 1.837v.403h-9.412v-.403l1.937-1.881c.19-.19.19-.246.19-.53v-10.7l-5.387 13.683h-.728l-6.274-13.683v9.174c-.052.385.076.774.347 1.053l2.52 3.058v.403h-7.146v-.403l2.52-3.058c.27-.279.39-.67.325-1.053v-10.608z" fill="#00e5ff"/>
+                                    <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.53v13.222c-.034.197.048.404.213.53l1.87 1.837v.403h-9.412v-.403l1.937-1.881c.19-.19.19-.246.19-.53v-10.7l-5.387 13.683h-.728l-6.274-13.683v9.174c-.052.385.076.774.347 1.053l2.52 3.058v.403h-7.146v-.403l2.52-3.058c.27-.279.39-.67.325-1.053v-10.608z" fill="currentColor"/>
                                 </svg>
                             </a>
                             <a href="https://wa.link/cz276x" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#00e5ff"/>
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
                                 </svg>
                             </a>
                         </div>
@@ -984,18 +1011,18 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="index.html"><span>Farhan Khan</span></a>
+                    <a href="/index.html"><span>Farhan Khan</span></a>
                     <p>Cyber Security Enthusiast &amp; Engineer</p>
                 </div>
 
                 <nav class="footer-nav" aria-label="Footer navigation">
-                    <a href="index.html">Home</a>
-                    <a href="pages/experience/index.html">Experience</a>
-                    <a href="pages/achievements/index.html">Achievements</a>
-                    <a href="pages/projects/index.html">Projects</a>
-                    <a href="pages/writeups/index.html">Writeups</a>
-                    <a href="pages/certifications/index.html">Certifications</a>
-                    <a href="pages/profiles/index.html">Profiles</a>
+                    <a href="/index.html">Home</a>
+                    <a href="/pages/experience/index.html">Experience</a>
+                    <a href="/pages/achievements/index.html">Achievements</a>
+                    <a href="/pages/projects/index.html">Projects</a>
+                    <a href="/pages/writeups/index.html">Writeups</a>
+                    <a href="/pages/certifications/index.html">Certifications</a>
+                    <a href="/pages/profiles/index.html">Profiles</a>
                 </nav>
 
                 <div class="footer-bottom">
@@ -1006,6 +1033,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
